@@ -490,6 +490,9 @@ jobs:
             words_learned = len(vocab_manager.a2_target_words["words_learned"])
             target_words = vocab_manager.a2_target_words["total_target_words"]
 
+            # Build avoid words string safely
+            avoid_words_str = ", ".join(avoid_words) if avoid_words else "Keine spezifischen Wörter zu vermeiden"
+            
             prompt = f"""Schreibe einen interessanten deutschen Text zum Thema "{selected_topic}".
 
 Anforderungen:
@@ -506,7 +509,7 @@ WICHTIG für A2-Vokabular:
 - Bevorzuge Substantive Verben und Adjektive des täglichen Lebens
 
 Vermeide diese bereits verwendeten Wörter:
-{", ".join(avoid_words) if avoid_words else "Keine spezifischen Wörter zu vermeiden"}
+{avoid_words_str}
 
 STRATEGISCHES ZIEL Hilf beim Erreichen des A2-Vokabulars von 1500 Wörtern in 120 Tagen.
 Verwende für jedes Konzept verschiedene Ausdrucksweisen und Synonyme.

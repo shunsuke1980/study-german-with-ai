@@ -1,6 +1,6 @@
 # Study German with AI
 
-A Jekyll-based blog that documents a German language learning journey from A2 to C2 level using AI-generated content. This project automatically generates daily German texts with vocabulary tracking and provides explanations in both Japanese and English.
+A Jekyll-based blog that documents a German language learning journey to A2 level using AI-generated content. This project automatically generates daily German texts with vocabulary tracking and provides explanations in both Japanese and English.
 
 ## 🎯 Project Overview
 

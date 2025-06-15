@@ -48,7 +48,7 @@ jobs:
           if [ $(date +%u) -eq 7 ]; then
             COMMIT_MSG="$COMMIT_MSG + weekly vocabulary summary"
           fi
-          git commit -m "$COMMIT_MSG [skip ci]"
+          git commit -m "$COMMIT_MSG"
 
           # Try to push, with retry logic
           for i in {1..3}; do

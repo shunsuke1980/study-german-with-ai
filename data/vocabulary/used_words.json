@@ -1,43 +1,255 @@
 {
   "2025-06-15": [
     {
-      "word": "meine",
-      "level": "A1"
-    },
-    {
-      "word": "familie",
-      "level": "A2"
-    },
-    {
-      "word": "bedeutet",
-      "level": "A2"
-    },
-    {
-      "word": "sehr",
-      "level": "A1"
-    },
-    {
-      "word": "viel",
-      "level": "A1"
-    },
-    {
-      "word": "verbringen",
+      "word": "frühstück",
       "level": "B1"
+    },
+    {
+      "word": "start",
+      "level": "A1"
+    },
+    {
+      "word": "morgens",
+      "level": "A2"
+    },
+    {
+      "word": "trinke",
+      "level": "A2"
     },
     {
       "word": "gerne",
       "level": "A1"
     },
     {
-      "word": "zeit",
-      "level": "A1"
-    },
-    {
-      "word": "zusammen",
+      "word": "heißen",
       "level": "A2"
     },
     {
-      "word": "unternehmen",
+      "word": "kakao",
+      "level": "A1"
+    },
+    {
+      "word": "dazu",
+      "level": "A1"
+    },
+    {
+      "word": "esse",
+      "level": "A1"
+    },
+    {
+      "word": "müsli",
+      "level": "A1"
+    },
+    {
+      "word": "frischen",
+      "level": "A2"
+    },
+    {
+      "word": "früchten",
+      "level": "A2"
+    },
+    {
+      "word": "brot",
+      "level": "A1"
+    },
+    {
+      "word": "marmelade",
+      "level": "B1"
+    },
+    {
+      "word": "wochenende",
+      "level": "B1"
+    },
+    {
+      "word": "backe",
+      "level": "A1"
+    },
+    {
+      "word": "pfannkuchen",
+      "level": "B1"
+    },
+    {
+      "word": "ahornsirup",
+      "level": "B1"
+    },
+    {
+      "word": "mittagspause",
+      "level": "B1"
+    },
+    {
+      "word": "gehe",
+      "level": "A1"
+    },
+    {
+      "word": "kantine",
+      "level": "A2"
+    },
+    {
+      "word": "auswahl",
+      "level": "A2"
+    },
+    {
+      "word": "dort",
+      "level": "A1"
+    },
+    {
+      "word": "groß",
+      "level": "A1"
+    },
+    {
+      "word": "salate",
+      "level": "A2"
+    },
+    {
+      "word": "suppen",
+      "level": "A2"
+    },
+    {
+      "word": "warme",
+      "level": "A1"
+    },
+    {
+      "word": "mahlzeiten",
+      "level": "B1"
+    },
+    {
+      "word": "nachtisch",
+      "level": "B1"
+    },
+    {
+      "word": "beliebt",
+      "level": "A2"
+    },
+    {
+      "word": "currywurst",
+      "level": "B1"
+    },
+    {
+      "word": "pommes",
+      "level": "A2"
+    },
+    {
+      "word": "schnitzel",
+      "level": "B1"
+    },
+    {
+      "word": "kartoffeln",
+      "level": "B1"
+    },
+    {
+      "word": "gesunde",
+      "level": "A2"
+    },
+    {
+      "word": "alternative",
+      "level": "B1"
+    },
+    {
+      "word": "wähle",
+      "level": "A1"
+    },
+    {
+      "word": "häufig",
+      "level": "A2"
+    },
+    {
+      "word": "gemüseeintopf",
+      "level": "B2"
+    },
+    {
+      "word": "gemischten",
+      "level": "B1"
+    },
+    {
+      "word": "salat",
+      "level": "A1"
+    },
+    {
+      "word": "nachmittags",
+      "level": "B1"
+    },
+    {
+      "word": "treffe",
+      "level": "A2"
+    },
+    {
+      "word": "meine",
+      "level": "A1"
+    },
+    {
+      "word": "kollegin",
+      "level": "A2"
+    },
+    {
+      "word": "bäckerei",
+      "level": "A2"
+    },
+    {
+      "word": "bestellen",
+      "level": "B1"
+    },
+    {
+      "word": "apfelkuchen",
+      "level": "B1"
+    },
+    {
+      "word": "butterbrezel",
+      "level": "B1"
+    },
+    {
+      "word": "atmosphäre",
+      "level": "B1"
+    },
+    {
+      "word": "angenehm",
+      "level": "A2"
+    },
+    {
+      "word": "unterhalten",
+      "level": "B1"
+    },
+    {
+      "word": "arbeitstag",
+      "level": "B1"
+    },
+    {
+      "word": "abendessen",
+      "level": "B1"
+    },
+    {
+      "word": "koche",
+      "level": "A1"
+    },
+    {
+      "word": "gerne",
+      "level": "A1"
+    },
+    {
+      "word": "meine",
+      "level": "A1"
+    },
+    {
+      "word": "küche",
+      "level": "A1"
+    },
+    {
+      "word": "alles",
+      "level": "A1"
+    },
+    {
+      "word": "notwendige",
+      "level": "B1"
+    },
+    {
+      "word": "herd",
+      "level": "A1"
+    },
+    {
+      "word": "backofen",
+      "level": "A2"
+    },
+    {
+      "word": "kühlschrank",
       "level": "B1"
     },
     {
@@ -45,35 +257,55 @@
       "level": "A1"
     },
     {
-      "word": "gemeinsame",
-      "level": "B1"
-    },
-    {
-      "word": "aktivitäten",
-      "level": "B1"
-    },
-    {
-      "word": "jeden",
+      "word": "töpfe",
       "level": "A1"
     },
     {
-      "word": "sonntag",
+      "word": "kaufe",
+      "level": "A1"
+    },
+    {
+      "word": "zutaten",
       "level": "A2"
     },
     {
-      "word": "treffen",
-      "level": "A2"
-    },
-    {
-      "word": "mittagessen",
+      "word": "supermarkt",
       "level": "B1"
     },
     {
-      "word": "meinen",
+      "word": "wochenmarkt",
+      "level": "B1"
+    },
+    {
+      "word": "dort",
+      "level": "A1"
+    },
+    {
+      "word": "finde",
+      "level": "A1"
+    },
+    {
+      "word": "frisches",
       "level": "A2"
     },
     {
-      "word": "eltern",
+      "word": "obst",
+      "level": "A1"
+    },
+    {
+      "word": "knackiges",
+      "level": "B1"
+    },
+    {
+      "word": "gemüse",
+      "level": "A2"
+    },
+    {
+      "word": "würzige",
+      "level": "A2"
+    },
+    {
+      "word": "kräuter",
       "level": "A2"
     },
     {
@@ -81,39 +313,87 @@
       "level": "A1"
     },
     {
-      "word": "mutter",
-      "level": "A2"
-    },
-    {
-      "word": "kocht",
-      "level": "A1"
-    },
-    {
-      "word": "dann",
-      "level": "A1"
-    },
-    {
-      "word": "immer",
-      "level": "A1"
-    },
-    {
-      "word": "leckere",
-      "level": "A2"
-    },
-    {
-      "word": "gerichte",
-      "level": "A2"
-    },
-    {
-      "word": "sitzen",
-      "level": "A2"
-    },
-    {
-      "word": "gemütlich",
+      "word": "spezialität",
       "level": "B1"
     },
     {
-      "word": "großen",
+      "word": "nudelauflauf",
+      "level": "B1"
+    },
+    {
+      "word": "champignons",
+      "level": "B1"
+    },
+    {
+      "word": "vorbereitungszeit",
+      "level": "B2"
+    },
+    {
+      "word": "beträgt",
+      "level": "A2"
+    },
+    {
+      "word": "etwa",
+      "level": "A1"
+    },
+    {
+      "word": "minuten",
+      "level": "A2"
+    },
+    {
+      "word": "während",
+      "level": "A2"
+    },
+    {
+      "word": "essen",
+      "level": "A1"
+    },
+    {
+      "word": "ofen",
+      "level": "A1"
+    },
+    {
+      "word": "decke",
+      "level": "A1"
+    },
+    {
+      "word": "tisch",
+      "level": "A1"
+    },
+    {
+      "word": "teller",
+      "level": "A2"
+    },
+    {
+      "word": "besteck",
+      "level": "A2"
+    },
+    {
+      "word": "gläser",
+      "level": "A2"
+    },
+    {
+      "word": "servietten",
+      "level": "B1"
+    },
+    {
+      "word": "gehören",
+      "level": "A2"
+    },
+    {
+      "word": "dazu",
+      "level": "A1"
+    },
+    {
+      "word": "feiertagen",
+      "level": "B1"
+    },
+    {
+      "word": "reserviere",
+      "level": "B1"
+    },
+    {
+      "word": "manchmal",
       "level": "A2"
     },
     {
@@ -121,179 +401,83 @@
       "level": "A1"
     },
     {
-      "word": "mein",
-      "level": "A1"
-    },
-    {
-      "word": "vater",
-      "level": "A1"
-    },
-    {
-      "word": "erzählt",
-      "level": "A2"
-    },
-    {
-      "word": "lustige",
-      "level": "A2"
-    },
-    {
-      "word": "geschichten",
+      "word": "restaurant",
       "level": "B1"
     },
     {
-      "word": "früher",
-      "level": "A2"
-    },
-    {
-      "word": "meine",
-      "level": "A1"
-    },
-    {
-      "word": "kleine",
-      "level": "A2"
-    },
-    {
-      "word": "schwester",
+      "word": "speisekarte",
       "level": "B1"
     },
     {
-      "word": "berichtet",
-      "level": "B1"
-    },
-    {
-      "word": "schule",
+      "word": "bietet",
       "level": "A2"
     },
     {
-      "word": "manchmal",
-      "level": "A2"
-    },
-    {
-      "word": "kommen",
-      "level": "A2"
-    },
-    {
-      "word": "meine",
-      "level": "A1"
-    },
-    {
-      "word": "großeltern",
-      "level": "B1"
-    },
-    {
-      "word": "besuch",
-      "level": "A2"
-    },
-    {
-      "word": "bringt",
-      "level": "A2"
-    },
-    {
-      "word": "dann",
-      "level": "A1"
-    },
-    {
-      "word": "selbstgebackenen",
+      "word": "internationale",
       "level": "B2"
     },
     {
-      "word": "kuchen",
+      "word": "gerichte",
       "level": "A2"
     },
     {
-      "word": "spielt",
+      "word": "kellner",
       "level": "A2"
     },
     {
-      "word": "kindern",
-      "level": "A2"
+      "word": "empfiehlt",
+      "level": "B1"
     },
     {
-      "word": "karten",
-      "level": "A2"
+      "word": "tagesgericht",
+      "level": "B1"
     },
     {
-      "word": "neben",
+      "word": "vorspeise",
+      "level": "B1"
+    },
+    {
+      "word": "nehme",
       "level": "A1"
     },
     {
-      "word": "familie",
+      "word": "tomatensuppe",
+      "level": "B1"
+    },
+    {
+      "word": "danach",
       "level": "A2"
     },
     {
-      "word": "meine",
+      "word": "fisch",
       "level": "A1"
     },
     {
-      "word": "freunde",
+      "word": "fleisch",
       "level": "A2"
     },
     {
-      "word": "sehr",
+      "word": "beilagen",
+      "level": "A2"
+    },
+    {
+      "word": "dessert",
+      "level": "A2"
+    },
+    {
+      "word": "rundet",
+      "level": "A2"
+    },
+    {
+      "word": "menü",
       "level": "A1"
+    },
+    {
+      "word": "getränke",
+      "level": "A2"
     },
     {
       "word": "wichtig",
-      "level": "A2"
-    },
-    {
-      "word": "mich",
-      "level": "A1"
-    },
-    {
-      "word": "meiner",
-      "level": "A2"
-    },
-    {
-      "word": "besten",
-      "level": "A2"
-    },
-    {
-      "word": "freundin",
-      "level": "A2"
-    },
-    {
-      "word": "lisa",
-      "level": "A1"
-    },
-    {
-      "word": "treffe",
-      "level": "A2"
-    },
-    {
-      "word": "mich",
-      "level": "A1"
-    },
-    {
-      "word": "regelmäßig",
-      "level": "B1"
-    },
-    {
-      "word": "kaffeetrinken",
-      "level": "B2"
-    },
-    {
-      "word": "quatschen",
-      "level": "B1"
-    },
-    {
-      "word": "unseren",
-      "level": "A2"
-    },
-    {
-      "word": "alltag",
-      "level": "A2"
-    },
-    {
-      "word": "lachen",
-      "level": "A2"
-    },
-    {
-      "word": "viel",
-      "level": "A1"
-    },
-    {
-      "word": "zusammen",
       "level": "A2"
     },
     {
@@ -301,276 +485,72 @@
       "level": "A2"
     },
     {
-      "word": "gehen",
-      "level": "A1"
+      "word": "limonade",
+      "level": "A2"
     },
     {
-      "word": "gerne",
-      "level": "A1"
+      "word": "eistee",
+      "level": "A2"
     },
     {
-      "word": "schwimmbad",
+      "word": "erfrischend",
       "level": "B1"
     },
     {
-      "word": "machen",
+      "word": "kaltem",
       "level": "A2"
     },
     {
-      "word": "picknick",
+      "word": "wetter",
       "level": "A2"
     },
     {
-      "word": "park",
+      "word": "wärmt",
       "level": "A1"
     },
     {
-      "word": "meiner",
-      "level": "A2"
+      "word": "heiße",
+      "level": "A1"
     },
     {
-      "word": "freundesgruppe",
-      "level": "B2"
-    },
-    {
-      "word": "organisieren",
+      "word": "schokolade",
       "level": "B1"
     },
     {
-      "word": "spieleabende",
+      "word": "beim",
+      "level": "A1"
+    },
+    {
+      "word": "kochen",
+      "level": "A2"
+    },
+    {
+      "word": "achte",
+      "level": "A1"
+    },
+    {
+      "word": "gesunde",
+      "level": "A2"
+    },
+    {
+      "word": "ernährung",
       "level": "B1"
     },
     {
-      "word": "jeder",
+      "word": "verwende",
+      "level": "A2"
+    },
+    {
+      "word": "wenig",
       "level": "A1"
     },
     {
-      "word": "bringt",
+      "word": "zucker",
       "level": "A2"
     },
     {
-      "word": "etwas",
+      "word": "salz",
       "level": "A1"
-    },
-    {
-      "word": "essen",
-      "level": "A1"
-    },
-    {
-      "word": "spielen",
-      "level": "A2"
-    },
-    {
-      "word": "brett",
-      "level": "A1"
-    },
-    {
-      "word": "kartenspiele",
-      "level": "B1"
-    },
-    {
-      "word": "geburtstagen",
-      "level": "B1"
-    },
-    {
-      "word": "feiern",
-      "level": "A2"
-    },
-    {
-      "word": "zusammen",
-      "level": "A2"
-    },
-    {
-      "word": "beschenken",
-      "level": "B1"
-    },
-    {
-      "word": "gegenseitig",
-      "level": "B1"
-    },
-    {
-      "word": "zweimal",
-      "level": "A2"
-    },
-    {
-      "word": "jahr",
-      "level": "A1"
-    },
-    {
-      "word": "machen",
-      "level": "A2"
-    },
-    {
-      "word": "ausflug",
-      "level": "A2"
-    },
-    {
-      "word": "aufs",
-      "level": "A1"
-    },
-    {
-      "word": "land",
-      "level": "A1"
-    },
-    {
-      "word": "wandern",
-      "level": "A2"
-    },
-    {
-      "word": "durch",
-      "level": "A1"
-    },
-    {
-      "word": "natur",
-      "level": "A1"
-    },
-    {
-      "word": "grillen",
-      "level": "A2"
-    },
-    {
-      "word": "zusammen",
-      "level": "A2"
-    },
-    {
-      "word": "übernachten",
-      "level": "B1"
-    },
-    {
-      "word": "kleinen",
-      "level": "A2"
-    },
-    {
-      "word": "hütten",
-      "level": "A2"
-    },
-    {
-      "word": "diese",
-      "level": "A1"
-    },
-    {
-      "word": "gemeinsame",
-      "level": "B1"
-    },
-    {
-      "word": "zeit",
-      "level": "A1"
-    },
-    {
-      "word": "immer",
-      "level": "A1"
-    },
-    {
-      "word": "besonders",
-      "level": "B1"
-    },
-    {
-      "word": "schön",
-      "level": "A1"
-    },
-    {
-      "word": "familie",
-      "level": "A2"
-    },
-    {
-      "word": "freunde",
-      "level": "A2"
-    },
-    {
-      "word": "geben",
-      "level": "A1"
-    },
-    {
-      "word": "halt",
-      "level": "A1"
-    },
-    {
-      "word": "geborgenheit",
-      "level": "B1"
-    },
-    {
-      "word": "hilfe",
-      "level": "A1"
-    },
-    {
-      "word": "brauche",
-      "level": "A2"
-    },
-    {
-      "word": "einfach",
-      "level": "A2"
-    },
-    {
-      "word": "jemanden",
-      "level": "A2"
-    },
-    {
-      "word": "reden",
-      "level": "A1"
-    },
-    {
-      "word": "suche",
-      "level": "A1"
-    },
-    {
-      "word": "gemeinsam",
-      "level": "B1"
-    },
-    {
-      "word": "erleben",
-      "level": "A2"
-    },
-    {
-      "word": "schöne",
-      "level": "A2"
-    },
-    {
-      "word": "momente",
-      "level": "A2"
-    },
-    {
-      "word": "teilen",
-      "level": "A2"
-    },
-    {
-      "word": "freude",
-      "level": "A2"
-    },
-    {
-      "word": "manchmal",
-      "level": "A2"
-    },
-    {
-      "word": "sorgen",
-      "level": "A2"
-    },
-    {
-      "word": "diese",
-      "level": "A1"
-    },
-    {
-      "word": "menschen",
-      "level": "A2"
-    },
-    {
-      "word": "machen",
-      "level": "A2"
-    },
-    {
-      "word": "mein",
-      "level": "A1"
-    },
-    {
-      "word": "leben",
-      "level": "A1"
-    },
-    {
-      "word": "reich",
-      "level": "A1"
-    },
-    {
-      "word": "glücklich",
-      "level": "B1"
     }
   ]
 }

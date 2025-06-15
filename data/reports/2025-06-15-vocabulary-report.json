@@ -1,12 +1,16 @@
 {
   "date": "2025-06-15",
-  "total_unique_words": 118,
-  "total_words_used": 143,
-  "recent_unique_words": 118,
+  "total_unique_words": 239,
+  "total_words_used": 281,
+  "recent_unique_words": 131,
   "most_common_words": [
     [
       "meine",
-      5
+      8
+    ],
+    [
+      "gerne",
+      4
     ],
     [
       "zusammen",
@@ -14,6 +18,14 @@
     ],
     [
       "familie",
+      3
+    ],
+    [
+      "tisch",
+      3
+    ],
+    [
+      "manchmal",
       3
     ],
     [
@@ -29,30 +41,18 @@
       2
     ],
     [
-      "gerne",
-      2
-    ],
-    [
       "zeit",
-      2
-    ],
-    [
-      "gemeinsame",
-      2
-    ],
-    [
-      "dann",
       2
     ]
   ],
-  "overused_words": 18,
-  "vocabulary_diversity_score": 82.52,
+  "overused_words": 28,
+  "vocabulary_diversity_score": 85.05,
   "a2_progress": {
-    "words_learned": 28,
+    "words_learned": 42,
     "total_target": 383,
-    "progress_percent": 7.31,
-    "remaining_words": 355,
-    "daily_pace": 28.0,
-    "estimated_completion_days": 13.0
+    "progress_percent": 10.97,
+    "remaining_words": 341,
+    "daily_pace": 42.0,
+    "estimated_completion_days": 8.0
   }
 }

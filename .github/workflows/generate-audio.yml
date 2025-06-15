@@ -6,6 +6,7 @@ on:
       - '_posts/**'
     branches:
       - main
+  workflow_dispatch: # Allow manual triggering
 
 jobs:
   generate-audio:
@@ -88,8 +89,12 @@ jobs:
                 print(f"Skipping non-German file: {file_path}")
                 continue
 
-            # YYYY-MM-DD.md パターンのメインドイツ語記事のみ処理
-            if re.match(r'^\d{4}-\d{2}-\d{2}\.md$', filename):
+            # YYYY-MM-DD-title.md パターンのメインドイツ語記事のみ処理 (Jekyll format)
+            # Match YYYY-MM-DD-*.md but exclude -jp.md, -en.md, and -weekly.md files
+            if (re.match(r'^\d{4}-\d{2}-\d{2}-.*\.md$', filename) and 
+                not filename.endswith('-jp.md') and 
+                not filename.endswith('-en.md') and
+                '-weekly' not in filename):
                 german_files.append(file_path)
                 print(f"German article detected: {file_path}")
 

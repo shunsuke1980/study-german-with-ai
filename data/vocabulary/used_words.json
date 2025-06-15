@@ -1,107 +1,35 @@
 {
   "2025-06-15": [
     {
-      "word": "essen",
-      "level": "A1"
-    },
-    {
-      "word": "trinken",
-      "level": "A2"
-    },
-    {
-      "word": "macht",
-      "level": "A1"
-    },
-    {
-      "word": "leben",
-      "level": "A1"
-    },
-    {
-      "word": "besonders",
+      "word": "einkaufen",
       "level": "B1"
     },
     {
-      "word": "schön",
-      "level": "A1"
-    },
-    {
-      "word": "deutschland",
+      "word": "geschäfte",
       "level": "B1"
     },
     {
-      "word": "beginnt",
+      "word": "jeden",
+      "level": "A1"
+    },
+    {
+      "word": "samstag",
       "level": "A2"
     },
     {
-      "word": "reichhaltigen",
-      "level": "B2"
+      "word": "öffnen",
+      "level": "A2"
     },
     {
-      "word": "frühstück",
+      "word": "läden",
+      "level": "A1"
+    },
+    {
+      "word": "innenstadt",
       "level": "B1"
     },
     {
-      "word": "tisch",
-      "level": "A1"
-    },
-    {
-      "word": "stehen",
-      "level": "A2"
-    },
-    {
-      "word": "brötchen",
-      "level": "A2"
-    },
-    {
-      "word": "aufschnitt",
-      "level": "B1"
-    },
-    {
-      "word": "marmelade",
-      "level": "B1"
-    },
-    {
-      "word": "gekochte",
-      "level": "A2"
-    },
-    {
-      "word": "eier",
-      "level": "A1"
-    },
-    {
-      "word": "dazu",
-      "level": "A1"
-    },
-    {
-      "word": "trinken",
-      "level": "A2"
-    },
-    {
-      "word": "menschen",
-      "level": "A2"
-    },
-    {
-      "word": "warme",
-      "level": "A1"
-    },
-    {
-      "word": "getränke",
-      "level": "A2"
-    },
-    {
-      "word": "heiße",
-      "level": "A1"
-    },
-    {
-      "word": "schokolade",
-      "level": "B1"
-    },
-    {
-      "word": "mittags",
-      "level": "A2"
-    },
-    {
-      "word": "essen",
+      "word": "neun",
       "level": "A1"
     },
     {
@@ -109,15 +37,31 @@
       "level": "A1"
     },
     {
-      "word": "berufstätige",
-      "level": "B1"
-    },
-    {
-      "word": "kantine",
+      "word": "kunden",
       "level": "A2"
     },
     {
-      "word": "bringen",
+      "word": "warten",
+      "level": "A2"
+    },
+    {
+      "word": "schon",
+      "level": "A1"
+    },
+    {
+      "word": "geschäften",
+      "level": "B1"
+    },
+    {
+      "word": "erdgeschoss",
+      "level": "B1"
+    },
+    {
+      "word": "einkaufszentrums",
+      "level": "B2"
+    },
+    {
+      "word": "befinden",
       "level": "A2"
     },
     {
@@ -125,75 +69,67 @@
       "level": "A1"
     },
     {
-      "word": "butterbrote",
+      "word": "kleine",
+      "level": "A2"
+    },
+    {
+      "word": "boutiquen",
       "level": "B1"
     },
     {
-      "word": "zuhause",
+      "word": "kleidung",
       "level": "A2"
     },
     {
-      "word": "beliebte",
+      "word": "schuhe",
       "level": "A2"
     },
     {
-      "word": "mittagsgerichte",
+      "word": "verkäuferinnen",
       "level": "B2"
     },
     {
-      "word": "kartoffeln",
-      "level": "B1"
-    },
-    {
-      "word": "gemüse",
+      "word": "beraten",
       "level": "A2"
     },
     {
-      "word": "fleisch",
-      "level": "A2"
-    },
-    {
-      "word": "gemischter",
+      "word": "freundlich",
       "level": "B1"
     },
     {
-      "word": "salat",
+      "word": "auswahl",
+      "level": "A2"
+    },
+    {
+      "word": "ersten",
+      "level": "A2"
+    },
+    {
+      "word": "etage",
       "level": "A1"
     },
     {
-      "word": "einige",
-      "level": "A2"
-    },
-    {
-      "word": "bevorzugen",
-      "level": "B1"
-    },
-    {
-      "word": "heiße",
+      "word": "gibt",
       "level": "A1"
     },
     {
-      "word": "suppe",
+      "word": "große",
       "level": "A1"
     },
     {
-      "word": "besonders",
-      "level": "B1"
+      "word": "buchabteilung",
+      "level": "B2"
     },
     {
-      "word": "winter",
+      "word": "hier",
+      "level": "A1"
+    },
+    {
+      "word": "stöbern",
       "level": "A2"
     },
     {
-      "word": "abendessen",
-      "level": "B1"
-    },
-    {
-      "word": "findet",
-      "level": "A2"
-    },
-    {
-      "word": "meist",
+      "word": "leser",
       "level": "A1"
     },
     {
@@ -201,147 +137,95 @@
       "level": "A2"
     },
     {
-      "word": "statt",
-      "level": "A1"
-    },
-    {
-      "word": "deutschen",
-      "level": "B1"
-    },
-    {
-      "word": "mögen",
-      "level": "A1"
-    },
-    {
-      "word": "kaltes",
+      "word": "romanen",
       "level": "A2"
     },
     {
-      "word": "abendbrot",
-      "level": "B1"
-    },
-    {
-      "word": "brot",
-      "level": "A1"
-    },
-    {
-      "word": "käse",
-      "level": "A1"
-    },
-    {
-      "word": "wurst",
-      "level": "A1"
-    },
-    {
-      "word": "manche",
-      "level": "A2"
-    },
-    {
-      "word": "bereiten",
-      "level": "A2"
-    },
-    {
-      "word": "warme",
-      "level": "A1"
-    },
-    {
-      "word": "speisen",
-      "level": "A2"
-    },
-    {
-      "word": "pfannkuchen",
-      "level": "B1"
-    },
-    {
-      "word": "nudelgerichte",
+      "word": "zeitschriften",
       "level": "B2"
     },
     {
-      "word": "restaurants",
-      "level": "B1"
+      "word": "daneben",
+      "level": "A2"
     },
     {
-      "word": "bestellen",
-      "level": "B1"
-    },
-    {
-      "word": "gäste",
+      "word": "liegt",
       "level": "A1"
     },
     {
-      "word": "gerne",
-      "level": "A1"
-    },
-    {
-      "word": "traditionelle",
+      "word": "schreibwarenladen",
       "level": "B2"
     },
     {
-      "word": "gerichte",
+      "word": "heften",
       "level": "A2"
     },
     {
-      "word": "schnitzel",
-      "level": "B1"
-    },
-    {
-      "word": "pommes",
+      "word": "stiften",
       "level": "A2"
     },
     {
-      "word": "currywurst",
-      "level": "B1"
+      "word": "bastelartikeln",
+      "level": "B2"
     },
     {
-      "word": "ausländische",
-      "level": "B1"
-    },
-    {
-      "word": "küchen",
+      "word": "preise",
       "level": "A2"
     },
     {
-      "word": "beliebt",
+      "word": "günstig",
       "level": "A2"
     },
     {
-      "word": "pizza",
+      "word": "qualität",
+      "level": "A2"
+    },
+    {
+      "word": "stimmt",
+      "level": "A2"
+    },
+    {
+      "word": "zweiten",
+      "level": "A2"
+    },
+    {
+      "word": "stock",
       "level": "A1"
     },
     {
-      "word": "döner",
-      "level": "A1"
-    },
-    {
-      "word": "asiatische",
-      "level": "B1"
-    },
-    {
-      "word": "gerichte",
+      "word": "verkauft",
       "level": "A2"
     },
     {
-      "word": "stehen",
+      "word": "elektrohändler",
+      "level": "B2"
+    },
+    {
+      "word": "computer",
       "level": "A2"
     },
     {
-      "word": "häufig",
+      "word": "handys",
       "level": "A2"
     },
     {
-      "word": "speisekarte",
+      "word": "mitarbeiter",
       "level": "B1"
     },
     {
-      "word": "beim",
-      "level": "A1"
+      "word": "erklären",
+      "level": "A2"
     },
     {
-      "word": "einkaufen",
-      "level": "B1"
+      "word": "geduldig",
+      "level": "A2"
     },
     {
-      "word": "achten",
+      "word": "neuesten",
+      "level": "A2"
+    },
+    {
+      "word": "geräte",
       "level": "A2"
     },
     {
@@ -349,59 +233,199 @@
       "level": "A1"
     },
     {
-      "word": "menschen",
+      "word": "angebote",
       "level": "A2"
     },
     {
-      "word": "frische",
+      "word": "locken",
       "level": "A2"
     },
     {
-      "word": "zutaten",
+      "word": "rabatten",
       "level": "A2"
     },
     {
-      "word": "kaufen",
-      "level": "A2"
+      "word": "reparaturwerkstatt",
+      "level": "B2"
     },
     {
-      "word": "supermarkt",
+      "word": "hilft",
+      "level": "A1"
+    },
+    {
+      "word": "technischen",
       "level": "B1"
+    },
+    {
+      "word": "problemen",
+      "level": "B1"
+    },
+    {
+      "word": "drogeriemarkt",
+      "level": "B2"
+    },
+    {
+      "word": "untergeschoss",
+      "level": "B2"
+    },
+    {
+      "word": "bietet",
+      "level": "A2"
+    },
+    {
+      "word": "kosmetik",
+      "level": "A2"
+    },
+    {
+      "word": "hygieneartikel",
+      "level": "B2"
+    },
+    {
+      "word": "kasse",
+      "level": "A1"
+    },
+    {
+      "word": "stehen",
+      "level": "A2"
+    },
+    {
+      "word": "lange",
+      "level": "A1"
+    },
+    {
+      "word": "schlangen",
+      "level": "B1"
+    },
+    {
+      "word": "kunden",
+      "level": "A2"
+    },
+    {
+      "word": "packen",
+      "level": "A2"
+    },
+    {
+      "word": "ihre",
+      "level": "A1"
+    },
+    {
+      "word": "einkäufe",
+      "level": "A2"
+    },
+    {
+      "word": "taschen",
+      "level": "A2"
+    },
+    {
+      "word": "körbe",
+      "level": "A1"
+    },
+    {
+      "word": "beim",
+      "level": "A1"
+    },
+    {
+      "word": "bezahlen",
+      "level": "A2"
+    },
+    {
+      "word": "karte",
+      "level": "A1"
+    },
+    {
+      "word": "zahlen",
+      "level": "A2"
+    },
+    {
+      "word": "draußen",
+      "level": "A2"
+    },
+    {
+      "word": "marktplatz",
+      "level": "B1"
+    },
+    {
+      "word": "findet",
+      "level": "A2"
+    },
+    {
+      "word": "zweimal",
+      "level": "A2"
+    },
+    {
+      "word": "woche",
+      "level": "A1"
     },
     {
       "word": "wochenmarkt",
       "level": "B1"
     },
     {
-      "word": "dort",
+      "word": "statt",
       "level": "A1"
     },
     {
-      "word": "finden",
+      "word": "bauern",
       "level": "A2"
     },
     {
-      "word": "obst",
-      "level": "A1"
-    },
-    {
-      "word": "gemüse",
+      "word": "region",
       "level": "A2"
     },
     {
-      "word": "backwaren",
+      "word": "verkaufen",
       "level": "B1"
     },
     {
-      "word": "milchprodukte",
-      "level": "B2"
+      "word": "frische",
+      "level": "A2"
     },
     {
-      "word": "immer",
+      "word": "händler",
+      "level": "A2"
+    },
+    {
+      "word": "rufen",
       "level": "A1"
     },
     {
-      "word": "mehr",
+      "word": "laut",
+      "level": "A1"
+    },
+    {
+      "word": "ihre",
+      "level": "A1"
+    },
+    {
+      "word": "angebote",
+      "level": "A2"
+    },
+    {
+      "word": "stammkunden",
+      "level": "B1"
+    },
+    {
+      "word": "kennen",
+      "level": "A2"
+    },
+    {
+      "word": "besten",
+      "level": "A2"
+    },
+    {
+      "word": "stände",
+      "level": "A2"
+    },
+    {
+      "word": "nachmittag",
+      "level": "B1"
+    },
+    {
+      "word": "machen",
+      "level": "A2"
+    },
+    {
+      "word": "viele",
       "level": "A1"
     },
     {
@@ -409,99 +433,119 @@
       "level": "A1"
     },
     {
-      "word": "wählen",
-      "level": "A2"
-    },
-    {
-      "word": "produkte",
-      "level": "A2"
-    },
-    {
-      "word": "feiertagen",
-      "level": "B1"
-    },
-    {
-      "word": "wochenende",
-      "level": "B1"
-    },
-    {
-      "word": "nehmen",
-      "level": "A2"
-    },
-    {
-      "word": "sich",
+      "word": "pause",
       "level": "A1"
-    },
-    {
-      "word": "menschen",
-      "level": "A2"
-    },
-    {
-      "word": "mehr",
-      "level": "A1"
-    },
-    {
-      "word": "zeit",
-      "level": "A1"
-    },
-    {
-      "word": "essen",
-      "level": "A1"
-    },
-    {
-      "word": "backen",
-      "level": "A2"
-    },
-    {
-      "word": "kuchen",
-      "level": "A2"
-    },
-    {
-      "word": "kochen",
-      "level": "A2"
-    },
-    {
-      "word": "aufwendige",
-      "level": "B1"
-    },
-    {
-      "word": "mahlzeiten",
-      "level": "B1"
     },
     {
       "word": "bestellen",
       "level": "B1"
     },
     {
-      "word": "essen",
-      "level": "A1"
-    },
-    {
-      "word": "hause",
-      "level": "A1"
-    },
-    {
-      "word": "besonders",
+      "word": "cappuccino",
       "level": "B1"
     },
     {
-      "word": "beliebt",
+      "word": "schauen",
       "level": "A2"
     },
     {
-      "word": "restaurantbesuche",
-      "level": "B2"
+      "word": "anderen",
+      "level": "A2"
     },
     {
-      "word": "verwandten",
+      "word": "besuchern",
       "level": "B1"
     },
     {
-      "word": "gemütliches",
+      "word": "kellner",
+      "level": "A2"
+    },
+    {
+      "word": "bringen",
+      "level": "A2"
+    },
+    {
+      "word": "kleine",
+      "level": "A2"
+    },
+    {
+      "word": "snacks",
+      "level": "A2"
+    },
+    {
+      "word": "gebäck",
+      "level": "A2"
+    },
+    {
+      "word": "atmosphäre",
       "level": "B1"
     },
     {
-      "word": "frühstück",
+      "word": "entspannt",
+      "level": "B1"
+    },
+    {
+      "word": "gemütlich",
+      "level": "B1"
+    },
+    {
+      "word": "gegen",
+      "level": "A1"
+    },
+    {
+      "word": "abend",
+      "level": "A1"
+    },
+    {
+      "word": "schließen",
+      "level": "B1"
+    },
+    {
+      "word": "meisten",
+      "level": "A2"
+    },
+    {
+      "word": "läden",
+      "level": "A1"
+    },
+    {
+      "word": "kleine",
+      "level": "A2"
+    },
+    {
+      "word": "kiosk",
+      "level": "A1"
+    },
+    {
+      "word": "ecke",
+      "level": "A1"
+    },
+    {
+      "word": "länger",
+      "level": "A2"
+    },
+    {
+      "word": "geöffnet",
+      "level": "A2"
+    },
+    {
+      "word": "hier",
+      "level": "A1"
+    },
+    {
+      "word": "kaufen",
+      "level": "A2"
+    },
+    {
+      "word": "späte",
+      "level": "A1"
+    },
+    {
+      "word": "kunden",
+      "level": "A2"
+    },
+    {
+      "word": "zeitungen",
       "level": "B1"
     },
     {
@@ -509,64 +553,28 @@
       "level": "A2"
     },
     {
-      "word": "spielen",
-      "level": "A2"
-    },
-    {
-      "word": "ebenfalls",
+      "word": "freundliche",
       "level": "B1"
     },
     {
-      "word": "wichtige",
+      "word": "besitzer",
       "level": "A2"
     },
     {
-      "word": "rolle",
+      "word": "kennt",
       "level": "A1"
     },
     {
-      "word": "mineralwasser",
-      "level": "B2"
-    },
-    {
-      "word": "saft",
+      "word": "fast",
       "level": "A1"
     },
     {
-      "word": "limonade",
-      "level": "A2"
-    },
-    {
-      "word": "erfrischend",
-      "level": "B1"
-    },
-    {
-      "word": "sommer",
-      "level": "A2"
-    },
-    {
-      "word": "schmeckt",
-      "level": "A2"
-    },
-    {
-      "word": "kühles",
-      "level": "A2"
-    },
-    {
-      "word": "bier",
+      "word": "alle",
       "level": "A1"
     },
     {
-      "word": "glas",
-      "level": "A1"
-    },
-    {
-      "word": "weinschorle",
-      "level": "B1"
-    },
-    {
-      "word": "besonders",
-      "level": "B1"
+      "word": "nachbarn",
+      "level": "A2"
     }
   ]
 }

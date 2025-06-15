@@ -1,11 +1,23 @@
 {
   "date": "2025-06-15",
-  "total_unique_words": 235,
-  "total_words_used": 297,
-  "recent_unique_words": 121,
+  "total_unique_words": 345,
+  "total_words_used": 441,
+  "recent_unique_words": 134,
   "most_common_words": [
     [
+      "viele",
+      7
+    ],
+    [
       "meine",
+      5
+    ],
+    [
+      "beim",
+      5
+    ],
+    [
+      "kleine",
       5
     ],
     [
@@ -14,14 +26,6 @@
     ],
     [
       "gerne",
-      4
-    ],
-    [
-      "viele",
-      4
-    ],
-    [
-      "beim",
       4
     ],
     [
@@ -39,20 +43,16 @@
     [
       "immer",
       3
-    ],
-    [
-      "mich",
-      3
     ]
   ],
-  "overused_words": 43,
-  "vocabulary_diversity_score": 79.12,
+  "overused_words": 64,
+  "vocabulary_diversity_score": 78.23,
   "a2_progress": {
-    "words_learned": 49,
+    "words_learned": 59,
     "total_target": 383,
-    "progress_percent": 12.79,
-    "remaining_words": 334,
-    "daily_pace": 49.0,
-    "estimated_completion_days": 7.0
+    "progress_percent": 15.4,
+    "remaining_words": 324,
+    "daily_pace": 59.0,
+    "estimated_completion_days": 5.0
   }
 }

@@ -493,29 +493,25 @@ jobs:
             # Build avoid words string safely
             avoid_words_str = ", ".join(avoid_words) if avoid_words else "Keine spezifischen Wörter zu vermeiden"
             
-            prompt = f"""Schreibe einen interessanten deutschen Text zum Thema "{selected_topic}".
-
-Anforderungen:
-- Genau 300 Wörter  
-- Niveau A2 (Grundlegendes Deutsch)
-- {level_instructions}
-- Natürlicher fließender Schreibstil
-- ZIEL Neue A2-Vokabeln einführen (Fortschritt {words_learned}/{target_words} entspricht {a2_progress:.1f} Prozent)
-
-WICHTIG für A2-Vokabular:
-- Verwende grundlegende Alltagsvokabeln
-- Fokussiere auf praktische nützliche Wörter  
-- Vermeide zu einfache Wörter wie der die das und ist
-- Bevorzuge Substantive Verben und Adjektive des täglichen Lebens
-
-Vermeide diese bereits verwendeten Wörter:
-{avoid_words_str}
-
-STRATEGISCHES ZIEL Hilf beim Erreichen des A2-Vokabulars von 1500 Wörtern in 120 Tagen.
-Verwende für jedes Konzept verschiedene Ausdrucksweisen und Synonyme.
-
-Der Text soll für A2-Deutschlernende interessant sein und viele neue praktische Vokabeln enthalten.
-Schreibe nur den deutschen Text keine zusätzlichen Erklärungen."""
+            # Build prompt using string concatenation to avoid YAML issues
+            prompt = "Schreibe einen interessanten deutschen Text zum Thema '" + selected_topic + "'.\n\n"
+            prompt += "Anforderungen:\n"
+            prompt += "- Genau 300 Wörter\n"
+            prompt += "- Niveau A2 (Grundlegendes Deutsch)\n"
+            prompt += "- " + level_instructions + "\n"
+            prompt += "- Natürlicher fließender Schreibstil\n"
+            prompt += "- ZIEL Neue A2-Vokabeln einführen (Fortschritt " + str(words_learned) + "/" + str(target_words) + " entspricht " + str(round(a2_progress, 1)) + " Prozent)\n\n"
+            prompt += "WICHTIG für A2-Vokabular:\n"
+            prompt += "- Verwende grundlegende Alltagsvokabeln\n"
+            prompt += "- Fokussiere auf praktische nützliche Wörter\n"
+            prompt += "- Vermeide zu einfache Wörter wie der die das und ist\n"
+            prompt += "- Bevorzuge Substantive Verben und Adjektive des täglichen Lebens\n\n"
+            prompt += "Vermeide diese bereits verwendeten Wörter:\n"
+            prompt += avoid_words_str + "\n\n"
+            prompt += "STRATEGISCHES ZIEL Hilf beim Erreichen des A2-Vokabulars von 1500 Wörtern in 120 Tagen.\n"
+            prompt += "Verwende für jedes Konzept verschiedene Ausdrucksweisen und Synonyme.\n\n"
+            prompt += "Der Text soll für A2-Deutschlernende interessant sein und viele neue praktische Vokabeln enthalten.\n"
+            prompt += "Schreibe nur den deutschen Text keine zusätzlichen Erklärungen."
 
             print("🤖 Calling Claude API...")
 

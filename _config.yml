@@ -1,0 +1,13 @@
+theme: minima
+title: "Study German with AI"
+description: "Daily German learning journey powered by AI"
+author: "shunsuke1980"
+email: "shunsuke1980@gmail.com"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+header_pages:
+  - about.md
+  - archive.md
+lang: en
+github_username: shunsuke1980

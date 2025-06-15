@@ -1,0 +1,58 @@
+{
+  "date": "2025-06-15",
+  "total_unique_words": 118,
+  "total_words_used": 143,
+  "recent_unique_words": 118,
+  "most_common_words": [
+    [
+      "meine",
+      5
+    ],
+    [
+      "zusammen",
+      4
+    ],
+    [
+      "familie",
+      3
+    ],
+    [
+      "machen",
+      3
+    ],
+    [
+      "sehr",
+      2
+    ],
+    [
+      "viel",
+      2
+    ],
+    [
+      "gerne",
+      2
+    ],
+    [
+      "zeit",
+      2
+    ],
+    [
+      "gemeinsame",
+      2
+    ],
+    [
+      "dann",
+      2
+    ]
+  ],
+  "overused_words": 18,
+  "vocabulary_diversity_score": 82.52,
+  "a2_progress": {
+    "words_learned": 28,
+    "total_target": 383,
+    "progress_percent": 7.31,
+    "remaining_words": 355,
+    "daily_pace": 28.0,
+    "estimated_completion_days": 13.0
+  }
+}

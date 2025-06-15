@@ -9,9 +9,11 @@ This is a Jekyll-based blog for documenting German language learning from A2 to 
 ## Architecture
 
 Jekyll static site with:
-- `_posts/`: Blog posts in Jekyll format (YYYY-MM-DD-title.md)
+- `_posts/`: Blog posts in Jekyll format (YYYY-MM-DD.md, YYYY-MM-DD-jp.md, YYYY-MM-DD-en.md)
 - `_config.yml`: Site configuration
-- Posts use YAML front matter and contain German text with Japanese explanations
+- `data/`: Vocabulary tracking and progress data
+- `assets/audio/`: Generated German audio files (MP3)
+- Posts use YAML front matter and contain German text with Japanese/English explanations
 - Theme: minima (Jekyll default)
 
 ## Common Commands
@@ -32,7 +34,10 @@ JEKYLL_ENV=production jekyll build
 ```
 
 ### Creating New Posts
-Posts should be created in `_posts/` with filename format: `YYYY-MM-DD-title.md`
+Posts are automatically created in `_posts/` with filename format: 
+- `YYYY-MM-DD.md` (main German content)
+- `YYYY-MM-DD-jp.md` (Japanese explanation)  
+- `YYYY-MM-DD-en.md` (English explanation)
 
 Each post requires front matter:
 ```yaml

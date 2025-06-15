@@ -3,7 +3,7 @@ name: Generate Audio with Google Cloud TTS
 on:
   push:
     paths:
-      - 'blog/**'
+      - '_posts/**'
     branches:
       - main
 
@@ -66,7 +66,7 @@ jobs:
             text=True
         )
 
-        changed_files = [f for f in result.stdout.strip().split('\n') if f.startswith('blog/')]
+        changed_files = [f for f in result.stdout.strip().split('\n') if f.startswith('_posts/')]
 
         # メインのドイツ語記事のみをフィルタリング
         german_files = []

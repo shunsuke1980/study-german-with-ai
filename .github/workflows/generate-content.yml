@@ -39,7 +39,7 @@ jobs:
         # Pull latest changes first to avoid conflicts
         git pull --rebase origin main || true
 
-        git add blog/ data/
+        git add _posts/ data/
 
         if git diff --staged --quiet; then
           echo "No new content to commit"

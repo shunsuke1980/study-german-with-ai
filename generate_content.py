@@ -305,9 +305,9 @@ class VocabularyManager:
         """重複しないユニークなタイトルを生成"""
         # 既存のタイトルを取得
         existing_titles = set()
-        blog_dir = Path("blog")
-        if blog_dir.exists():
-            for file_path in blog_dir.glob("*.md"):
+        posts_dir = Path("_posts")
+        if posts_dir.exists():
+            for file_path in posts_dir.glob("*.md"):
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         content = f.read()
@@ -509,9 +509,9 @@ def main():
     print("📊 Generating daily vocabulary statistics...")
     daily_report = vocab_manager.generate_daily_vocabulary_report()
 
-    # ブログファイル作成
-    blog_dir = Path("blog")
-    blog_dir.mkdir(exist_ok=True)
+    # Jekyll _posts ディレクトリ作成
+    posts_dir = Path("_posts")
+    posts_dir.mkdir(exist_ok=True)
 
     # 語彙統計の計算
     word_stats = {
@@ -556,7 +556,7 @@ def main():
     blog_content += "- 🇯🇵 [日本語解説 / Japanese Explanation](" + today + "-jp.md)\n"
     blog_content += "- 🇺🇸 [English Explanation](" + today + "-en.md)\n"
 
-    blog_file = blog_dir / (today + ".md")
+    blog_file = posts_dir / (today + ".md")
     with open(blog_file, 'w', encoding='utf-8') as f:
         f.write(blog_content)
 
@@ -611,7 +611,7 @@ def main():
         jp_blog_content += "---\n\n"
         jp_blog_content += japanese_explanation + "\n"
 
-        jp_blog_file = blog_dir / (today + "-jp.md")
+        jp_blog_file = posts_dir / (today + "-jp.md")
         with open(jp_blog_file, 'w', encoding='utf-8') as f:
             f.write(jp_blog_content)
 
@@ -668,7 +668,7 @@ def main():
         en_blog_content += "---\n\n"
         en_blog_content += english_explanation + "\n"
 
-        en_blog_file = blog_dir / (today + "-en.md")
+        en_blog_file = posts_dir / (today + "-en.md")
         with open(en_blog_file, 'w', encoding='utf-8') as f:
             f.write(en_blog_content)
 
@@ -742,7 +742,7 @@ def main():
         weekly_summary += "- Gezieltes Lernen spezifischer A2-Themenbereiche\n"
         weekly_summary += "- Regelmäßige Wiederholung neuer Vokabeln\n"
 
-        weekly_file = blog_dir / (today + "-weekly-a2-progress.md")
+        weekly_file = posts_dir / (today + "-weekly-a2-progress.md")
         with open(weekly_file, 'w', encoding='utf-8') as f:
             f.write(weekly_summary)
         print("📋 Weekly A2 progress report created: " + str(weekly_file))

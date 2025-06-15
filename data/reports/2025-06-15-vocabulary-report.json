@@ -1,0 +1,58 @@
+{
+  "date": "2025-06-15",
+  "total_unique_words": 117,
+  "total_words_used": 148,
+  "recent_unique_words": 117,
+  "most_common_words": [
+    [
+      "zusammen",
+      6
+    ],
+    [
+      "meine",
+      5
+    ],
+    [
+      "familie",
+      3
+    ],
+    [
+      "sehr",
+      3
+    ],
+    [
+      "immer",
+      3
+    ],
+    [
+      "mein",
+      3
+    ],
+    [
+      "machen",
+      3
+    ],
+    [
+      "spielen",
+      3
+    ],
+    [
+      "freunde",
+      2
+    ],
+    [
+      "mich",
+      2
+    ]
+  ],
+  "overused_words": 18,
+  "vocabulary_diversity_score": 79.05,
+  "a2_progress": {
+    "words_learned": 33,
+    "total_target": 383,
+    "progress_percent": 8.62,
+    "remaining_words": 350,
+    "daily_pace": 33.0,
+    "estimated_completion_days": 11.0
+  }
+}

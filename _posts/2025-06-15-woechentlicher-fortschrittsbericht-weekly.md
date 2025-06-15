@@ -7,10 +7,10 @@ type: "weekly_progress_report"
 # 📊 Wöchentlicher A2-Deutschlern-Fortschritt
 
 ## 🎯 A2-Vokabular Fortschritt
-- **Gelernte A2-Wörter**: 32/1.500 (8.36%)
-- **Verbleibende Wörter**: 351
-- **Aktuelles Lerntempo**: 32.0 neue A2-Wörter pro Tag
-- **Geschätzte Restzeit**: 11.0 Tage
+- **Gelernte A2-Wörter**: 49/1.500 (12.79%)
+- **Verbleibende Wörter**: 334
+- **Aktuelles Lerntempo**: 49.0 neue A2-Wörter pro Tag
+- **Geschätzte Restzeit**: 7.0 Tage
 
 ## 📈 Leistungsbeurteilung
 🚀 Ausgezeichnet! Vor dem Zeitplan.

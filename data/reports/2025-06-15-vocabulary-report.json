@@ -1,19 +1,35 @@
 {
   "date": "2025-06-15",
-  "total_unique_words": 125,
-  "total_words_used": 155,
-  "recent_unique_words": 125,
+  "total_unique_words": 235,
+  "total_words_used": 297,
+  "recent_unique_words": 121,
   "most_common_words": [
     [
       "meine",
       5
     ],
     [
-      "familie",
-      3
+      "besonders",
+      5
     ],
     [
       "gerne",
+      4
+    ],
+    [
+      "viele",
+      4
+    ],
+    [
+      "beim",
+      4
+    ],
+    [
+      "essen",
+      4
+    ],
+    [
+      "familie",
       3
     ],
     [
@@ -21,38 +37,22 @@
       3
     ],
     [
-      "beim",
+      "immer",
       3
     ],
     [
       "mich",
       3
-    ],
-    [
-      "sehr",
-      2
-    ],
-    [
-      "zusammen",
-      2
-    ],
-    [
-      "unternehmen",
-      2
-    ],
-    [
-      "viele",
-      2
     ]
   ],
-  "overused_words": 22,
-  "vocabulary_diversity_score": 80.65,
+  "overused_words": 43,
+  "vocabulary_diversity_score": 79.12,
   "a2_progress": {
-    "words_learned": 32,
+    "words_learned": 49,
     "total_target": 383,
-    "progress_percent": 8.36,
-    "remaining_words": 351,
-    "daily_pace": 32.0,
-    "estimated_completion_days": 11.0
+    "progress_percent": 12.79,
+    "remaining_words": 334,
+    "daily_pace": 49.0,
+    "estimated_completion_days": 7.0
   }
 }

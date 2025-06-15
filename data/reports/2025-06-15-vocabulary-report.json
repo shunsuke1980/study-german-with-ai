@@ -1,15 +1,23 @@
 {
   "date": "2025-06-15",
-  "total_unique_words": 345,
-  "total_words_used": 441,
-  "recent_unique_words": 134,
+  "total_unique_words": 447,
+  "total_words_used": 579,
+  "recent_unique_words": 123,
   "most_common_words": [
+    [
+      "meine",
+      7
+    ],
     [
       "viele",
       7
     ],
     [
-      "meine",
+      "essen",
+      6
+    ],
+    [
+      "gerne",
       5
     ],
     [
@@ -25,34 +33,26 @@
       5
     ],
     [
-      "gerne",
+      "küche",
       4
     ],
     [
-      "essen",
+      "woche",
       4
     ],
     [
-      "familie",
-      3
-    ],
-    [
-      "gemeinsam",
-      3
-    ],
-    [
-      "immer",
-      3
+      "frische",
+      4
     ]
   ],
-  "overused_words": 64,
-  "vocabulary_diversity_score": 78.23,
+  "overused_words": 81,
+  "vocabulary_diversity_score": 77.2,
   "a2_progress": {
-    "words_learned": 59,
+    "words_learned": 73,
     "total_target": 383,
-    "progress_percent": 15.4,
-    "remaining_words": 324,
-    "daily_pace": 59.0,
-    "estimated_completion_days": 5.0
+    "progress_percent": 19.06,
+    "remaining_words": 310,
+    "daily_pace": 73.0,
+    "estimated_completion_days": 4.0
   }
 }

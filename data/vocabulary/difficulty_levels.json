@@ -21,6 +21,13 @@
       "unique_words": 134,
       "a2_words_learned": 10,
       "total_a2_progress": 15.4
+    },
+    {
+      "date": "2025-06-15",
+      "level": "A2",
+      "unique_words": 123,
+      "a2_words_learned": 14,
+      "total_a2_progress": 19.06
     }
   ],
   "grammar_patterns_used": []

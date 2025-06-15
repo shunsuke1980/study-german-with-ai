@@ -34,10 +34,11 @@ JEKYLL_ENV=production jekyll build
 ```
 
 ### Creating New Posts
-Posts are automatically created in `_posts/` with filename format: 
-- `YYYY-MM-DD.md` (main German content)
-- `YYYY-MM-DD-jp.md` (Japanese explanation)  
-- `YYYY-MM-DD-en.md` (English explanation)
+Posts are automatically created in `_posts/` with Jekyll filename format: 
+- `YYYY-MM-DD-topic-title-with-dashes.md` (main German content)
+- `YYYY-MM-DD-topic-title-with-dashes-jp.md` (Japanese explanation)  
+- `YYYY-MM-DD-topic-title-with-dashes-en.md` (English explanation)
+- `YYYY-MM-DD-woechentlicher-fortschrittsbericht-weekly.md` (weekly progress reports)
 
 Each post requires front matter:
 ```yaml

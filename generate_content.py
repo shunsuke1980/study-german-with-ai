@@ -368,6 +368,38 @@ class VocabularyManager:
         today = datetime.now().strftime('%m-%d')
         return f"[A2] {topic} ({today})"
 
+    def generate_jekyll_filename(self, title, date_str, suffix=""):
+        """Jekyll形式のファイル名を生成 (YYYY-MM-DD-title-with-dashes.md)"""
+        # タイトルをURLフレンドリーに変換
+        # [A2] を削除し、ドイツ語文字を変換
+        clean_title = title.replace("[A2] ", "").lower()
+        
+        # ドイツ語特殊文字の変換
+        replacements = {
+            'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss',
+            'und': 'und',  # keep German "und"
+        }
+        
+        for old, new in replacements.items():
+            clean_title = clean_title.replace(old, new)
+        
+        # 英数字とハイフンのみ残す
+        import re
+        clean_title = re.sub(r'[^a-z0-9\s-]', '', clean_title)
+        
+        # スペースをハイフンに変換、連続するハイフンを単一化
+        clean_title = re.sub(r'\s+', '-', clean_title.strip())
+        clean_title = re.sub(r'-+', '-', clean_title)
+        clean_title = clean_title.strip('-')
+        
+        # ファイル名を組み立て
+        if suffix:
+            filename = f"{date_str}-{clean_title}-{suffix}.md"
+        else:
+            filename = f"{date_str}-{clean_title}.md"
+            
+        return filename
+
     def generate_daily_vocabulary_report(self):
         """毎日の語彙使用レポート生成（A2進捗含む）"""
         today = datetime.now()
@@ -552,11 +584,16 @@ def main():
     blog_content += "**🎯 Neue A2-Vokabeln heute:**\n"
     blog_content += new_a2_words_str + "\n\n"
     blog_content += "---\n\n"
+    # Generate Jekyll-style filenames first
+    main_filename = vocab_manager.generate_jekyll_filename(unique_title, today)
+    jp_filename = vocab_manager.generate_jekyll_filename(unique_title, today, "jp")
+    en_filename = vocab_manager.generate_jekyll_filename(unique_title, today, "en")
+    
     blog_content += "**📖 Sprachhilfen / Language Support:**\n"
-    blog_content += "- 🇯🇵 [日本語解説 / Japanese Explanation](" + today + "-jp.md)\n"
-    blog_content += "- 🇺🇸 [English Explanation](" + today + "-en.md)\n"
+    blog_content += "- 🇯🇵 [日本語解説 / Japanese Explanation](" + jp_filename.replace('.md', '') + ")\n"
+    blog_content += "- 🇺🇸 [English Explanation](" + en_filename.replace('.md', '') + ")\n"
 
-    blog_file = posts_dir / (today + ".md")
+    blog_file = posts_dir / main_filename
     with open(blog_file, 'w', encoding='utf-8') as f:
         f.write(blog_content)
 
@@ -607,11 +644,11 @@ def main():
         jp_blog_content += 'original_post: "' + today + '.md"\n'
         jp_blog_content += "---\n\n"
         jp_blog_content += "# 📚 A2解説: " + selected_topic + "\n\n"
-        jp_blog_content += "**原文記事**: [" + unique_title + "](" + today + ".md)\n\n"
+        jp_blog_content += "**原文記事**: [" + unique_title + "](" + main_filename.replace('.md', '') + ")\n\n"
         jp_blog_content += "---\n\n"
         jp_blog_content += japanese_explanation + "\n"
 
-        jp_blog_file = posts_dir / (today + "-jp.md")
+        jp_blog_file = posts_dir / jp_filename
         with open(jp_blog_file, 'w', encoding='utf-8') as f:
             f.write(jp_blog_content)
 
@@ -664,11 +701,11 @@ def main():
         en_blog_content += 'original_post: "' + today + '.md"\n'
         en_blog_content += "---\n\n"
         en_blog_content += "# 📚 A2 German Study Guide: " + selected_topic + "\n\n"
-        en_blog_content += "**Original Article**: [" + unique_title + "](" + today + ".md)\n\n"
+        en_blog_content += "**Original Article**: [" + unique_title + "](" + main_filename.replace('.md', '') + ")\n\n"
         en_blog_content += "---\n\n"
         en_blog_content += english_explanation + "\n"
 
-        en_blog_file = posts_dir / (today + "-en.md")
+        en_blog_file = posts_dir / en_filename
         with open(en_blog_file, 'w', encoding='utf-8') as f:
             f.write(en_blog_content)
 
@@ -742,7 +779,8 @@ def main():
         weekly_summary += "- Gezieltes Lernen spezifischer A2-Themenbereiche\n"
         weekly_summary += "- Regelmäßige Wiederholung neuer Vokabeln\n"
 
-        weekly_file = posts_dir / (today + "-weekly-a2-progress.md")
+        weekly_filename = vocab_manager.generate_jekyll_filename("[A2] Wöchentlicher Fortschrittsbericht", today, "weekly")
+        weekly_file = posts_dir / weekly_filename
         with open(weekly_file, 'w', encoding='utf-8') as f:
             f.write(weekly_summary)
         print("📋 Weekly A2 progress report created: " + str(weekly_file))

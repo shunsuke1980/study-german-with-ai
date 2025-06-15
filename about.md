@@ -6,4 +6,4 @@ permalink: /about/
 
 # About This Project
 
-I'm documenting my German language learning journey using AI-generated content...
+I'm documenting my German language learning journey using AI-generated content.

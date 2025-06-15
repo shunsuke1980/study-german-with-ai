@@ -67,21 +67,36 @@ jobs:
             text=True
         )
 
-        changed_files = [f for f in result.stdout.strip().split('\n') if f.startswith('_posts/')]
+        all_files = result.stdout.strip().split('\n')
+        print(f"All changed files: {all_files}")
+        
+        changed_files = [f for f in all_files if f.startswith('_posts/')]
+        print(f"_posts files: {changed_files}")
+        
+        # If no changed files (manual run), look for today's files
+        if not changed_files or (len(changed_files) == 1 and changed_files[0] == ''):
+            print("No changed files found, checking for today's files...")
+            from pathlib import Path
+            from datetime import datetime
+            today = datetime.now().strftime('%Y-%m-%d')
+            posts_dir = Path("_posts")
+            if posts_dir.exists():
+                today_files = list(posts_dir.glob(f"{today}-*.md"))
+                changed_files = [str(f) for f in today_files]
+                print(f"Found today's files: {changed_files}")
 
         # メインのドイツ語記事のみをフィルタリング
         german_files = []
         for file_path in changed_files:
             if not file_path or not os.path.exists(file_path):
+                print(f"File does not exist: {file_path}")
                 continue
 
             # ファイル名パターンをチェック
             filename = Path(file_path).name
+            print(f"Checking file: {filename}")
 
-            # 除外パターン：
-            # - 日本語解説: *-jp.md
-            # - 英語解説: *-en.md
-            # - 週次レポート: *weekly*.md
+            # 除外パターンをチェック
             if (filename.endswith('-jp.md') or
                 filename.endswith('-en.md') or
                 'weekly' in filename.lower() or
@@ -89,14 +104,13 @@ jobs:
                 print(f"Skipping non-German file: {file_path}")
                 continue
 
-            # YYYY-MM-DD-title.md パターンのメインドイツ語記事のみ処理 (Jekyll format)
-            # Match YYYY-MM-DD-*.md but exclude -jp.md, -en.md, and -weekly.md files
-            if (re.match(r'^\d{4}-\d{2}-\d{2}-.*\.md$', filename) and 
-                not filename.endswith('-jp.md') and 
-                not filename.endswith('-en.md') and
-                '-weekly' not in filename):
+            # メインのドイツ語記事を特定
+            # YYYY-MM-DD-topic.md format (Jekyll naming convention)
+            if re.match(r'^\d{4}-\d{2}-\d{2}-[a-z-]+\.md$', filename):
                 german_files.append(file_path)
-                print(f"German article detected: {file_path}")
+                print(f"✅ German article detected: {file_path}")
+            else:
+                print(f"File does not match German article pattern: {filename}")
 
         if not german_files:
             print("No German articles found for audio generation")

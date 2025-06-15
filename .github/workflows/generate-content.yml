@@ -557,81 +557,71 @@ jobs:
                 "a2_progress": daily_report["a2_progress"]
             }
 
-            blog_content = f"""---
-title: "{unique_title}"
-date: {today}
-topic: "{selected_topic}"
-difficulty_level: "A2"
-word_count: {word_stats["total_words"]}
-unique_words: {word_stats["unique_new_words"]}
-new_a2_words: {word_stats["new_a2_words"]}
-a2_progress_percent: {word_stats["a2_progress"]["progress_percent"]}
-estimated_completion_days: {word_stats["a2_progress"]["estimated_completion_days"]}
-generated: true
----
+            # Build blog content using string concatenation
+            new_a2_words_str = ', '.join(new_a2_words) if new_a2_words else 'Keine neuen A2-Zielwörter erkannt'
+            
+            blog_content = "---\n"
+            blog_content += 'title: "' + unique_title + '"\n'
+            blog_content += "date: " + today + "\n"
+            blog_content += 'topic: "' + selected_topic + '"\n'
+            blog_content += 'difficulty_level: "A2"\n'
+            blog_content += "word_count: " + str(word_stats["total_words"]) + "\n"
+            blog_content += "unique_words: " + str(word_stats["unique_new_words"]) + "\n"
+            blog_content += "new_a2_words: " + str(word_stats["new_a2_words"]) + "\n"
+            blog_content += "a2_progress_percent: " + str(word_stats["a2_progress"]["progress_percent"]) + "\n"
+            blog_content += "estimated_completion_days: " + str(word_stats["a2_progress"]["estimated_completion_days"]) + "\n"
+            blog_content += "generated: true\n"
+            blog_content += "---\n\n"
+            blog_content += generated_text + "\n\n"
+            blog_content += "---\n\n"
+            blog_content += "**📚 A2-Lernfortschritt:**\n"
+            blog_content += "- **Neue A2-Wörter heute**: " + str(word_stats["new_a2_words"]) + "\n"
+            blog_content += "- **A2-Wörter gelernt**: " + str(word_stats["a2_progress"]["words_learned"]) + "/" + str(word_stats["a2_progress"]["total_target"]) + " (" + str(word_stats["a2_progress"]["progress_percent"]) + "%)\n"
+            blog_content += "- **Verbleibende Wörter**: " + str(word_stats["a2_progress"]["remaining_words"]) + "\n"
+            blog_content += "- **Lerntempo**: " + str(word_stats["a2_progress"]["daily_pace"]) + " Wörter/Tag\n"
+            blog_content += "- **Geschätzte Restzeit**: " + str(word_stats["a2_progress"]["estimated_completion_days"]) + " Tage\n\n"
+            blog_content += "**📊 Tagesstatistiken:**\n"
+            blog_content += "- Wortanzahl: " + str(word_stats["total_words"]) + "\n"
+            blog_content += "- Einzigartige neue Wörter: " + str(word_stats["unique_new_words"]) + "\n"
+            blog_content += "- Thema: " + selected_topic + "\n\n"
+            blog_content += "**🎯 Neue A2-Vokabeln heute:**\n"
+            blog_content += new_a2_words_str + "\n\n"
+            blog_content += "---\n\n"
+            blog_content += "**📖 Sprachhilfen / Language Support:**\n"
+            blog_content += "- 🇯🇵 [日本語解説 / Japanese Explanation](" + today + "-jp.md)\n"
+            blog_content += "- 🇺🇸 [English Explanation](" + today + "-en.md)\n"
 
-{generated_text}
-
----
-
-**📚 A2-Lernfortschritt:**
-- **Neue A2-Wörter heute**: {word_stats["new_a2_words"]}
-- **A2-Wörter gelernt**: {word_stats["a2_progress"]["words_learned"]}/{word_stats["a2_progress"]["total_target"]} ({word_stats["a2_progress"]["progress_percent"]}%)
-- **Verbleibende Wörter**: {word_stats["a2_progress"]["remaining_words"]}
-- **Lerntempo**: {word_stats["a2_progress"]["daily_pace"]} Wörter/Tag
-- **Geschätzte Restzeit**: {word_stats["a2_progress"]["estimated_completion_days"]} Tage
-
-**📊 Tagesstatistiken:**
-- Wortanzahl: {word_stats["total_words"]}
-- Einzigartige neue Wörter: {word_stats["unique_new_words"]}
-- Thema: {selected_topic}
-
-**🎯 Neue A2-Vokabeln heute:**
-{', '.join(new_a2_words) if new_a2_words else 'Keine neuen A2-Zielwörter erkannt'}
-
----
-
-**📖 Sprachhilfen / Language Support:**
-- 🇯🇵 [日本語解説 / Japanese Explanation]({today}-jp.md)
-- 🇺🇸 [English Explanation]({today}-en.md)
-"""
-
-            blog_file = blog_dir / f"{today}.md"
+            blog_file = blog_dir / (today + ".md")
             with open(blog_file, 'w', encoding='utf-8') as f:
                 f.write(blog_content)
 
-            print(f"📄 Main blog post created: {blog_file}")
+            print("📄 Main blog post created: " + str(blog_file))
 
             # 日本語解説記事の生成
             print("🇯🇵 Generating Japanese explanation...")
 
-            japanese_explanation_prompt = f"""Create a detailed Japanese explanation article for A2 German learners based on this German text:
-
-GERMAN TEXT:
-{generated_text}
-
-TOPIC: {selected_topic}
-NEW A2 WORDS: {', '.join(new_a2_words)}
-
-Please create a comprehensive Japanese explanation article that includes:
-
-1. 🎯 **今日の学習目標** - Learning objectives for the day
-2. 📖 **重要語彙解説** - Detailed vocabulary explanation with:
-   - Category grouping (家族関係, 職業, 性格・態度, 活動 etc.)
-   - Pronunciation in katakana
-   - Example sentences
-   - Grammar notes for each word
-3. 📝 **重要文法ポイント** - Important grammar points from the text with:
-   - Examples extracted from the original text
-   - Detailed explanations of case changes, verb conjugations
-   - Tables showing declensions where relevant
-4. 🗣️ **実用フレーズ** - Practical phrases related to the topic
-
-Format the article in markdown with proper headers, tables, and clear structure.
-Focus on A2-level grammar and vocabulary that Japanese learners need.
-Write everything in Japanese.
-Do not include practice questions, study tips, or homework sections.
-"""
+            # Build Japanese explanation prompt using string concatenation
+            japanese_explanation_prompt = "Create a detailed Japanese explanation article for A2 German learners based on this German text:\n\n"
+            japanese_explanation_prompt += "GERMAN TEXT:\n"
+            japanese_explanation_prompt += generated_text + "\n\n"
+            japanese_explanation_prompt += "TOPIC: " + selected_topic + "\n"
+            japanese_explanation_prompt += "NEW A2 WORDS: " + ', '.join(new_a2_words) + "\n\n"
+            japanese_explanation_prompt += "Please create a comprehensive Japanese explanation article that includes:\n\n"
+            japanese_explanation_prompt += "1. 🎯 **今日の学習目標** - Learning objectives for the day\n"
+            japanese_explanation_prompt += "2. 📖 **重要語彙解説** - Detailed vocabulary explanation with:\n"
+            japanese_explanation_prompt += "   - Category grouping (家族関係, 職業, 性格・態度, 活動 etc.)\n"
+            japanese_explanation_prompt += "   - Pronunciation in katakana\n"
+            japanese_explanation_prompt += "   - Example sentences\n"
+            japanese_explanation_prompt += "   - Grammar notes for each word\n"
+            japanese_explanation_prompt += "3. 📝 **重要文法ポイント** - Important grammar points from the text with:\n"
+            japanese_explanation_prompt += "   - Examples extracted from the original text\n"
+            japanese_explanation_prompt += "   - Detailed explanations of case changes, verb conjugations\n"
+            japanese_explanation_prompt += "   - Tables showing declensions where relevant\n"
+            japanese_explanation_prompt += "4. 🗣️ **実用フレーズ** - Practical phrases related to the topic\n\n"
+            japanese_explanation_prompt += "Format the article in markdown with proper headers, tables, and clear structure.\n"
+            japanese_explanation_prompt += "Focus on A2-level grammar and vocabulary that Japanese learners need.\n"
+            japanese_explanation_prompt += "Write everything in Japanese.\n"
+            japanese_explanation_prompt += "Do not include practice questions, study tips, or homework sections."
 
             try:
                 jp_message = client.messages.create(

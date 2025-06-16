@@ -8,8 +8,8 @@
     <copyright>© 2025 AI German Learning System</copyright>
     <managingEditor>24.madding_cuts@icloud.com (AI German Learning System)</managingEditor>
     <webMaster>24.madding_cuts@icloud.com (AI German Learning System)</webMaster>
-    <pubDate>Mon, 16 Jun 2025 05:11:12 -0000</pubDate>
-    <lastBuildDate>Mon, 16 Jun 2025 05:11:12 -0000</lastBuildDate>
+    <pubDate>Mon, 16 Jun 2025 05:23:19 -0000</pubDate>
+    <lastBuildDate>Mon, 16 Jun 2025 05:23:19 -0000</lastBuildDate>
     <generator>AI German Learning System</generator>
     <itunes:author>AI German Learning System</itunes:author>
     <itunes:summary>Daily A2-level German learning content with AI-optimized materials for language learners</itunes:summary>
@@ -23,6 +23,20 @@
       <itunes:category text="Language Learning" />
     </itunes:category>
     <itunes:image href="https://www.study-german.info/assets/images/podcast-artwork.jpg" />
+    <item>
+      <title>[A2] Essen und Trinken</title>
+      <description>A2 German learning episode about: Essen und Trinken</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/episodes/2025-06-16</guid>
+      <pubDate>Mon, 16 Jun 2025 09:00:00 -0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/2025-06-16-essen-und-trinken.mp3" length="673152" type="audio/mpeg" />
+      <itunes:title>[A2] Essen und Trinken</itunes:title>
+      <itunes:summary>Daily German A2 learning content covering: Essen und Trinken</itunes:summary>
+      <itunes:duration>00:42</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>[A2] Familie und Freunde</title>
       <description>A2 German learning episode about: Familie und Freunde</description>

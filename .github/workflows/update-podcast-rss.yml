@@ -155,7 +155,7 @@ jobs:
 
             # Image/artwork (REQUIRED for Apple Podcasts)
             itunes_image = ET.SubElement(channel, 'itunes:image')
-            itunes_image.set('href', f"{base_url}/assets/images/podcast-artwork.jpg")
+            itunes_image.set('href', f"{base_url}/assets/images/podcast.jpg")
 
             # Find all MP3 files
             audio_dir = Path('assets/audio')

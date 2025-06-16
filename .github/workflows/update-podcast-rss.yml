@@ -124,7 +124,7 @@ jobs:
             channel = ET.SubElement(rss, 'channel')
 
             # Podcast metadata
-            ET.SubElement(channel, 'title').text = "A2 Deutsch des Tages"
+            ET.SubElement(channel, 'title').text = "Study German with AI (A2)"
             ET.SubElement(channel, 'description').text = "Daily A2-level German learning content with AI-optimized materials"
             ET.SubElement(channel, 'link').text = base_url
             ET.SubElement(channel, 'language').text = "de-DE"

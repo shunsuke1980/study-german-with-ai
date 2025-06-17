@@ -56,10 +56,7 @@ jobs:
         # Pull latest changes first to avoid conflicts
         git pull --rebase origin main || true
 
-        COMMIT_MSG="Add A2 German content $(date +%Y-%m-%d) - Focus on vocabulary diversity"
-        if [ $(date +%u) -eq 7 ]; then
-          COMMIT_MSG="$COMMIT_MSG + weekly vocabulary summary"
-        fi
+        COMMIT_MSG="Add German content from word file $(date +%Y-%m-%d) [skip ci]"
         git commit -m "$COMMIT_MSG"
 
         # Try to push, with retry logic
@@ -140,10 +137,10 @@ jobs:
 
         all_files = result.stdout.strip().split('\n')
         print(f"All changed files: {all_files}")
-        
+
         changed_files = [f for f in all_files if f.startswith('_posts/')]
         print(f"_posts files: {changed_files}")
-        
+
         # If no changed files (manual run), look for today's files
         if not changed_files or (len(changed_files) == 1 and changed_files[0] == ''):
             print("No changed files found, checking for today's files...")
@@ -169,9 +166,7 @@ jobs:
 
             # 除外パターンをチェック
             if (filename.endswith('-jp.md') or
-                filename.endswith('-en.md') or
-                'weekly' in filename.lower() or
-                'report' in filename.lower()):
+                filename.endswith('-en.md')):
                 print(f"Skipping non-German file: {file_path}")
                 continue
 
@@ -303,12 +298,12 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action TTS"
-        
+
         # Pull latest changes first
         git pull --rebase origin main || true
-        
+
         git commit -m "Add generated German audio files [skip ci]"
-        
+
         # Try to push with retry logic
         for i in {1..3}; do
           if git push; then
@@ -421,8 +416,7 @@ jobs:
                             # Return the first match that's not a -jp.md or -en.md file
                             for match in matches:
                                 if not (match.name.endswith('-jp.md') or
-                                       match.name.endswith('-en.md') or
-                                       'weekly' in match.name.lower()):
+                                       match.name.endswith('-en.md')):
                                     return match
             return None
 

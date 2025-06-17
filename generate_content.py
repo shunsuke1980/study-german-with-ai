@@ -208,8 +208,8 @@ generated: true
 ---
 
 **📖 Sprachhilfen / Language Support:**
-- 🇯🇵 [日本語解説 / Japanese Explanation]({{{{ site.baseurl }}}}{{% link {jp_filename} %}})
-- 🇺🇸 [English Explanation]({{{{ site.baseurl }}}}{{% link {en_filename} %}})
+- 🇯🇵 [日本語解説 / Japanese Explanation]({{{{ site.baseurl }}}}{{% link _posts/{jp_filename} %}})
+- 🇺🇸 [English Explanation]({{{{ site.baseurl }}}}{{% link _posts/{en_filename} %}})
 
 **📝 Verwendete Wörter / Used Words:**
 {', '.join(words)}
@@ -268,7 +268,7 @@ original_post: "{main_filename}"
 
 # 📚 {level}解説: {topic}
 
-**原文記事**: [{title}]({{{{ site.baseurl }}}}{{% link {main_filename} %}})
+**原文記事**: [{title}]({{{{ site.baseurl }}}}{{% link _posts/{main_filename} %}})
 
 ---
 

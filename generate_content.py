@@ -208,8 +208,8 @@ generated: true
 ---
 
 **📖 Sprachhilfen / Language Support:**
-- 🇯🇵 [日本語解説 / Japanese Explanation]({{{{ site.baseurl }}}}{{% link _posts/{jp_filename} %}})
-- 🇺🇸 [English Explanation]({{{{ site.baseurl }}}}{{% link _posts/{en_filename} %}})
+- 🇯🇵 [日本語解説 / Japanese Explanation](../{jp_filename.replace('.md', '.html')})
+- 🇺🇸 [English Explanation](../{en_filename.replace('.md', '.html')})
 
 **📝 Verwendete Wörter / Used Words:**
 {', '.join(words)}
@@ -268,7 +268,7 @@ original_post: "{main_filename}"
 
 # 📚 {level}解説: {topic}
 
-**原文記事**: [{title}]({{{{ site.baseurl }}}}{{% link _posts/{main_filename} %}})
+**原文記事**: [{title}](../{main_filename.replace('.md', '.html')})
 
 ---
 
@@ -331,7 +331,7 @@ original_post: "{main_filename}"
 
 # 📚 {level} German Study Guide: {topic}
 
-**Original Article**: [{title}]({{{{ site.baseurl }}}}{{% link {main_filename} %}})
+**Original Article**: [{title}](../{main_filename.replace('.md', '.html')})
 
 ---
 

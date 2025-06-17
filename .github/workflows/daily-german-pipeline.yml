@@ -84,7 +84,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 2
+        fetch-depth: 0
+        
+    - name: Ensure files are available
+      run: |
+        echo "Checking out all files from HEAD"
+        git checkout HEAD -- _posts/ || true
+        echo "Files in _posts after checkout:"
+        ls -la _posts/ || echo "_posts directory not found"
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -135,30 +142,31 @@ jobs:
         print(f"Files in current directory: {os.listdir('.')}")
         if os.path.exists('_posts'):
             print(f"Files in _posts: {os.listdir('_posts')}")
+        else:
+            print("_posts directory does not exist")
         
+        # Get files from the current HEAD (after the commit)
         result = subprocess.run(
-            ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
+            ["git", "ls-files", "_posts/*.md"],
             capture_output=True,
             text=True
         )
 
-        all_files = result.stdout.strip().split('\n')
-        print(f"All changed files: {all_files}")
+        all_files = result.stdout.strip().split('\n') if result.stdout.strip() else []
+        print(f"All markdown files in _posts: {all_files}")
 
-        changed_files = [f for f in all_files if f.startswith('_posts/')]
-        print(f"_posts files: {changed_files}")
-
-        # If no changed files (manual run), look for today's files
-        if not changed_files or (len(changed_files) == 1 and changed_files[0] == ''):
-            print("No changed files found, checking for today's files...")
-            from pathlib import Path
-            from datetime import datetime
-            today = datetime.now().strftime('%Y-%m-%d')
-            posts_dir = Path("_posts")
-            if posts_dir.exists():
-                today_files = list(posts_dir.glob(f"{today}-*.md"))
-                changed_files = [str(f) for f in today_files]
-                print(f"Found today's files: {changed_files}")
+        # Filter for files that match our pattern
+        changed_files = []
+        for file_path in all_files:
+            if file_path and file_path.startswith('_posts/'):
+                filename = Path(file_path).name
+                # Check if it's a main German article (not -jp.md or -en.md)
+                if (re.match(r'^\d{4}-\d{2}-\d{2}-[a-c][1-2]-\d+-[a-z-]+\.md$', filename) and
+                    not filename.endswith('-jp.md') and
+                    not filename.endswith('-en.md')):
+                    changed_files.append(file_path)
+        
+        print(f"German article files: {changed_files}")
 
         # メインのドイツ語記事のみをフィルタリング
         german_files = []

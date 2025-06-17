@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Study German with AI (A2)</title>
+    <description>Daily A2-level German learning content with AI-optimized materials</description>
+    <link>https://www.study-german.info</link>
+    <language>de-DE</language>
+    <copyright>© 2025 AI German Learning System</copyright>
+    <managingEditor>24.madding_cuts@icloud.com (AI German Learning System)</managingEditor>
+    <webMaster>24.madding_cuts@icloud.com (AI German Learning System)</webMaster>
+    <pubDate>Tue, 17 Jun 2025 16:50:29 -0000</pubDate>
+    <lastBuildDate>Tue, 17 Jun 2025 16:50:29 -0000</lastBuildDate>
+    <generator>AI German Learning System</generator>
+    <itunes:author>AI German Learning System</itunes:author>
+    <itunes:summary>Daily A2-level German learning content with AI-optimized materials for language learners</itunes:summary>
+    <itunes:owner>
+      <itunes:name>AI German Learning System</itunes:name>
+      <itunes:email>24.madding_cuts@icloud.com</itunes:email>
+    </itunes:owner>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:category text="Education">
+      <itunes:category text="Language Learning" />
+    </itunes:category>
+    <itunes:image href="https://www.study-german.info/assets/images/podcast.jpg" />
+  </channel>
+</rss>

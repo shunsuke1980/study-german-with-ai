@@ -56,7 +56,7 @@ jobs:
         # Pull latest changes first to avoid conflicts
         git pull --rebase origin main || true
 
-        COMMIT_MSG="Add German content from word file $(date +%Y-%m-%d) [skip ci]"
+        COMMIT_MSG="Add German content from word file $(date +%Y-%m-%d)"
         git commit -m "$COMMIT_MSG"
 
         # Try to push, with retry logic
@@ -279,18 +279,24 @@ jobs:
                 print(f"❌ Error generating audio for {file_path}: {e}")
 
         print("Audio generation completed")
+        
+        # Create a flag file to indicate audio was generated
+        if any(Path("assets/audio").glob("*.mp3")):
+            with open("audio_generated_flag.txt", "w") as f:
+                f.write("true")
         EOF
 
     - name: Check if audio was generated
       id: check_audio
       run: |
-        git add assets/audio/*.mp3 || true
-        if git diff --staged --quiet; then
+        # Check if the flag file exists
+        if [ -f "audio_generated_flag.txt" ]; then
+          echo "Audio files were generated"
+          echo "generated=true" >> $GITHUB_OUTPUT
+          rm -f audio_generated_flag.txt
+        else
           echo "No audio files generated"
           echo "generated=false" >> $GITHUB_OUTPUT
-        else
-          echo "Audio files detected"
-          echo "generated=true" >> $GITHUB_OUTPUT
         fi
 
     - name: Commit and push audio files
@@ -301,20 +307,28 @@ jobs:
 
         # Pull latest changes first
         git pull --rebase origin main || true
-
-        git commit -m "Add generated German audio files [skip ci]"
-
-        # Try to push with retry logic
-        for i in {1..3}; do
-          if git push; then
-            echo "Audio push successful on attempt $i"
-            break
-          else
-            echo "Audio push failed on attempt $i, pulling and retrying..."
-            git pull --rebase origin main || true
-            sleep 2
-          fi
-        done
+        
+        # Add audio files
+        git add assets/audio/*.mp3 || true
+        
+        # Only commit if there are changes
+        if ! git diff --staged --quiet; then
+          git commit -m "Add generated German audio files [skip ci]"
+          
+          # Try to push with retry logic
+          for i in {1..3}; do
+            if git push; then
+              echo "Audio push successful on attempt $i"
+              break
+            else
+              echo "Audio push failed on attempt $i, pulling and retrying..."
+              git pull --rebase origin main || true
+              sleep 2
+            fi
+          done
+        else
+          echo "No changes to commit"
+        fi
 
     - name: Clean up credentials
       if: always()

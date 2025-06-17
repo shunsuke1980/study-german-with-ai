@@ -65,7 +65,4 @@ This project is open source and available for everyone to use.
 If you find this project helpful and would like to support its continued development:
 
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="BuyMeACoffee" width="100">](https://www.buymeacoffee.com/shunsuke1980)
-
-## 📧 Contact
-
-Created by shunsuke1980 - [shunsuke1980@gmail.com](mailto:shunsuke1980@gmail.com)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/shunsuke1980?style=social)](https://github.com/sponsors/shunsuke1980)

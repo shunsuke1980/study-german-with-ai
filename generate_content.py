@@ -208,8 +208,8 @@ generated: true
 ---
 
 **📖 Sprachhilfen / Language Support:**
-- 🇯🇵 [日本語解説 / Japanese Explanation]({jp_filename.replace('.md', '')})
-- 🇺🇸 [English Explanation]({en_filename.replace('.md', '')})
+- 🇯🇵 [日本語解説 / Japanese Explanation]({{ site.baseurl }}{% link {jp_filename} %})
+- 🇺🇸 [English Explanation]({{ site.baseurl }}{% link {en_filename} %})
 
 **📝 Verwendete Wörter / Used Words:**
 {', '.join(words)}
@@ -268,7 +268,7 @@ original_post: "{main_filename}"
 
 # 📚 {level}解説: {topic}
 
-**原文記事**: [{title}]({main_filename.replace('.md', '')})
+**原文記事**: [{title}]({{ site.baseurl }}{% link {main_filename} %})
 
 ---
 
@@ -331,7 +331,7 @@ original_post: "{main_filename}"
 
 # 📚 {level} German Study Guide: {topic}
 
-**Original Article**: [{title}]({main_filename.replace('.md', '')})
+**Original Article**: [{title}]({{ site.baseurl }}{% link {main_filename} %})
 
 ---
 

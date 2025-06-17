@@ -85,21 +85,18 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Ensure files are available
+    - name: Pull latest changes and ensure files are available
       run: |
-        echo "Checking git status"
-        git status
-        echo "Listing all tracked files:"
-        git ls-files | grep "_posts" || echo "No _posts files found in git"
+        echo "Pulling latest changes from main"
+        git pull origin main || true
+        echo "Current HEAD commit:"
+        git log -1 --oneline
+        echo "Files in _posts after pull:"
+        ls -la _posts/ || echo "_posts directory does not exist"
         echo "Creating _posts directory if needed"
         mkdir -p _posts
-        echo "Checking out all files from HEAD"
-        git checkout HEAD -- . || true
-        echo "Files in _posts after checkout:"
-        ls -la _posts/ || echo "_posts directory is empty"
-        echo "All files in repository:"
-        find . -name "*.md" -path "./_posts/*" || echo "No markdown files found in _posts"
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -153,69 +150,27 @@ jobs:
         else:
             print("_posts directory does not exist")
 
-        # Try multiple approaches to get the files
+        # Find today's German articles from filesystem (after git pull)
+        from datetime import datetime
+        today = datetime.now().strftime('%Y-%m-%d')
+        posts_dir = Path("_posts")
+        
         changed_files = []
-        
-        # First, try git ls-files
-        result = subprocess.run(
-            ["git", "ls-files", "_posts/*.md"],
-            capture_output=True,
-            text=True
-        )
-        all_files = result.stdout.strip().split('\n') if result.stdout.strip() else []
-        print(f"Git ls-files result: {all_files}")
-        
-        # If no files found, try git show to get files from HEAD
-        if not all_files or (len(all_files) == 1 and all_files[0] == ''):
-            print("No files from git ls-files, trying git show HEAD")
-            result = subprocess.run(
-                ["git", "show", "--name-only", "--pretty=format:", "HEAD"],
-                capture_output=True,
-                text=True
-            )
-            all_files = [f for f in result.stdout.strip().split('\n') if f.startswith('_posts/') and f.endswith('.md')]
-            print(f"Git show HEAD result: {all_files}")
+        if posts_dir.exists():
+            print(f"Searching for today's files ({today}) in _posts directory")
+            all_files = list(posts_dir.glob("*.md"))
+            print(f"All .md files in _posts: {[str(f) for f in all_files]}")
             
-            # Extract these files from git to the filesystem
             for file_path in all_files:
-                if file_path:
-                    print(f"Extracting {file_path} from git")
-                    # Create directory if it doesn't exist
-                    file_dir = os.path.dirname(file_path)
-                    if file_dir:
-                        os.makedirs(file_dir, exist_ok=True)
-                    
-                    # Extract file content from git
-                    result = subprocess.run(
-                        ["git", "show", f"HEAD:{file_path}"],
-                        capture_output=True,
-                        text=True
-                    )
-                    if result.returncode == 0:
-                        with open(file_path, 'w', encoding='utf-8') as f:
-                            f.write(result.stdout)
-                        print(f"✅ Successfully extracted {file_path}")
-                    else:
-                        print(f"❌ Failed to extract {file_path}: {result.stderr}")
-        
-        # If still no files, try to find them in the filesystem
-        if not all_files or (len(all_files) == 1 and all_files[0] == ''):
-            print("No files from git commands, searching filesystem")
-            from datetime import datetime
-            today = datetime.now().strftime('%Y-%m-%d')
-            posts_dir = Path("_posts")
-            if posts_dir.exists():
-                all_files = [str(f) for f in posts_dir.glob(f"{today}-*.md")]
-                print(f"Filesystem search result: {all_files}")
-
-        # Filter for files that match our pattern
-        for file_path in all_files:
-            if file_path and file_path.startswith('_posts/'):
-                filename = Path(file_path).name
-                # Check if it's a main German article (not -jp.md)
-                if (re.match(r'^\d{4}-\d{2}-\d{2}-[a-c][1-2]-\d+-[a-z-]+\.md$', filename) and
+                filename = file_path.name
+                # Check if it's a main German article (not -jp.md) and from today
+                if (filename.startswith(today) and 
+                    re.match(r'^\d{4}-\d{2}-\d{2}-[a-c][1-2]-\d+-[a-z-]+\.md$', filename) and
                     not filename.endswith('-jp.md')):
-                    changed_files.append(file_path)
+                    changed_files.append(str(file_path))
+                    print(f"✅ Found today's German article: {file_path}")
+        else:
+            print("❌ _posts directory does not exist")
         
         print(f"Final German article files: {changed_files}")
 

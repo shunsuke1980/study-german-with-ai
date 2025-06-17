@@ -2,6 +2,7 @@
 import os
 import sys
 import re
+import time
 from datetime import datetime
 from pathlib import Path
 import glob
@@ -159,19 +160,28 @@ Schreibe nur den deutschen Text, keine zusätzlichen Erklärungen."""
     # Anthropic API call
     client = anthropic.Anthropic(api_key=os.environ['ANTHROPIC_API_KEY'])
     
-    try:
-        message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=1000,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        
-        generated_text = message.content[0].text.strip()
-        print(f"✅ Generated {len(generated_text.split())} words")
-        
-    except Exception as e:
-        print(f"❌ Error calling Claude API: {e}")
-        return
+    # Retry logic for API calls
+    for attempt in range(3):
+        try:
+            print(f"API attempt {attempt + 1}/3...")
+            message = client.messages.create(
+                model="claude-3-5-sonnet-20241022",
+                max_tokens=1000,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            
+            generated_text = message.content[0].text.strip()
+            print(f"✅ Generated {len(generated_text.split())} words")
+            break
+            
+        except Exception as e:
+            print(f"❌ Error calling Claude API (attempt {attempt + 1}): {e}")
+            if attempt < 2:  # Don't sleep on the last attempt
+                print("⏳ Waiting 30 seconds before retry...")
+                time.sleep(30)
+            else:
+                print("❌ All API attempts failed")
+                return
     
     # Verify all words were used
     text_lower = generated_text.lower()
@@ -248,16 +258,19 @@ Focus on {level}-level grammar and vocabulary.
 Write everything in Japanese.
 Do not include practice questions or homework sections."""
     
-    try:
-        jp_message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=2000,
-            messages=[{"role": "user", "content": japanese_prompt}]
-        )
-        
-        japanese_explanation = jp_message.content[0].text.strip()
-        
-        jp_blog_content = f"""---
+    # Retry logic for Japanese explanation
+    for attempt in range(3):
+        try:
+            print(f"Japanese API attempt {attempt + 1}/3...")
+            jp_message = client.messages.create(
+                model="claude-3-5-sonnet-20241022",
+                max_tokens=2000,
+                messages=[{"role": "user", "content": japanese_prompt}]
+            )
+            
+            japanese_explanation = jp_message.content[0].text.strip()
+            
+            jp_blog_content = f"""---
 title: "{title} - 日本語解説"
 date: {today}
 topic: "{topic}"
@@ -274,15 +287,21 @@ original_post: "{main_filename}"
 
 {japanese_explanation}
 """
-        
-        jp_blog_file = posts_dir / jp_filename
-        with open(jp_blog_file, 'w', encoding='utf-8') as f:
-            f.write(jp_blog_content)
-        
-        print(f"📄 Japanese explanation created: {jp_blog_file}")
-        
-    except Exception as e:
-        print(f"❌ Error generating Japanese explanation: {e}")
+            
+            jp_blog_file = posts_dir / jp_filename
+            with open(jp_blog_file, 'w', encoding='utf-8') as f:
+                f.write(jp_blog_content)
+            
+            print(f"📄 Japanese explanation created: {jp_blog_file}")
+            break
+            
+        except Exception as e:
+            print(f"❌ Error generating Japanese explanation (attempt {attempt + 1}): {e}")
+            if attempt < 2:
+                print("⏳ Waiting 30 seconds before retry...")
+                time.sleep(30)
+            else:
+                print("❌ Japanese explanation generation failed after all attempts")
     
     # Generate English explanation
     print("🇺🇸 Generating English explanation...")
@@ -311,16 +330,19 @@ Focus on {level}-level grammar and vocabulary.
 Write everything in clear English.
 Do not include practice exercises or homework sections."""
     
-    try:
-        en_message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=2000,
-            messages=[{"role": "user", "content": english_prompt}]
-        )
-        
-        english_explanation = en_message.content[0].text.strip()
-        
-        en_blog_content = f"""---
+    # Retry logic for English explanation
+    for attempt in range(3):
+        try:
+            print(f"English API attempt {attempt + 1}/3...")
+            en_message = client.messages.create(
+                model="claude-3-5-sonnet-20241022",
+                max_tokens=2000,
+                messages=[{"role": "user", "content": english_prompt}]
+            )
+            
+            english_explanation = en_message.content[0].text.strip()
+            
+            en_blog_content = f"""---
 title: "{title} - English Explanation"
 date: {today}
 topic: "{topic}"
@@ -337,15 +359,21 @@ original_post: "{main_filename}"
 
 {english_explanation}
 """
-        
-        en_blog_file = posts_dir / en_filename
-        with open(en_blog_file, 'w', encoding='utf-8') as f:
-            f.write(en_blog_content)
-        
-        print(f"📄 English explanation created: {en_blog_file}")
-        
-    except Exception as e:
-        print(f"❌ Error generating English explanation: {e}")
+            
+            en_blog_file = posts_dir / en_filename
+            with open(en_blog_file, 'w', encoding='utf-8') as f:
+                f.write(en_blog_content)
+            
+            print(f"📄 English explanation created: {en_blog_file}")
+            break
+            
+        except Exception as e:
+            print(f"❌ Error generating English explanation (attempt {attempt + 1}): {e}")
+            if attempt < 2:
+                print("⏳ Waiting 30 seconds before retry...")
+                time.sleep(30)
+            else:
+                print("❌ English explanation generation failed after all attempts")
     
     print("\n✅ Content generation completed!")
     print(f"📚 Title: {title}")

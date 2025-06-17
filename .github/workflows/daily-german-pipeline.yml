@@ -1,15 +1,334 @@
-name: Update Podcast RSS Feed
+name: Daily German Content Pipeline
 
 on:
   push:
     paths:
-      - 'assets/audio/*.mp3'
+      - 'data/words/*.txt'
     branches:
       - main
-  workflow_dispatch: # Allow manual triggering
+  workflow_dispatch:
 
 jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      content_generated: ${{ steps.check_content.outputs.generated }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install anthropic
+
+    - name: Generate German content
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: |
+        python generate_content.py
+
+    - name: Check if content was generated
+      id: check_content
+      run: |
+        git add _posts/ data/
+        if git diff --staged --quiet; then
+          echo "No new content generated"
+          echo "generated=false" >> $GITHUB_OUTPUT
+        else
+          echo "New content detected"
+          echo "generated=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push new content
+      if: steps.check_content.outputs.generated == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "German Content Generator"
+
+        # Pull latest changes first to avoid conflicts
+        git pull --rebase origin main || true
+
+        COMMIT_MSG="Add A2 German content $(date +%Y-%m-%d) - Focus on vocabulary diversity"
+        if [ $(date +%u) -eq 7 ]; then
+          COMMIT_MSG="$COMMIT_MSG + weekly vocabulary summary"
+        fi
+        git commit -m "$COMMIT_MSG"
+
+        # Try to push, with retry logic
+        for i in {1..3}; do
+          if git push; then
+            echo "Push successful on attempt $i"
+            break
+          else
+            echo "Push failed on attempt $i, pulling and retrying..."
+            git pull --rebase origin main || true
+            sleep 2
+          fi
+        done
+
+  generate-audio:
+    needs: generate-content
+    if: needs.generate-content.outputs.content_generated == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      audio_generated: ${{ steps.check_audio.outputs.generated }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install google-cloud-texttospeech
+
+    - name: Set up Google Cloud credentials
+      run: |
+        echo '${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}' > /tmp/gcp-key.json
+        export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp-key.json
+
+    - name: Generate audio files for German content only
+      env:
+        GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-key.json
+      run: |
+        python << 'EOF'
+        import os
+        import random
+        import re
+        from pathlib import Path
+        from google.cloud import texttospeech
+
+        # ドイツ語音声の選択肢（4つ）
+        GERMAN_VOICES = [
+            {"name": "de-DE-Standard-A", "gender": texttospeech.SsmlVoiceGender.FEMALE},
+            {"name": "de-DE-Standard-B", "gender": texttospeech.SsmlVoiceGender.MALE},
+            {"name": "de-DE-Wavenet-A", "gender": texttospeech.SsmlVoiceGender.FEMALE},
+            {"name": "de-DE-Wavenet-B", "gender": texttospeech.SsmlVoiceGender.MALE}
+        ]
+
+        # Google Cloud TTS クライアント初期化
+        client = texttospeech.TextToSpeechClient()
+
+        # 音声設定
+        audio_config = texttospeech.AudioConfig(
+            audio_encoding=texttospeech.AudioEncoding.MP3
+        )
+
+        # 変更されたファイルを取得
+        import subprocess
+        result = subprocess.run(
+            ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
+            capture_output=True,
+            text=True
+        )
+
+        all_files = result.stdout.strip().split('\n')
+        print(f"All changed files: {all_files}")
+        
+        changed_files = [f for f in all_files if f.startswith('_posts/')]
+        print(f"_posts files: {changed_files}")
+        
+        # If no changed files (manual run), look for today's files
+        if not changed_files or (len(changed_files) == 1 and changed_files[0] == ''):
+            print("No changed files found, checking for today's files...")
+            from pathlib import Path
+            from datetime import datetime
+            today = datetime.now().strftime('%Y-%m-%d')
+            posts_dir = Path("_posts")
+            if posts_dir.exists():
+                today_files = list(posts_dir.glob(f"{today}-*.md"))
+                changed_files = [str(f) for f in today_files]
+                print(f"Found today's files: {changed_files}")
+
+        # メインのドイツ語記事のみをフィルタリング
+        german_files = []
+        for file_path in changed_files:
+            if not file_path or not os.path.exists(file_path):
+                print(f"File does not exist: {file_path}")
+                continue
+
+            # ファイル名パターンをチェック
+            filename = Path(file_path).name
+            print(f"Checking file: {filename}")
+
+            # 除外パターンをチェック
+            if (filename.endswith('-jp.md') or
+                filename.endswith('-en.md') or
+                'weekly' in filename.lower() or
+                'report' in filename.lower()):
+                print(f"Skipping non-German file: {file_path}")
+                continue
+
+            # メインのドイツ語記事を特定
+            # YYYY-MM-DD-topic.md format (Jekyll naming convention)
+            if re.match(r'^\d{4}-\d{2}-\d{2}-[a-z-]+\.md$', filename):
+                german_files.append(file_path)
+                print(f"✅ German article detected: {file_path}")
+            else:
+                print(f"File does not match German article pattern: {filename}")
+
+        if not german_files:
+            print("No German articles found for audio generation")
+            exit(0)
+
+        # assets/audio ディレクトリを作成
+        audio_dir = Path("assets/audio")
+        audio_dir.mkdir(parents=True, exist_ok=True)
+
+        for file_path in german_files:
+            print(f"Processing German article: {file_path}")
+
+            # ファイルの内容を読み取り
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            # YAMLフロントマターを除去
+            if content.startswith('---'):
+                # 最初の --- から次の --- までを除去
+                parts = content.split('---', 2)
+                if len(parts) >= 3:
+                    content = parts[2]
+
+            # ドイツ語テキスト部分のみを抽出
+            lines = content.split('\n')
+            german_text_lines = []
+
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+
+                # 統計セクション以降は除外
+                if line.startswith('**📚 A2-Lernfortschritt:**'):
+                    break
+                if line.startswith('**📊 Tagesstatistiken:**'):
+                    break
+                if line.startswith('**🎯 Neue A2-Vokabeln heute:**'):
+                    break
+                if line.startswith('**📖 Sprachhilfen'):
+                    break
+                if line.startswith('---'):
+                    break
+
+                # マークダウン記号を除去
+                if (not line.startswith('#') and
+                    not line.startswith('*') and
+                    not line.startswith('-') and
+                    not line.startswith('|') and
+                    not line.startswith('>')):
+                    german_text_lines.append(line)
+
+            # ドイツ語テキストを結合
+            german_text = ' '.join(german_text_lines).strip()
+
+            # リンクテキストを除去
+            german_text = re.sub(r'\[([^\]]*)\]\([^\)]*\)', r'\1', german_text)
+
+            # 余分な空白を除去
+            german_text = re.sub(r'\s+', ' ', german_text).strip()
+
+            if not german_text or len(german_text) < 50:
+                print(f"No sufficient German content found in {file_path}")
+                continue
+
+            print(f"Extracted German text length: {len(german_text)} characters")
+            print(f"Text preview: {german_text[:100]}...")
+
+            # ランダムに音声を選択
+            selected_voice = random.choice(GERMAN_VOICES)
+            print(f"Selected voice: {selected_voice['name']}")
+
+            # 音声合成リクエスト
+            synthesis_input = texttospeech.SynthesisInput(text=german_text)
+            voice = texttospeech.VoiceSelectionParams(
+                language_code="de-DE",
+                name=selected_voice["name"],
+                ssml_gender=selected_voice["gender"]
+            )
+
+            # TTS API呼び出し
+            try:
+                response = client.synthesize_speech(
+                    input=synthesis_input,
+                    voice=voice,
+                    audio_config=audio_config
+                )
+
+                # 出力ファイル名を生成（日付部分のみ使用）
+                file_stem = Path(file_path).stem
+                output_file = audio_dir / f"{file_stem}.mp3"
+
+                # 音声ファイルを保存
+                with open(output_file, "wb") as out:
+                    out.write(response.audio_content)
+
+                print(f"✅ Audio saved: {output_file}")
+
+            except Exception as e:
+                print(f"❌ Error generating audio for {file_path}: {e}")
+
+        print("Audio generation completed")
+        EOF
+
+    - name: Check if audio was generated
+      id: check_audio
+      run: |
+        git add assets/audio/*.mp3 || true
+        if git diff --staged --quiet; then
+          echo "No audio files generated"
+          echo "generated=false" >> $GITHUB_OUTPUT
+        else
+          echo "Audio files detected"
+          echo "generated=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push audio files
+      if: steps.check_audio.outputs.generated == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action TTS"
+        
+        # Pull latest changes first
+        git pull --rebase origin main || true
+        
+        git commit -m "Add generated German audio files [skip ci]"
+        
+        # Try to push with retry logic
+        for i in {1..3}; do
+          if git push; then
+            echo "Audio push successful on attempt $i"
+            break
+          else
+            echo "Audio push failed on attempt $i, pulling and retrying..."
+            git pull --rebase origin main || true
+            sleep 2
+          fi
+        done
+
+    - name: Clean up credentials
+      if: always()
+      run: |
+        rm -f /tmp/gcp-key.json
+
   update-podcast-rss:
+    needs: generate-audio
+    if: needs.generate-audio.outputs.audio_generated == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,6 +336,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -331,7 +652,7 @@ jobs:
           echo "✅ Apple Podcasts Compliance:"
           echo "  • iTunes image tag: Added"
           echo "  • iTunes owner tag: Fixed (no duplicates)"
-          echo "  • Email address: study.german.ai@gmail.com"
+          echo "  • Email address: 24.madding_cuts@icloud.com"
           echo "  • Custom domain: https://www.study-german.info"
           echo "  • XML formatting: Proper line breaks"
         else

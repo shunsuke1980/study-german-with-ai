@@ -175,6 +175,28 @@ jobs:
             )
             all_files = [f for f in result.stdout.strip().split('\n') if f.startswith('_posts/') and f.endswith('.md')]
             print(f"Git show HEAD result: {all_files}")
+            
+            # Extract these files from git to the filesystem
+            for file_path in all_files:
+                if file_path:
+                    print(f"Extracting {file_path} from git")
+                    # Create directory if it doesn't exist
+                    file_dir = os.path.dirname(file_path)
+                    if file_dir:
+                        os.makedirs(file_dir, exist_ok=True)
+                    
+                    # Extract file content from git
+                    result = subprocess.run(
+                        ["git", "show", f"HEAD:{file_path}"],
+                        capture_output=True,
+                        text=True
+                    )
+                    if result.returncode == 0:
+                        with open(file_path, 'w', encoding='utf-8') as f:
+                            f.write(result.stdout)
+                        print(f"✅ Successfully extracted {file_path}")
+                    else:
+                        print(f"❌ Failed to extract {file_path}: {result.stderr}")
         
         # If still no files, try to find them in the filesystem
         if not all_files or (len(all_files) == 1 and all_files[0] == ''):

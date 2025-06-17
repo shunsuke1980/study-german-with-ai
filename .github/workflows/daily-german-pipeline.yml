@@ -183,7 +183,7 @@ jobs:
             print(f"Checking file: {filename}")
 
             # 除外パターンをチェック
-            if (filename.endswith('-jp.md'):
+            if filename.endswith('-jp.md'):
                 print(f"Skipping non-German file: {file_path}")
                 continue
 
@@ -446,7 +446,7 @@ jobs:
                         if matches:
                             # Return the first match that's not a -jp.md file
                             for match in matches:
-                                if not (match.name.endswith('-jp.md'):
+                                if not match.name.endswith('-jp.md'):
                                     return match
             return None
 

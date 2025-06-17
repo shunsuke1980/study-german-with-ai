@@ -200,7 +200,6 @@ Schreibe nur den deutschen Text, keine zusätzlichen Erklärungen."""
     # Generate Jekyll-style filenames
     main_filename = generate_jekyll_filename(title, today)
     jp_filename = generate_jekyll_filename(title, today, "jp")
-    en_filename = generate_jekyll_filename(title, today, "en")
 
     # Create main blog post
     blog_content = f"""---
@@ -216,6 +215,9 @@ generated: true
 {generated_text}
 
 ---
+
+**📖 Sprachhilfen / Language Support:**
+- 🇯🇵 [日本語解説 / Japanese Explanation](../{jp_filename.replace('.md', '.html')})
 
 **📝 Verwendete Wörter / Used Words:**
 {', '.join(words)}
@@ -299,37 +301,12 @@ original_post: "{main_filename}"
             else:
                 print("❌ Japanese explanation generation failed after all attempts")
 
-# 📚 {level} German Study Guide: {topic}
-
-**Original Article**: [{title}](../{main_filename.replace('.md', '.html')})
-
----
-
-{english_explanation}
-"""
-
-            en_blog_file = posts_dir / en_filename
-            with open(en_blog_file, 'w', encoding='utf-8') as f:
-                f.write(en_blog_content)
-
-            print(f"📄 English explanation created: {en_blog_file}")
-            break
-
-        except Exception as e:
-            print(f"❌ Error generating English explanation (attempt {attempt + 1}): {e}")
-            if attempt < 2:
-                print("⏳ Waiting 30 seconds before retry...")
-                time.sleep(30)
-            else:
-                print("❌ English explanation generation failed after all attempts")
-
     print("\n✅ Content generation completed!")
     print(f"📚 Title: {title}")
     print(f"📝 Words used: {len(used_words)}/{len(words)}")
     print(f"📄 Files created:")
     print(f"   - {main_filename}")
     print(f"   - {jp_filename}")
-    print(f"   - {en_filename}")
 
 if __name__ == "__main__":
     main()

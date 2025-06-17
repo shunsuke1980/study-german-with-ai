@@ -1,0 +1,58 @@
+{
+  "date": "2025-06-17",
+  "total_unique_words": 316,
+  "total_words_used": 415,
+  "recent_unique_words": 316,
+  "most_common_words": [
+    [
+      "meine",
+      7
+    ],
+    [
+      "manchmal",
+      7
+    ],
+    [
+      "zusammen",
+      6
+    ],
+    [
+      "mich",
+      5
+    ],
+    [
+      "immer",
+      5
+    ],
+    [
+      "gerne",
+      5
+    ],
+    [
+      "meiner",
+      5
+    ],
+    [
+      "sehr",
+      4
+    ],
+    [
+      "einkaufen",
+      4
+    ],
+    [
+      "dort",
+      4
+    ]
+  ],
+  "overused_words": 54,
+  "vocabulary_diversity_score": 76.14,
+  "a2_progress": {
+    "words_learned": 58,
+    "total_target": 383,
+    "progress_percent": 15.14,
+    "remaining_words": 325,
+    "daily_pace": 19.33,
+    "estimated_completion_days": 17.0
+  }
+}

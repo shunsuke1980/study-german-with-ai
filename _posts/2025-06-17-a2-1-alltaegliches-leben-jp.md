@@ -13,84 +13,84 @@ original_post: "2025-06-17-a2-1-alltaegliches-leben.md"
 
 ---
 
-# ドイツ語A2 学習ガイド：日常生活について
+# A2ドイツ語：日常生活について
 
 ## 🎯 今日の学習目標
 - 日常生活に関する基本的な表現を習得する
 - 日課を説明できるようになる
-- 時間表現の使い方を理解する
-- 必要性を表す表現を学ぶ
+- 時間表現と日常的な動詞の使い方を理解する
 
 ## 📖 重要語彙解説
 
 ### 1. passieren パッシーレン
 - 意味：起こる、発生する
 - 例文：Jeden Morgen passiert das Gleiche
-- 文法：自動詞として使用。現在形では主に3人称で使用
+- 文法：自動詞として使用、現在形では passiert
 
 ### 2. Mantel マンテル
 - 意味：コート、外套
-- 例文：Danach ziehe ich meinen warmen Mantel an
-- 文法：男性名詞、複数形はMäntel
+- 例文：ich ziehe meinen warmen Mantel an
+- 文法：男性名詞、複数形は Mäntel
 
 ### 3. halten ハルテン
-- 意味：止まる、保持する
-- 例文：Ich muss an einer großen Kreuzung halten
-- 文法：不規則動詞、現在形：halte, hältst, hält
+- 意味：止まる、保つ、維持する
+- 例文：Wir halten uns dort gerne auf
+- 文法：不規則動詞、sich aufhalten（滞在する）という再帰動詞としても使用
 
 ### 4. brauchen ブラウヘン
 - 意味：必要とする
-- 例文：Wir brauchen heute viele Dokumente
-- 文法：目的語を4格で取る規則動詞
+- 例文：ich brauche erst einmal einen Kaffee
+- 文法：他動詞、目的語は4格
 
 ### 5. notwendig ノートヴェンディヒ
 - 意味：必要な、不可欠な
-- 例文：Es ist notwendig, dass wir gut zusammenarbeiten
-- 文法：形容詞として使用
+- 例文：für mich ist er einfach notwendig
+- 文法：形容詞、述語的用法
 
 ### 6. Kreuzung クロイツング
 - 意味：交差点
-- 例文：An einer großen Kreuzung
-- 文法：女性名詞、複数形はKreuzungen
+- 例文：An der großen Kreuzung muss ich immer lange warten
+- 文法：女性名詞、複数形は Kreuzungen
 
 ### 7. gehören ゲヘーレン
-- 意味：～に属する、～の一部である
-- 例文：Sie gehört zu meiner Morgenroutine
-- 文法：zu + 3格を取る
+- 意味：所属する、～の一部である
+- 例文：Zu meinen Aufgaben gehören E-Mails schreiben
+- 文法：zu + 3格で「～に属する」
 
 ### 8. Pflanze プフランツェ
 - 意味：植物
-- 例文：Zuerst gieße ich meine Pflanze
-- 文法：女性名詞、複数形はPflanzen
+- 例文：eine kleine grüne Pflanze
+- 文法：女性名詞、複数形は Pflanzen
 
 ### 9. meinen マイネン
-- 意味：思う、意見を言う
-- 例文：Sie meint, dass der Verkehr morgens immer schlimmer wird
-- 文法：規則動詞
+- 意味：思う、考える
+- 例文：Manchmal meinen meine Freunde
+- 文法：他動詞、意見を表明する際に使用
 
 ### 10. nur ヌア
-- 意味：～だけ、ただ
-- 例文：Manchmal möchte ich nur weiterschlafen
-- 文法：副詞として使用
+- 意味：～だけ、たった
+- 例文：Der Weg ist nicht lang, nur 15 Minuten zu Fuß
+- 文法：副詞、制限を表す
 
 ## 📝 重要文法ポイント
-1. 分離動詞の使用
-   - aufstehen, einkaufen など
-2. zu不定詞句
-   - Es ist notwendig, dass...
-3. 従属接続詞dass
-   - Sie meint, dass...
-4. 時間表現
-   - jeden Morgen, um 7 Uhr
+1. 時間表現の使い方
+   - Jeden Morgen（毎朝）
+   - um 7 Uhr（7時に）
+   - manchmal（時々）
+
+2. zu + 不定詞の使い方
+   - zu meinen Aufgaben gehören（私の仕事に含まれる）
+
+3. 分離動詞の使い方
+   - anziehen（着る）
+   - einkaufen（買い物をする）
 
 ## 🗣️ 実用フレーズ
-- Jeden Morgen passiert das Gleiche
-  （毎朝同じことが起こります）
-- Es ist noch kalt draußen
-  （外はまだ寒いです）
-- Wir müssen gut zusammenarbeiten
-  （私たちはよく協力しなければなりません）
-- Ich schreibe immer eine Liste
-  （私はいつもリストを書きます）
-- Gegen 23 Uhr bin ich müde
-  （23時頃には疲れています）
+- Jeden Morgen passiert das Gleiche.
+（毎朝同じことが起こります）
+- Ich brauche erst einmal einen Kaffee.
+（まずはコーヒーが必要です）
+- Zu meinen Aufgaben gehören...
+（私の仕事には～が含まれます）
+- So sieht mein Alltag aus.
+（これが私の日常です）

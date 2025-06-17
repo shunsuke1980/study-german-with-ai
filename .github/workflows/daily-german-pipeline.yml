@@ -129,6 +129,13 @@ jobs:
 
         # 変更されたファイルを取得
         import subprocess
+        
+        # Debug: Check current directory and list files
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"Files in current directory: {os.listdir('.')}")
+        if os.path.exists('_posts'):
+            print(f"Files in _posts: {os.listdir('_posts')}")
+        
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
             capture_output=True,
@@ -156,7 +163,11 @@ jobs:
         # メインのドイツ語記事のみをフィルタリング
         german_files = []
         for file_path in changed_files:
-            if not file_path or not os.path.exists(file_path):
+            if not file_path:
+                continue
+            
+            # Check if file exists (file_path already includes _posts/ prefix)
+            if not os.path.exists(file_path):
                 print(f"File does not exist: {file_path}")
                 continue
 

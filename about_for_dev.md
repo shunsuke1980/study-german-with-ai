@@ -141,7 +141,6 @@ english_explanation = claude_api.generate(
 blog/
 ├── 2025-06-15.md       # ドイツ語記事
 ├── 2025-06-15-jp.md    # 日本語解説
-├── 2025-06-15-en.md    # 英語解説
 └── 2025-06-15.mp3      # 音声（assets/audio/）
 ```
 
@@ -152,7 +151,6 @@ blog/
 ```python
 # メインドイツ語記事のみを音声化
 if (filename.endswith('-jp.md') or
-    filename.endswith('-en.md') or
     'weekly' in filename.lower()):
     continue
 

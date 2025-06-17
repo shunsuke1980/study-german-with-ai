@@ -9,7 +9,7 @@ This is a Jekyll-based blog for documenting German language learning from A2 to 
 ## Architecture
 
 Jekyll static site with:
-- `_posts/`: Blog posts in Jekyll format (YYYY-MM-DD.md, YYYY-MM-DD-jp.md, YYYY-MM-DD-en.md)
+- `_posts/`: Blog posts in Jekyll format (YYYY-MM-DD.md, YYYY-MM-DD-jp.md)
 - `_config.yml`: Site configuration
 - `data/`: Vocabulary tracking and progress data
 - `assets/audio/`: Generated German audio files (MP3)
@@ -34,10 +34,9 @@ JEKYLL_ENV=production jekyll build
 ```
 
 ### Creating New Posts
-Posts are automatically created in `_posts/` with Jekyll filename format: 
+Posts are automatically created in `_posts/` with Jekyll filename format:
 - `YYYY-MM-DD-topic-title-with-dashes.md` (main German content)
-- `YYYY-MM-DD-topic-title-with-dashes-jp.md` (Japanese explanation)  
-- `YYYY-MM-DD-topic-title-with-dashes-en.md` (English explanation)
+- `YYYY-MM-DD-topic-title-with-dashes-jp.md` (Japanese explanation)
 - `YYYY-MM-DD-woechentlicher-fortschrittsbericht-weekly.md` (weekly progress reports)
 
 Each post requires front matter:

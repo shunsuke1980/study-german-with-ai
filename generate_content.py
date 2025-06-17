@@ -15,7 +15,7 @@ if 'ANTHROPIC_API_KEY' not in os.environ:
 if not os.environ['ANTHROPIC_API_KEY']:
     print("ERROR: ANTHROPIC_API_KEY is empty")
     sys.exit(1)
-    
+
 print(f"API Key found (length: {len(os.environ['ANTHROPIC_API_KEY'])})")
 
 try:
@@ -29,53 +29,53 @@ def generate_jekyll_filename(title, date_str, suffix=""):
     """Jekyll形式のファイル名を生成 (YYYY-MM-DD-title-with-dashes.md)"""
     # タイトルをURLフレンドリーに変換
     clean_title = title.lower()
-    
+
     # ドイツ語特殊文字の変換
     replacements = {
         'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss',
     }
-    
+
     for old, new in replacements.items():
         clean_title = clean_title.replace(old, new)
-    
+
     # 英数字とハイフンのみ残す
     clean_title = re.sub(r'[^a-z0-9\s-]', '', clean_title)
-    
+
     # スペースをハイフンに変換、連続するハイフンを単一化
     clean_title = re.sub(r'\s+', '-', clean_title.strip())
     clean_title = re.sub(r'-+', '-', clean_title)
     clean_title = clean_title.strip('-')
-    
+
     # ファイル名を組み立て
     if suffix:
         filename = f"{date_str}-{clean_title}-{suffix}.md"
     else:
         filename = f"{date_str}-{clean_title}.md"
-        
+
     return filename
 
 def get_latest_word_file():
     """Get the most recently modified word file from data/words/"""
     word_files = glob.glob("data/words/*.txt")
-    
+
     if not word_files:
         print("No word files found in data/words/")
         return None, None, None
-    
+
     # Get the most recently modified file
     latest_file = max(word_files, key=os.path.getmtime)
-    
+
     # Extract level and number from filename (e.g., A2_1.txt -> A2, 1)
     filename = os.path.basename(latest_file)
     match = re.match(r'([A-C][1-2])_(\d+)\.txt', filename)
-    
+
     if not match:
         print(f"Invalid filename format: {filename}")
         return None, None, None
-    
+
     level = match.group(1)
     number = match.group(2)
-    
+
     return latest_file, level, number
 
 def read_words_from_file(file_path):
@@ -95,53 +95,53 @@ def determine_topic_from_words(words):
         "Verkehrsmittel und Reisen": ["auto", "bus", "zug", "flugzeug", "reise", "urlaub"],
         "Alltägliches Leben": []  # Default topic
     }
-    
+
     # Count matches for each topic
     topic_scores = {}
     for topic, keywords in topic_keywords.items():
         score = sum(1 for word in words if any(kw in word.lower() for kw in keywords))
         topic_scores[topic] = score
-    
+
     # Return topic with highest score, or default
     best_topic = max(topic_scores.items(), key=lambda x: x[1])
     return best_topic[0] if best_topic[1] > 0 else "Alltägliches Leben"
 
 def main():
     print("🚀 Starting German content generation from word file...")
-    
+
     # Get the latest word file
     word_file, level, number = get_latest_word_file()
-    
+
     if not word_file:
         print("❌ No word file found to process")
         sys.exit(1)
-    
+
     print(f"📄 Processing word file: {word_file}")
     print(f"📊 Level: {level}, Number: {number}")
-    
+
     # Read words from file
     words = read_words_from_file(word_file)
     print(f"📝 Found {len(words)} words to use")
-    
+
     if not words:
         print("❌ No words found in the file")
         sys.exit(1)
-    
+
     # Determine topic from words
     topic = determine_topic_from_words(words)
     print(f"📚 Determined topic: {topic}")
-    
+
     # Create title in the format "A2 1. Topic"
     title = f"{level} {number}. {topic}"
     print(f"📖 Blog title: {title}")
-    
+
     # Today's date
     today = datetime.now().strftime('%Y-%m-%d')
     print(f"📅 Generating content for: {today}")
-    
+
     # Build prompt for Claude
     words_list = ", ".join(words)
-    
+
     prompt = f"""Schreibe einen interessanten deutschen Text zum Thema '{topic}'.
 
 Anforderungen:
@@ -156,10 +156,10 @@ Der Text soll für {level}-Deutschlernende interessant sein.
 Schreibe nur den deutschen Text, keine zusätzlichen Erklärungen."""
 
     print("🤖 Calling Claude API...")
-    
+
     # Anthropic API call
     client = anthropic.Anthropic(api_key=os.environ['ANTHROPIC_API_KEY'])
-    
+
     # Retry logic for API calls
     for attempt in range(3):
         try:
@@ -169,11 +169,11 @@ Schreibe nur den deutschen Text, keine zusätzlichen Erklärungen."""
                 max_tokens=1000,
                 messages=[{"role": "user", "content": prompt}]
             )
-            
+
             generated_text = message.content[0].text.strip()
             print(f"✅ Generated {len(generated_text.split())} words")
             break
-            
+
         except Exception as e:
             print(f"❌ Error calling Claude API (attempt {attempt + 1}): {e}")
             if attempt < 2:  # Don't sleep on the last attempt
@@ -182,26 +182,26 @@ Schreibe nur den deutschen Text, keine zusätzlichen Erklärungen."""
             else:
                 print("❌ All API attempts failed")
                 return
-    
+
     # Verify all words were used
     text_lower = generated_text.lower()
     used_words = [word for word in words if word.lower() in text_lower]
     unused_words = [word for word in words if word.lower() not in text_lower]
-    
+
     if unused_words:
         print(f"⚠️  Warning: {len(unused_words)} words were not used: {', '.join(unused_words)}")
     else:
         print(f"✅ All {len(words)} words were successfully used")
-    
+
     # Jekyll _posts directory
     posts_dir = Path("_posts")
     posts_dir.mkdir(exist_ok=True)
-    
+
     # Generate Jekyll-style filenames
     main_filename = generate_jekyll_filename(title, today)
     jp_filename = generate_jekyll_filename(title, today, "jp")
     en_filename = generate_jekyll_filename(title, today, "en")
-    
+
     # Create main blog post
     blog_content = f"""---
 title: "{title}"
@@ -217,23 +217,19 @@ generated: true
 
 ---
 
-**📖 Sprachhilfen / Language Support:**
-- 🇯🇵 [日本語解説 / Japanese Explanation](../{jp_filename.replace('.md', '.html')})
-- 🇺🇸 [English Explanation](../{en_filename.replace('.md', '.html')})
-
 **📝 Verwendete Wörter / Used Words:**
 {', '.join(words)}
 """
-    
+
     blog_file = posts_dir / main_filename
     with open(blog_file, 'w', encoding='utf-8') as f:
         f.write(blog_content)
-    
+
     print(f"📄 Main blog post created: {blog_file}")
-    
+
     # Generate Japanese explanation
     print("🇯🇵 Generating Japanese explanation...")
-    
+
     japanese_prompt = f"""Create a detailed Japanese explanation article for {level} German learners based on this German text:
 
 GERMAN TEXT:
@@ -257,7 +253,7 @@ Format the article in markdown with proper headers.
 Focus on {level}-level grammar and vocabulary.
 Write everything in Japanese.
 Do not include practice questions or homework sections."""
-    
+
     # Retry logic for Japanese explanation
     for attempt in range(3):
         try:
@@ -267,9 +263,9 @@ Do not include practice questions or homework sections."""
                 max_tokens=2000,
                 messages=[{"role": "user", "content": japanese_prompt}]
             )
-            
+
             japanese_explanation = jp_message.content[0].text.strip()
-            
+
             jp_blog_content = f"""---
 title: "{title} - 日本語解説"
 date: {today}
@@ -287,14 +283,14 @@ original_post: "{main_filename}"
 
 {japanese_explanation}
 """
-            
+
             jp_blog_file = posts_dir / jp_filename
             with open(jp_blog_file, 'w', encoding='utf-8') as f:
                 f.write(jp_blog_content)
-            
+
             print(f"📄 Japanese explanation created: {jp_blog_file}")
             break
-            
+
         except Exception as e:
             print(f"❌ Error generating Japanese explanation (attempt {attempt + 1}): {e}")
             if attempt < 2:
@@ -302,54 +298,6 @@ original_post: "{main_filename}"
                 time.sleep(30)
             else:
                 print("❌ Japanese explanation generation failed after all attempts")
-    
-    # Generate English explanation
-    print("🇺🇸 Generating English explanation...")
-    
-    english_prompt = f"""Create a detailed English explanation article for {level} German learners based on this German text:
-
-GERMAN TEXT:
-{generated_text}
-
-TOPIC: {topic}
-WORDS TO EXPLAIN: {', '.join(words)}
-
-Please create a comprehensive English explanation article that includes:
-
-1. 🎯 **Today's Learning Goals** - Learning objectives for the day
-2. 📖 **Key Vocabulary Analysis** - Detailed explanation for ALL the words: {', '.join(words)}
-   - Pronunciation guide
-   - English translation
-   - Example sentences from the text
-   - Grammar notes and word formation
-3. 📝 **Important Grammar Points** - Important grammar points from the text
-4. 🗣️ **Useful Phrases** - Practical phrases related to the topic
-
-Format the article in markdown with proper headers.
-Focus on {level}-level grammar and vocabulary.
-Write everything in clear English.
-Do not include practice exercises or homework sections."""
-    
-    # Retry logic for English explanation
-    for attempt in range(3):
-        try:
-            print(f"English API attempt {attempt + 1}/3...")
-            en_message = client.messages.create(
-                model="claude-3-5-sonnet-20241022",
-                max_tokens=2000,
-                messages=[{"role": "user", "content": english_prompt}]
-            )
-            
-            english_explanation = en_message.content[0].text.strip()
-            
-            en_blog_content = f"""---
-title: "{title} - English Explanation"
-date: {today}
-topic: "{topic}"
-type: "english_explanation"
-difficulty_level: "{level}"
-original_post: "{main_filename}"
----
 
 # 📚 {level} German Study Guide: {topic}
 
@@ -359,14 +307,14 @@ original_post: "{main_filename}"
 
 {english_explanation}
 """
-            
+
             en_blog_file = posts_dir / en_filename
             with open(en_blog_file, 'w', encoding='utf-8') as f:
                 f.write(en_blog_content)
-            
+
             print(f"📄 English explanation created: {en_blog_file}")
             break
-            
+
         except Exception as e:
             print(f"❌ Error generating English explanation (attempt {attempt + 1}): {e}")
             if attempt < 2:
@@ -374,7 +322,7 @@ original_post: "{main_filename}"
                 time.sleep(30)
             else:
                 print("❌ English explanation generation failed after all attempts")
-    
+
     print("\n✅ Content generation completed!")
     print(f"📚 Title: {title}")
     print(f"📝 Words used: {len(used_words)}/{len(words)}")

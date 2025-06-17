@@ -171,8 +171,8 @@ jobs:
                 continue
 
             # メインのドイツ語記事を特定
-            # YYYY-MM-DD-topic.md format (Jekyll naming convention)
-            if re.match(r'^\d{4}-\d{2}-\d{2}-[a-z-]+\.md$', filename):
+            # YYYY-MM-DD-level-number-topic.md format (e.g., 2025-06-17-a2-1-alltaegliches-leben.md)
+            if re.match(r'^\d{4}-\d{2}-\d{2}-[a-c][1-2]-\d+-[a-z-]+\.md$', filename):
                 german_files.append(file_path)
                 print(f"✅ German article detected: {file_path}")
             else:

@@ -8,8 +8,8 @@
     <copyright>© 2025 AI German Learning System</copyright>
     <managingEditor>24.madding_cuts@icloud.com (AI German Learning System)</managingEditor>
     <webMaster>24.madding_cuts@icloud.com (AI German Learning System)</webMaster>
-    <pubDate>Tue, 17 Jun 2025 18:25:45 -0000</pubDate>
-    <lastBuildDate>Tue, 17 Jun 2025 18:25:45 -0000</lastBuildDate>
+    <pubDate>Sun, 22 Jun 2025 13:01:23 -0000</pubDate>
+    <lastBuildDate>Sun, 22 Jun 2025 13:01:23 -0000</lastBuildDate>
     <generator>AI German Learning System</generator>
     <itunes:author>AI German Learning System</itunes:author>
     <itunes:summary>Daily A2-level German learning content with AI-optimized materials for language learners</itunes:summary>
@@ -23,6 +23,20 @@
       <itunes:category text="Language Learning" />
     </itunes:category>
     <itunes:image href="https://www.study-german.info/assets/images/podcast.jpg" />
+    <item>
+      <title>A2 1. Alltägliches Leben</title>
+      <description>A2 German learning episode about: Alltägliches Leben</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/episodes/2025-06-22</guid>
+      <pubDate>Sun, 22 Jun 2025 09:00:00 -0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/2025-06-22-a2-1-alltaegliches-leben.mp3" length="705792" type="audio/mpeg" />
+      <itunes:title>A2 1. Alltägliches Leben</itunes:title>
+      <itunes:summary>Daily German A2 learning content covering: Alltägliches Leben</itunes:summary>
+      <itunes:duration>00:44</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>A2 1. Alltägliches Leben</title>
       <description>A2 German learning episode about: Alltägliches Leben</description>

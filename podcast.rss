@@ -8,8 +8,8 @@
     <copyright>© 2025 AI German Learning System</copyright>
     <managingEditor>24.madding_cuts@icloud.com (AI German Learning System)</managingEditor>
     <webMaster>24.madding_cuts@icloud.com (AI German Learning System)</webMaster>
-    <pubDate>Sun, 22 Jun 2025 13:36:17 -0000</pubDate>
-    <lastBuildDate>Sun, 22 Jun 2025 13:36:17 -0000</lastBuildDate>
+    <pubDate>Sun, 22 Jun 2025 16:53:42 -0000</pubDate>
+    <lastBuildDate>Sun, 22 Jun 2025 16:53:42 -0000</lastBuildDate>
     <generator>AI German Vocabulary Learning System</generator>
     <itunes:author>AI German Learning System</itunes:author>
     <itunes:summary>Learn German vocabulary with AI-generated content featuring etymology, memory techniques, and pronunciation practice</itunes:summary>
@@ -23,6 +23,20 @@
       <itunes:category text="Language Learning" />
     </itunes:category>
     <itunes:image href="https://www.study-german.info/assets/images/podcast.jpg" />
+    <item>
+      <title>German Vocabulary Episode 1</title>
+      <description>Learn German vocabulary with Episode 1 featuring etymology, memory techniques, and pronunciation practice.</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/vocabulary/episode-1</guid>
+      <pubDate>Sun, 22 Jun 2025 09:00:00 -0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/episode-1.mp3" length="2582253" type="audio/mpeg" />
+      <itunes:title>German Vocabulary Episode 1</itunes:title>
+      <itunes:summary>Learn German vocabulary with Episode 1 featuring etymology, memory techniques, and pronunciation practice.</itunes:summary>
+      <itunes:duration>02:41</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
     <item>
       <title>A2 1. Alltägliches Leben</title>
       <description>German learning content for 2025-06-17 with comprehensive vocabulary and grammar.</description>

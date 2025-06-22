@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Study German with AI - Vocabulary Learning</title>
-    <description>Daily German vocabulary learning with AI-generated content, etymology, and pronunciation practice</description>
+    <title>Study German with AI (A2)</title>
+    <description>Daily A2-level German learning content with AI-optimized materials</description>
     <link>https://www.study-german.info</link>
     <language>de-DE</language>
     <copyright>© 2025 AI German Learning System</copyright>
     <managingEditor>24.madding_cuts@icloud.com (AI German Learning System)</managingEditor>
     <webMaster>24.madding_cuts@icloud.com (AI German Learning System)</webMaster>
-    <pubDate>Sun, 22 Jun 2025 13:02:34 -0000</pubDate>
-    <lastBuildDate>Sun, 22 Jun 2025 13:02:34 -0000</lastBuildDate>
-    <generator>AI German Vocabulary Learning System</generator>
+    <pubDate>Sun, 22 Jun 2025 13:15:27 -0000</pubDate>
+    <lastBuildDate>Sun, 22 Jun 2025 13:15:27 -0000</lastBuildDate>
+    <generator>AI German Learning System</generator>
     <itunes:author>AI German Learning System</itunes:author>
-    <itunes:summary>Learn German vocabulary with AI-generated content featuring etymology, memory techniques, and pronunciation practice</itunes:summary>
+    <itunes:summary>Daily A2-level German learning content with AI-optimized materials for language learners</itunes:summary>
     <itunes:owner>
       <itunes:name>AI German Learning System</itunes:name>
       <itunes:email>24.madding_cuts@icloud.com</itunes:email>
@@ -25,27 +25,29 @@
     <itunes:image href="https://www.study-german.info/assets/images/podcast.jpg" />
     <item>
       <title>A2 1. Alltägliches Leben</title>
-      <description>German learning content for 2025-06-22 with comprehensive vocabulary and grammar.</description>
+      <description>A2 German learning episode about: Alltägliches Leben</description>
       <link>https://www.study-german.info/</link>
       <guid>https://www.study-german.info/episodes/2025-06-22</guid>
       <pubDate>Sun, 22 Jun 2025 09:00:00 -0000</pubDate>
-      <enclosure url="https://www.study-german.info/assets/audio/2025-06-22-a2-1-alltaegliches-leben.mp3" length="705792" type="audio/mpeg" />
+      <enclosure url="https://www.study-german.info/assets/audio/2025-06-22-a2-1-alltaegliches-leben.mp3" length="635904" type="audio/mpeg" />
       <itunes:title>A2 1. Alltägliches Leben</itunes:title>
-      <itunes:summary>German learning content for 2025-06-22 with comprehensive vocabulary and grammar.</itunes:summary>
-      <itunes:duration>00:44</itunes:duration>
+      <itunes:summary>Daily German A2 learning content covering: Alltägliches Leben</itunes:summary>
+      <itunes:duration>00:39</itunes:duration>
+      <itunes:episode>2</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
     <item>
       <title>A2 1. Alltägliches Leben</title>
-      <description>German learning content for 2025-06-17 with comprehensive vocabulary and grammar.</description>
+      <description>A2 German learning episode about: Alltägliches Leben</description>
       <link>https://www.study-german.info/</link>
       <guid>https://www.study-german.info/episodes/2025-06-17</guid>
       <pubDate>Tue, 17 Jun 2025 09:00:00 -0000</pubDate>
       <enclosure url="https://www.study-german.info/assets/audio/2025-06-17-a2-1-alltaegliches-leben.mp3" length="702528" type="audio/mpeg" />
       <itunes:title>A2 1. Alltägliches Leben</itunes:title>
-      <itunes:summary>German learning content for 2025-06-17 with comprehensive vocabulary and grammar.</itunes:summary>
+      <itunes:summary>Daily German A2 learning content covering: Alltägliches Leben</itunes:summary>
       <itunes:duration>00:43</itunes:duration>
+      <itunes:episode>1</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>

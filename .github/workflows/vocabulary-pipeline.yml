@@ -85,8 +85,224 @@ jobs:
       run: |
         rm -f /tmp/gcp-key.json
 
-  update-podcast-rss:
+  generate-audio-from-ssml:
     needs: generate-vocabulary-content
+    if: needs.generate-vocabulary-content.outputs.content_generated == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      audio_generated: ${{ steps.check_audio.outputs.generated }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Pull latest changes including SSML files
+      run: |
+        echo "Pulling latest changes from main"
+        git pull origin main || true
+        echo "Current HEAD commit:"
+        git log -1 --oneline
+        echo "Checking for SSML files:"
+        ls -la data/ssml/ || echo "No data/ssml directory found"
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install google-cloud-texttospeech
+
+    - name: Set up Google Cloud credentials
+      run: |
+        echo '${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}' > /tmp/gcp-key.json
+        export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp-key.json
+
+    - name: Generate audio files from SSML
+      env:
+        GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-key.json
+      run: |
+        python << 'EOF'
+        import os
+        import re
+        from pathlib import Path
+        from google.cloud import texttospeech
+
+        def generate_audio_from_ssml():
+            """Generate MP3 audio files from SSML files"""
+            print("🎵 Generating audio files from SSML...")
+            
+            # Initialize Google Cloud TTS client
+            client = texttospeech.TextToSpeechClient()
+            
+            # Audio configuration
+            audio_config = texttospeech.AudioConfig(
+                audio_encoding=texttospeech.AudioEncoding.MP3,
+                speaking_rate=1.0,
+                pitch=0.0
+            )
+            
+            # Voice configuration (using high-quality German voice)
+            voice = texttospeech.VoiceSelectionParams(
+                language_code="de-DE",
+                name="de-DE-Wavenet-F",  # High quality female voice
+                ssml_gender=texttospeech.SsmlVoiceGender.FEMALE
+            )
+            
+            # Find SSML files
+            ssml_dir = Path("data/ssml")
+            if not ssml_dir.exists():
+                print("❌ No data/ssml directory found")
+                return False
+            
+            ssml_files = list(ssml_dir.glob("episode-*-ssml.xml"))
+            if not ssml_files:
+                print("ℹ️  No SSML files found")
+                return False
+            
+            print(f"📄 Found {len(ssml_files)} SSML files")
+            
+            # Ensure audio directory exists
+            audio_dir = Path("assets/audio")
+            audio_dir.mkdir(parents=True, exist_ok=True)
+            
+            audio_generated = False
+            
+            for ssml_file in ssml_files:
+                # Extract episode number from filename
+                episode_match = re.search(r'episode-(\d+)-ssml\.xml$', ssml_file.name)
+                if not episode_match:
+                    print(f"⚠️  Skipping {ssml_file.name} - invalid filename format")
+                    continue
+                
+                episode_num = episode_match.group(1)
+                audio_file = audio_dir / f"episode-{episode_num}.mp3"
+                
+                # Skip if audio file already exists
+                if audio_file.exists():
+                    print(f"⏭️  Audio file already exists: {audio_file.name}")
+                    continue
+                
+                print(f"🔄 Processing {ssml_file.name} -> {audio_file.name}")
+                
+                try:
+                    # Read SSML content
+                    with open(ssml_file, 'r', encoding='utf-8') as f:
+                        ssml_content = f.read()
+                    
+                    # Clean up SSML (remove XML declaration if present)
+                    if ssml_content.startswith('<?xml'):
+                        lines = ssml_content.split('\n')
+                        ssml_content = '\n'.join(lines[1:])
+                    
+                    # Remove extra whitespace and formatting
+                    ssml_content = re.sub(r'\n\s*', ' ', ssml_content)
+                    ssml_content = re.sub(r'\s+', ' ', ssml_content).strip()
+                    
+                    print(f"📝 SSML content length: {len(ssml_content)} characters")
+                    print(f"🔍 SSML preview: {ssml_content[:100]}...")
+                    
+                    # Create synthesis input
+                    synthesis_input = texttospeech.SynthesisInput(ssml=ssml_content)
+                    
+                    # Generate audio
+                    print(f"🔊 Calling Google Cloud TTS...")
+                    response = client.synthesize_speech(
+                        input=synthesis_input,
+                        voice=voice,
+                        audio_config=audio_config
+                    )
+                    
+                    # Save audio file
+                    with open(audio_file, 'wb') as out:
+                        out.write(response.audio_content)
+                    
+                    # Verify file was created and has content
+                    if audio_file.exists() and audio_file.stat().st_size > 0:
+                        file_size = audio_file.stat().st_size
+                        print(f"✅ Audio generated: {audio_file.name} ({file_size:,} bytes)")
+                        audio_generated = True
+                    else:
+                        print(f"❌ Failed to create audio file: {audio_file.name}")
+                    
+                except Exception as e:
+                    print(f"❌ Error generating audio for {ssml_file.name}: {e}")
+                    # Print more details for debugging
+                    import traceback
+                    print(f"🔍 Full error: {traceback.format_exc()}")
+            
+            if audio_generated:
+                print("✅ Audio generation completed successfully")
+                return True
+            else:
+                print("ℹ️  No new audio files generated")
+                return False
+
+        # Run audio generation
+        success = generate_audio_from_ssml()
+        
+        # Create flag file to indicate success
+        if success:
+            with open("audio_generated_flag.txt", "w") as f:
+                f.write("true")
+        EOF
+
+    - name: Check if audio was generated
+      id: check_audio
+      run: |
+        if [ -f "audio_generated_flag.txt" ]; then
+          echo "Audio files were generated from SSML"
+          echo "generated=true" >> $GITHUB_OUTPUT
+          rm -f audio_generated_flag.txt
+        else
+          echo "No audio files generated from SSML"
+          echo "generated=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push audio files
+      if: steps.check_audio.outputs.generated == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "SSML Audio Generator"
+
+        # Pull latest changes first
+        git pull --rebase origin main || true
+
+        # Add audio files
+        git add assets/audio/*.mp3 || true
+
+        # Only commit if there are changes
+        if ! git diff --staged --quiet; then
+          git commit -m "Generate audio files from SSML using Google Cloud TTS [skip ci]"
+
+          # Try to push with retry logic
+          for i in {1..3}; do
+            if git push; then
+              echo "Audio push successful on attempt $i"
+              break
+            else
+              echo "Audio push failed on attempt $i, pulling and retrying..."
+              git pull --rebase origin main || true
+              sleep 2
+            fi
+          done
+        else
+          echo "No new audio files to commit"
+        fi
+
+    - name: Clean up credentials
+      if: always()
+      run: |
+        rm -f /tmp/gcp-key.json
+
+  update-podcast-rss:
+    needs: [generate-vocabulary-content, generate-audio-from-ssml]
     if: needs.generate-vocabulary-content.outputs.content_generated == 'true'
     runs-on: ubuntu-latest
     permissions:

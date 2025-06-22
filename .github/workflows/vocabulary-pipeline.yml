@@ -117,7 +117,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install google-cloud-texttospeech
+        pip install google-cloud-texttospeech pydub
 
     - name: Set up Google Cloud credentials
       run: |
@@ -131,12 +131,76 @@ jobs:
         python << 'EOF'
         import os
         import re
+        import io
         from pathlib import Path
         from google.cloud import texttospeech
+        from pydub import AudioSegment
+
+        def split_ssml_content(ssml_content, max_bytes=4500):
+            """Split SSML content into chunks under the byte limit"""
+            # Extract content between <speak> tags
+            speak_match = re.search(r'<speak[^>]*>(.*)</speak>', ssml_content, re.DOTALL)
+            if not speak_match:
+                print("❌ No <speak> tags found in SSML")
+                return []
+            
+            inner_content = speak_match.group(1).strip()
+            
+            # Split by major breaks (2+ seconds) to create logical chunks
+            major_breaks = re.split(r'<break\s+time="[2-9]s"\s*/>', inner_content)
+            
+            chunks = []
+            current_chunk = ""
+            
+            for segment in major_breaks:
+                # Test if adding this segment would exceed the limit
+                test_chunk = f'<speak>{current_chunk}{segment}</speak>'
+                
+                if len(test_chunk.encode('utf-8')) <= max_bytes:
+                    # Add to current chunk
+                    if current_chunk:
+                        current_chunk += '<break time="2s"/>'
+                    current_chunk += segment
+                else:
+                    # Start new chunk
+                    if current_chunk:
+                        chunks.append(f'<speak>{current_chunk}</speak>')
+                    current_chunk = segment
+                    
+                    # If single segment is too large, split it further
+                    if len(f'<speak>{current_chunk}</speak>'.encode('utf-8')) > max_bytes:
+                        # Split by smaller breaks (1s)
+                        small_segments = re.split(r'<break\s+time="1s"\s*/>', current_chunk)
+                        current_chunk = ""
+                        
+                        for small_seg in small_segments:
+                            test_small = f'<speak>{current_chunk}{small_seg}</speak>'
+                            if len(test_small.encode('utf-8')) <= max_bytes:
+                                if current_chunk:
+                                    current_chunk += '<break time="1s"/>'
+                                current_chunk += small_seg
+                            else:
+                                if current_chunk:
+                                    chunks.append(f'<speak>{current_chunk}</speak>')
+                                current_chunk = small_seg
+            
+            # Add final chunk
+            if current_chunk:
+                chunks.append(f'<speak>{current_chunk}</speak>')
+            
+            return chunks
 
         def generate_audio_from_ssml():
             """Generate MP3 audio files from SSML files"""
             print("🎵 Generating audio files from SSML...")
+            
+            # Install pydub if not available
+            try:
+                import pydub
+            except ImportError:
+                print("📦 Installing pydub...")
+                os.system("pip install pydub")
+                import pydub
             
             # Initialize Google Cloud TTS client
             client = texttospeech.TextToSpeechClient()
@@ -205,23 +269,60 @@ jobs:
                     ssml_content = re.sub(r'\n\s*', ' ', ssml_content)
                     ssml_content = re.sub(r'\s+', ' ', ssml_content).strip()
                     
-                    print(f"📝 SSML content length: {len(ssml_content)} characters")
-                    print(f"🔍 SSML preview: {ssml_content[:100]}...")
+                    content_bytes = len(ssml_content.encode('utf-8'))
+                    print(f"📝 SSML content length: {content_bytes} bytes")
                     
-                    # Create synthesis input
-                    synthesis_input = texttospeech.SynthesisInput(ssml=ssml_content)
-                    
-                    # Generate audio
-                    print(f"🔊 Calling Google Cloud TTS...")
-                    response = client.synthesize_speech(
-                        input=synthesis_input,
-                        voice=voice,
-                        audio_config=audio_config
-                    )
-                    
-                    # Save audio file
-                    with open(audio_file, 'wb') as out:
-                        out.write(response.audio_content)
+                    # Check if content exceeds limit
+                    if content_bytes > 4500:  # Leave some buffer
+                        print(f"⚠️  Content too large ({content_bytes} bytes), splitting into chunks...")
+                        ssml_chunks = split_ssml_content(ssml_content)
+                        print(f"📂 Split into {len(ssml_chunks)} chunks")
+                        
+                        # Generate audio for each chunk
+                        audio_segments = []
+                        
+                        for i, chunk in enumerate(ssml_chunks):
+                            chunk_bytes = len(chunk.encode('utf-8'))
+                            print(f"🔊 Processing chunk {i+1}/{len(ssml_chunks)} ({chunk_bytes} bytes)...")
+                            
+                            synthesis_input = texttospeech.SynthesisInput(ssml=chunk)
+                            
+                            response = client.synthesize_speech(
+                                input=synthesis_input,
+                                voice=voice,
+                                audio_config=audio_config
+                            )
+                            
+                            # Load audio chunk into pydub
+                            audio_data = io.BytesIO(response.audio_content)
+                            audio_segment = AudioSegment.from_mp3(audio_data)
+                            audio_segments.append(audio_segment)
+                            
+                            print(f"✅ Chunk {i+1} generated ({len(response.audio_content):,} bytes)")
+                        
+                        # Concatenate all audio segments
+                        print("🔗 Concatenating audio chunks...")
+                        final_audio = AudioSegment.empty()
+                        for segment in audio_segments:
+                            final_audio += segment
+                        
+                        # Export final audio
+                        final_audio.export(str(audio_file), format="mp3")
+                        
+                    else:
+                        # Content fits in single request
+                        print(f"🔊 Calling Google Cloud TTS (single request)...")
+                        synthesis_input = texttospeech.SynthesisInput(ssml=ssml_content)
+                        
+                        response = client.synthesize_speech(
+                            input=synthesis_input,
+                            voice=voice,
+                            audio_config=audio_config
+                        )
+                        
+                        # Save audio file
+                        with open(audio_file, 'wb') as out:
+                            out.write(response.audio_content)
                     
                     # Verify file was created and has content
                     if audio_file.exists() and audio_file.stat().st_size > 0:

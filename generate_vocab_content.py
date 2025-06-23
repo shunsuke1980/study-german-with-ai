@@ -160,160 +160,104 @@ def format_vocabulary_content(word, word_data, sentences, index):
     return content
 
 def create_ssml_content(words_data):
-    """Create SSML content for Google Cloud TTS"""
-    root = ET.Element("speak")
+    """Create SSML content for Azure Speech Services with Florian Multilingual voice"""
+    # Build SSML as a string for better control
+    ssml_parts = []
     
-    # Introduction
-    intro_ja = ET.SubElement(root, "lang")
-    intro_ja.set("xml:lang", "ja-JP")
-    intro_ja.text = "今日のドイツ語単語学習を始めましょう。"
+    ssml_parts.append('<?xml version="1.0" encoding="UTF-8"?>')
+    ssml_parts.append('<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="de-DE">')
+    ssml_parts.append('<voice name="de-DE-FlorianMultilingualNeural">')
     
-    ET.SubElement(root, "break", time="1s")
+    # Introduction in German (the multilingual voice should handle mixed content better)
+    ssml_parts.append("Heute lernen wir deutsche Wörter.")
+    ssml_parts.append('<break time="1s"/>')
     
     # Process each word
     for i, (word, data) in enumerate(words_data.items(), 1):
-        # Word number announcement
-        word_num = ET.SubElement(root, "lang")
-        word_num.set("xml:lang", "ja-JP")
-        word_num.text = f"単語{i}："
+        # Word announcement
+        ssml_parts.append(f"Wort {i}: <prosody rate='medium'>{word}</prosody>")
+        ssml_parts.append('<break time="0.5s"/>')
         
-        # German word
-        word_de = ET.SubElement(root, "lang")
-        word_de.set("xml:lang", "de-DE")
-        word_de.text = word
-        
-        ET.SubElement(root, "break", time="0.5s")
-        
-        # Meaning
-        meaning = ET.SubElement(root, "lang")
-        meaning.set("xml:lang", "ja-JP")
-        meaning.text = f"意味：{data['meaning']}"
-        
-        ET.SubElement(root, "break", time="1s")
+        # Meaning in German
+        ssml_parts.append(f"Bedeutung: {data['meaning']}")
+        ssml_parts.append('<break time="1s"/>')
         
         # Slow pronunciation
-        slow_ja = ET.SubElement(root, "lang")
-        slow_ja.set("xml:lang", "ja-JP")
-        slow_ja.text = "ゆっくり："
+        ssml_parts.append("Langsam:")
+        for j in range(3):
+            ssml_parts.append(f'<prosody rate="x-slow">{word}</prosody>')
+            if j < 2:
+                ssml_parts.append('<break time="0.5s"/>')
         
-        for _ in range(3):
-            slow = ET.SubElement(root, "prosody", rate="0.75")
-            slow_de = ET.SubElement(slow, "lang")
-            slow_de.set("xml:lang", "de-DE")
-            slow_de.text = word
-            ET.SubElement(root, "break", time="0.5s")
+        ssml_parts.append('<break time="0.5s"/>')
         
         # Normal speed
-        normal_ja = ET.SubElement(root, "lang")
-        normal_ja.set("xml:lang", "ja-JP")
-        normal_ja.text = "普通："
+        ssml_parts.append("Normal:")
+        for j in range(3):
+            ssml_parts.append(f'<prosody rate="medium">{word}</prosody>')
+            if j < 2:
+                ssml_parts.append('<break time="0.3s"/>')
         
-        for _ in range(3):
-            normal_de = ET.SubElement(root, "lang")
-            normal_de.set("xml:lang", "de-DE")
-            normal_de.text = word
-            ET.SubElement(root, "break", time="0.3s")
+        ssml_parts.append('<break time="0.5s"/>')
         
         # Fast speed
-        fast_ja = ET.SubElement(root, "lang")
-        fast_ja.set("xml:lang", "ja-JP")
-        fast_ja.text = "早口："
-        
-        fast = ET.SubElement(root, "prosody", rate="1.25")
+        ssml_parts.append("Schnell:")
         for j in range(3):
-            fast_de = ET.SubElement(fast, "lang")
-            fast_de.set("xml:lang", "de-DE")
-            fast_de.text = word
+            ssml_parts.append(f'<prosody rate="fast">{word}</prosody>')
             if j < 2:
-                ET.SubElement(fast, "break", time="0.1s")
+                ssml_parts.append('<break time="0.1s"/>')
         
-        ET.SubElement(root, "break", time="1s")
+        ssml_parts.append('<break time="1s"/>')
         
         # Example sentences
-        examples_ja = ET.SubElement(root, "lang")
-        examples_ja.set("xml:lang", "ja-JP")
-        examples_ja.text = "例文トレーニング："
-        
-        ET.SubElement(root, "break", time="0.5s")
+        ssml_parts.append("Beispielsätze:")
+        ssml_parts.append('<break time="0.5s"/>')
         
         for j, sentence in enumerate(data['sentences'], 1):
-            # Sentence number
-            num_ja = ET.SubElement(root, "lang")
-            num_ja.set("xml:lang", "ja-JP")
-            num_ja.text = f"{j}番。"
-            
-            # German sentence
-            sent_de = ET.SubElement(root, "lang")
-            sent_de.set("xml:lang", "de-DE")
-            sent_de.text = sentence['german']
-            
-            ET.SubElement(root, "break", time="1s")
-            
-            # Japanese translation
-            trans_ja = ET.SubElement(root, "lang")
-            trans_ja.set("xml:lang", "ja-JP")
-            trans_ja.text = sentence['japanese']
-            
-            ET.SubElement(root, "break", time="1s")
+            ssml_parts.append(f"Beispiel {j}:")
+            ssml_parts.append(f'<prosody rate="medium">{sentence["german"]}</prosody>')
+            ssml_parts.append('<break time="1s"/>')
+            ssml_parts.append(f"Übersetzung: {sentence['japanese']}")
+            ssml_parts.append('<break time="1s"/>')
         
         # Practice repetition
-        practice_ja = ET.SubElement(root, "lang")
-        practice_ja.set("xml:lang", "ja-JP")
-        practice_ja.text = "もう一度練習しましょう。"
+        ssml_parts.append("Noch einmal üben:")
+        ssml_parts.append('<break time="0.5s"/>')
         
-        ET.SubElement(root, "break", time="0.5s")
+        # Repeat all speeds
+        for speed_name, rate in [("Langsam", "x-slow"), ("Normal", "medium"), ("Schnell", "fast")]:
+            ssml_parts.append(f"{speed_name}:")
+            for k in range(3):
+                ssml_parts.append(f'<prosody rate="{rate}">{word}</prosody>')
+                if k < 2:
+                    ssml_parts.append('<break time="0.3s"/>')
+            ssml_parts.append('<break time="0.5s"/>')
         
-        # Repeat slow/normal/fast
-        for speed_name, rate in [("ゆっくり", "0.75"), ("普通", "1.0"), ("早口", "1.25")]:
-            speed_ja = ET.SubElement(root, "lang")
-            speed_ja.set("xml:lang", "ja-JP")
-            speed_ja.text = f"{speed_name}："
-            
-            if rate != "1.0":
-                prosody = ET.SubElement(root, "prosody", rate=rate)
-                parent = prosody
-            else:
-                parent = root
-            
-            for _ in range(3):
-                repeat_de = ET.SubElement(parent, "lang")
-                repeat_de.set("xml:lang", "de-DE")
-                repeat_de.text = word
-                ET.SubElement(parent, "break", time="0.3s")
-        
-        ET.SubElement(root, "break", time="2s")
+        ssml_parts.append('<break time="2s"/>')
     
     # Quiz section
-    quiz_ja = ET.SubElement(root, "lang")
-    quiz_ja.set("xml:lang", "ja-JP")
-    quiz_ja.text = "それでは、クイズタイムです。次のドイツ語を聞いて、意味を考えてください。"
-    
-    ET.SubElement(root, "break", time="1s")
+    ssml_parts.append("Jetzt kommt das Quiz. Hören Sie das deutsche Wort und denken Sie an die Bedeutung.")
+    ssml_parts.append('<break time="1s"/>')
     
     for i, (word, data) in enumerate(words_data.items(), 1):
-        quiz_num = ET.SubElement(root, "lang")
-        quiz_num.set("xml:lang", "ja-JP")
-        quiz_num.text = f"問題{i}："
-        
-        quiz_word = ET.SubElement(root, "lang")
-        quiz_word.set("xml:lang", "de-DE")
-        quiz_word.text = word
-        
-        # 3 second pause for answer
-        ET.SubElement(root, "break", time="3s")
-        
-        answer = ET.SubElement(root, "lang")
-        answer.set("xml:lang", "ja-JP")
-        answer.text = f"答えは、{data['meaning']}でした。"
-        
-        ET.SubElement(root, "break", time="1s")
+        ssml_parts.append(f"Frage {i}:")
+        ssml_parts.append(f'<prosody rate="medium">{word}</prosody>')
+        ssml_parts.append('<break time="3s"/>')
+        ssml_parts.append(f"Die Antwort war: {data['meaning']}")
+        ssml_parts.append('<break time="1s"/>')
     
     # Closing
-    closing = ET.SubElement(root, "lang")
-    closing.set("xml:lang", "ja-JP")
-    closing.text = "今日の単語学習はこれで終わりです。復習を忘れずに、頑張ってください！"
+    ssml_parts.append("Das war die heutige Wortschatzübung. Vergessen Sie nicht zu wiederholen. Viel Erfolg!")
     
-    return root
+    ssml_parts.append('</voice>')
+    ssml_parts.append('</speak>')
+    
+    # Join all parts with spaces
+    ssml_string = ' '.join(ssml_parts)
+    
+    # Parse back to XML element for consistency with the rest of the code
+    from xml.etree.ElementTree import fromstring
+    return fromstring(ssml_string)
 
 def prettify_xml(elem):
     """Return a pretty-printed XML string"""

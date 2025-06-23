@@ -23,7 +23,8 @@ pip install -r requirements.txt
 
 ```bash
 export ANTHROPIC_API_KEY="your_anthropic_api_key"
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/gcp-service-account.json"
+export AZURE_SPEECH_KEY="your_azure_speech_key"
+export AZURE_SPEECH_REGION="your_azure_region"
 ```
 
 ### 3. Add Word File
@@ -133,7 +134,8 @@ The system includes automated workflows:
 
 ### Environment Secrets Required
 - `ANTHROPIC_API_KEY`: For content generation
-- `GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY`: For audio generation
+- `AZURE_SPEECH_KEY`: For audio generation
+- `AZURE_SPEECH_REGION`: Azure region for Speech Services
 
 ## File Watcher
 
@@ -191,8 +193,8 @@ The system automatically updates `podcast.rss` with:
    - Check API key permissions
 
 2. **Audio Generation Fails**
-   - Verify `GOOGLE_APPLICATION_CREDENTIALS` path
-   - Check GCP service account permissions
+   - Verify `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` are set
+   - Check Azure Speech Services subscription status
 
 3. **File Watcher Not Responding**
    - Check file permissions in `data/words/`
@@ -200,7 +202,7 @@ The system automatically updates `podcast.rss` with:
 
 4. **Empty Audio Files**
    - Check SSML syntax in debug files
-   - Verify TTS API quotas
+   - Verify Azure Speech Services quotas and limits
 
 ### Debug Commands
 
@@ -211,8 +213,8 @@ python generate_vocab_content.py
 # Check environment
 python -c "import os; print('ANTHROPIC_API_KEY' in os.environ)"
 
-# Test TTS setup
-python -c "from google.cloud import texttospeech; print('GCP TTS ready')"
+# Test Azure Speech Services setup
+python -c "import azure.cognitiveservices.speech as speechsdk; print('Azure Speech Services ready')"
 ```
 
 ## Customization

@@ -12,7 +12,7 @@ from datetime import datetime
 from pathlib import Path
 import glob
 import anthropic
-from google.cloud import texttospeech
+import azure.cognitiveservices.speech as speechsdk
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
@@ -322,45 +322,56 @@ def prettify_xml(elem):
     return reparsed.toprettyxml(indent="  ")
 
 def generate_audio_file(ssml_content, output_path):
-    """Generate MP3 audio file using Google Cloud TTS"""
-    client = texttospeech.TextToSpeechClient()
+    """Generate MP3 audio file using Microsoft Azure Speech Services"""
+    # Check for Azure credentials
+    if 'AZURE_SPEECH_KEY' not in os.environ or 'AZURE_SPEECH_REGION' not in os.environ:
+        print("❌ Azure Speech credentials not found, skipping audio generation")
+        return False
     
-    # Convert SSML to string
-    ssml_text = ET.tostring(ssml_content, encoding='unicode')
-    
-    synthesis_input = texttospeech.SynthesisInput(ssml=ssml_text)
-    
-    # Voice configuration (using a female German voice as primary)
-    voice = texttospeech.VoiceSelectionParams(
-        language_code="de-DE",
-        name="de-DE-Wavenet-F",  # High quality female voice
-        ssml_gender=texttospeech.SsmlVoiceGender.FEMALE
-    )
-    
-    # Audio configuration
-    audio_config = texttospeech.AudioConfig(
-        audio_encoding=texttospeech.AudioEncoding.MP3,
-        speaking_rate=1.0,
-        pitch=0.0
-    )
-    
-    # Generate audio
     try:
-        response = client.synthesize_speech(
-            input=synthesis_input,
-            voice=voice,
+        # Convert SSML to string
+        ssml_text = ET.tostring(ssml_content, encoding='unicode')
+        
+        # Configure Azure Speech Service
+        speech_config = speechsdk.SpeechConfig(
+            subscription=os.environ['AZURE_SPEECH_KEY'],
+            region=os.environ['AZURE_SPEECH_REGION']
+        )
+        
+        # Set the voice to Florian Multilingual
+        speech_config.speech_synthesis_voice_name = "de-DE-FlorianMultilingualNeural"
+        
+        # Set output format to MP3
+        speech_config.set_speech_synthesis_output_format(
+            speechsdk.SpeechSynthesisOutputFormat.Audio48Khz192KBitRateMonoMp3
+        )
+        
+        # Create synthesizer with file output
+        audio_config = speechsdk.audio.AudioOutputConfig(filename=str(output_path))
+        synthesizer = speechsdk.SpeechSynthesizer(
+            speech_config=speech_config,
             audio_config=audio_config
         )
         
-        # Save audio file
-        with open(output_path, 'wb') as out:
-            out.write(response.audio_content)
+        # Generate audio from SSML
+        print(f"🔊 Generating audio with Azure Speech Services...")
+        result = synthesizer.speak_ssml_async(ssml_text).get()
         
-        print(f"✅ Audio saved: {output_path}")
-        return True
-        
+        if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+            print(f"✅ Audio saved: {output_path}")
+            return True
+        elif result.reason == speechsdk.ResultReason.Canceled:
+            cancellation_details = result.cancellation_details
+            print(f"❌ Speech synthesis canceled: {cancellation_details.reason}")
+            if cancellation_details.reason == speechsdk.CancellationReason.Error:
+                print(f"❌ Error details: {cancellation_details.error_details}")
+            return False
+        else:
+            print(f"❌ Unexpected result: {result.reason}")
+            return False
+            
     except Exception as e:
-        print(f"❌ Error generating audio: {e}")
+        print(f"❌ Error generating audio with Azure: {e}")
         return False
 
 def process_word_file(word_file_path, episode_number):
@@ -474,8 +485,8 @@ audio_file: "episode-{episode_number}.mp3"
     
     print(f"✅ SSML saved: {ssml_path}")
     
-    # Generate audio file (only if Google Cloud credentials are available)
-    if 'GOOGLE_APPLICATION_CREDENTIALS' in os.environ:
+    # Generate audio file (only if Azure Speech credentials are available)
+    if 'AZURE_SPEECH_KEY' in os.environ and 'AZURE_SPEECH_REGION' in os.environ:
         audio_dir = Path("assets/audio")
         audio_dir.mkdir(parents=True, exist_ok=True)
         
@@ -485,7 +496,7 @@ audio_file: "episode-{episode_number}.mp3"
         else:
             print("⚠️  Audio generation failed")
     else:
-        print("ℹ️  Google Cloud credentials not found, skipping audio generation")
+        print("ℹ️  Azure Speech credentials not found, skipping audio generation")
     
     return True
 

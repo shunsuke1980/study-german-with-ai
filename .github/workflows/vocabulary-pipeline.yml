@@ -27,17 +27,13 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install anthropic google-cloud-texttospeech watchdog
-
-    - name: Set up Google Cloud credentials
-      run: |
-        echo '${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}' > /tmp/gcp-key.json
-        export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp-key.json
+        pip install anthropic azure-cognitiveservices-speech watchdog
 
     - name: Generate vocabulary content and audio
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-key.json
+        AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+        AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
       run: |
         python generate_vocab_content.py
 
@@ -80,11 +76,6 @@ jobs:
           fi
         done
 
-    - name: Clean up credentials
-      if: always()
-      run: |
-        rm -f /tmp/gcp-key.json
-
   generate-audio-from-ssml:
     needs: generate-vocabulary-content
     if: needs.generate-vocabulary-content.outputs.content_generated == 'true'
@@ -122,26 +113,22 @@ jobs:
 
     - name: Install Python dependencies
       run: |
-        pip install google-cloud-texttospeech pydub
-
-    - name: Set up Google Cloud credentials
-      run: |
-        echo '${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}' > /tmp/gcp-key.json
-        export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp-key.json
+        pip install azure-cognitiveservices-speech pydub
 
     - name: Generate audio files from SSML
       env:
-        GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-key.json
+        AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+        AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
       run: |
         python << 'EOF'
         import os
         import re
         import io
         from pathlib import Path
-        from google.cloud import texttospeech
+        import azure.cognitiveservices.speech as speechsdk
         from pydub import AudioSegment
 
-        def split_ssml_content(ssml_content, max_bytes=4500):
+        def split_ssml_content(ssml_content, max_bytes=50000):
             """Split SSML content into chunks under the byte limit"""
             # Extract content between <speak> tags
             speak_match = re.search(r'<speak[^>]*>(.*)</speak>', ssml_content, re.DOTALL)
@@ -199,6 +186,11 @@ jobs:
             """Generate MP3 audio files from SSML files"""
             print("🎵 Generating audio files from SSML...")
             
+            # Check for Azure credentials
+            if 'AZURE_SPEECH_KEY' not in os.environ or 'AZURE_SPEECH_REGION' not in os.environ:
+                print("❌ Azure Speech credentials not found")
+                return False
+            
             # Install pydub if not available
             try:
                 import pydub
@@ -207,21 +199,18 @@ jobs:
                 os.system("pip install pydub")
                 import pydub
             
-            # Initialize Google Cloud TTS client
-            client = texttospeech.TextToSpeechClient()
-            
-            # Audio configuration
-            audio_config = texttospeech.AudioConfig(
-                audio_encoding=texttospeech.AudioEncoding.MP3,
-                speaking_rate=1.0,
-                pitch=0.0
+            # Configure Azure Speech Service
+            speech_config = speechsdk.SpeechConfig(
+                subscription=os.environ['AZURE_SPEECH_KEY'],
+                region=os.environ['AZURE_SPEECH_REGION']
             )
             
-            # Voice configuration (using high-quality German voice)
-            voice = texttospeech.VoiceSelectionParams(
-                language_code="de-DE",
-                name="de-DE-Wavenet-F",  # High quality female voice
-                ssml_gender=texttospeech.SsmlVoiceGender.FEMALE
+            # Set the voice to Florian Multilingual
+            speech_config.speech_synthesis_voice_name = "de-DE-FlorianMultilingualNeural"
+            
+            # Set output format to MP3
+            speech_config.set_speech_synthesis_output_format(
+                speechsdk.SpeechSynthesisOutputFormat.Audio48Khz192KBitRateMonoMp3
             )
             
             # Find SSML files
@@ -277,8 +266,8 @@ jobs:
                     content_bytes = len(ssml_content.encode('utf-8'))
                     print(f"📝 SSML content length: {content_bytes} bytes")
                     
-                    # Check if content exceeds limit
-                    if content_bytes > 4500:  # Leave some buffer
+                    # Azure Speech Services has a much higher limit (~50KB), but we'll still check
+                    if content_bytes > 45000:  # Leave some buffer under 50KB
                         print(f"⚠️  Content too large ({content_bytes} bytes), splitting into chunks...")
                         ssml_chunks = split_ssml_content(ssml_content)
                         print(f"📂 Split into {len(ssml_chunks)} chunks")
@@ -290,44 +279,71 @@ jobs:
                             chunk_bytes = len(chunk.encode('utf-8'))
                             print(f"🔊 Processing chunk {i+1}/{len(ssml_chunks)} ({chunk_bytes} bytes)...")
                             
-                            synthesis_input = texttospeech.SynthesisInput(ssml=chunk)
+                            # Create temporary file for this chunk
+                            chunk_file = audio_dir / f"temp_chunk_{i}.mp3"
                             
-                            response = client.synthesize_speech(
-                                input=synthesis_input,
-                                voice=voice,
-                                audio_config=audio_config
+                            # Create audio config for this chunk
+                            chunk_audio_config = speechsdk.audio.AudioOutputConfig(filename=str(chunk_file))
+                            chunk_synthesizer = speechsdk.SpeechSynthesizer(
+                                speech_config=speech_config,
+                                audio_config=chunk_audio_config
                             )
                             
-                            # Load audio chunk into pydub
-                            audio_data = io.BytesIO(response.audio_content)
-                            audio_segment = AudioSegment.from_mp3(audio_data)
-                            audio_segments.append(audio_segment)
+                            # Generate audio for this chunk
+                            result = chunk_synthesizer.speak_ssml_async(chunk).get()
                             
-                            print(f"✅ Chunk {i+1} generated ({len(response.audio_content):,} bytes)")
+                            if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+                                # Load audio chunk into pydub
+                                audio_segment = AudioSegment.from_mp3(str(chunk_file))
+                                audio_segments.append(audio_segment)
+                                
+                                # Clean up temporary file
+                                chunk_file.unlink()
+                                
+                                print(f"✅ Chunk {i+1} generated")
+                            else:
+                                print(f"❌ Failed to generate chunk {i+1}")
+                                if result.reason == speechsdk.ResultReason.Canceled:
+                                    details = result.cancellation_details
+                                    print(f"❌ Cancellation reason: {details.reason}")
+                                    if details.reason == speechsdk.CancellationReason.Error:
+                                        print(f"❌ Error details: {details.error_details}")
                         
                         # Concatenate all audio segments
-                        print("🔗 Concatenating audio chunks...")
-                        final_audio = AudioSegment.empty()
-                        for segment in audio_segments:
-                            final_audio += segment
-                        
-                        # Export final audio
-                        final_audio.export(str(audio_file), format="mp3")
+                        if audio_segments:
+                            print("🔗 Concatenating audio chunks...")
+                            final_audio = AudioSegment.empty()
+                            for segment in audio_segments:
+                                final_audio += segment
+                            
+                            # Export final audio
+                            final_audio.export(str(audio_file), format="mp3")
+                        else:
+                            print("❌ No audio chunks were generated successfully")
+                            continue
                         
                     else:
                         # Content fits in single request
-                        print(f"🔊 Calling Google Cloud TTS (single request)...")
-                        synthesis_input = texttospeech.SynthesisInput(ssml=ssml_content)
+                        print(f"🔊 Generating audio with Azure Speech Services (single request)...")
                         
-                        response = client.synthesize_speech(
-                            input=synthesis_input,
-                            voice=voice,
-                            audio_config=audio_config
+                        # Create audio config for direct file output
+                        file_audio_config = speechsdk.audio.AudioOutputConfig(filename=str(audio_file))
+                        synthesizer = speechsdk.SpeechSynthesizer(
+                            speech_config=speech_config,
+                            audio_config=file_audio_config
                         )
                         
-                        # Save audio file
-                        with open(audio_file, 'wb') as out:
-                            out.write(response.audio_content)
+                        # Generate audio
+                        result = synthesizer.speak_ssml_async(ssml_content).get()
+                        
+                        if result.reason != speechsdk.ResultReason.SynthesizingAudioCompleted:
+                            print(f"❌ Speech synthesis failed")
+                            if result.reason == speechsdk.ResultReason.Canceled:
+                                details = result.cancellation_details
+                                print(f"❌ Cancellation reason: {details.reason}")
+                                if details.reason == speechsdk.CancellationReason.Error:
+                                    print(f"❌ Error details: {details.error_details}")
+                            continue
                     
                     # Verify file was created and has content
                     if audio_file.exists() and audio_file.stat().st_size > 0:
@@ -375,7 +391,7 @@ jobs:
       if: steps.check_audio.outputs.generated == 'true'
       run: |
         git config --local user.email "action@github.com"
-        git config --local user.name "SSML Audio Generator"
+        git config --local user.name "Azure Speech Audio Generator"
 
         # Pull latest changes first
         git pull --rebase origin main || true
@@ -385,7 +401,7 @@ jobs:
 
         # Only commit if there are changes
         if ! git diff --staged --quiet; then
-          git commit -m "Generate audio files from SSML using Google Cloud TTS [skip ci]"
+          git commit -m "Generate audio files from SSML using Azure Speech Services [skip ci]"
 
           # Try to push with retry logic
           for i in {1..3}; do
@@ -401,11 +417,6 @@ jobs:
         else
           echo "No new audio files to commit"
         fi
-
-    - name: Clean up credentials
-      if: always()
-      run: |
-        rm -f /tmp/gcp-key.json
 
   update-podcast-rss:
     needs: [generate-vocabulary-content, generate-audio-from-ssml]

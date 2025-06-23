@@ -1,596 +1,1092 @@
 <?xml version="1.0" ?>
-<speak>
-  <lang xml:lang="ja-JP">今日のドイツ語単語学習を始めましょう。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">単語1：</lang>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">意味：手に入れる、得る</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">kriegen</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">kriegen</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">kriegen</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">kriegen</lang>
-  </prosody>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">例文トレーニング：</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">1番。</lang>
-  <lang xml:lang="de-DE">Ich kriege morgen mein neues Handy.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">明日新しい携帯電話を受け取ります。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">2番。</lang>
-  <lang xml:lang="de-DE">Wann kriegst du dein Gehalt?</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">給料はいつもらえますか？</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">3番。</lang>
-  <lang xml:lang="de-DE">Können wir den Tisch durch die Tür kriegen?</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">このテーブルをドアに通すことができますか？</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">もう一度練習しましょう。</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">kriegen</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <break time="2s"/>
-  <lang xml:lang="ja-JP">単語2：</lang>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">意味：少なくとも、最低でも</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">mindestens</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">mindestens</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">mindestens</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">mindestens</lang>
-  </prosody>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">例文トレーニング：</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">1番。</lang>
-  <lang xml:lang="de-DE">Ich muss mindestens eine Stunde lernen.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">少なくとも1時間は勉強しないといけません。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">2番。</lang>
-  <lang xml:lang="de-DE">Der Film dauert mindestens zwei Stunden.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">その映画は少なくとも2時間はかかります。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">3番。</lang>
-  <lang xml:lang="de-DE">Wir brauchen mindestens vier Personen für das Spiel.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">そのゲームには最低4人必要です。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">もう一度練習しましょう。</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">mindestens</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <break time="2s"/>
-  <lang xml:lang="ja-JP">単語3：</lang>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">意味：個々の、一つ一つの、単独の</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">einzeln</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">einzeln</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">einzeln</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">einzeln</lang>
-  </prosody>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">例文トレーニング：</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">1番。</lang>
-  <lang xml:lang="de-DE">Ich möchte die Bananen einzeln kaufen, nicht als Bündel.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">バナナを束ではなく、一本ずつ買いたいです。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">2番。</lang>
-  <lang xml:lang="de-DE">Die Schüler müssen die Aufgaben einzeln lösen, nicht in Gruppen.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">生徒たちは問題をグループではなく、個別に解かなければなりません。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">3番。</lang>
-  <lang xml:lang="de-DE">Bitte legen Sie die Papiere einzeln in den Scanner.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">書類は一枚ずつスキャナーに入れてください。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">もう一度練習しましょう。</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">einzeln</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <break time="2s"/>
-  <lang xml:lang="ja-JP">単語4：</lang>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">意味：その横に、その隣に、それに加えて、外れて</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">daneben</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">daneben</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">daneben</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">daneben</lang>
-  </prosody>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">例文トレーニング：</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">1番。</lang>
-  <lang xml:lang="de-DE">Ich habe neben dem Supermarkt geparkt, und mein Auto steht immer noch daneben.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">スーパーの隣に駐車して、車はまだそこに停まっています。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">2番。</lang>
-  <lang xml:lang="de-DE">Der Schuss ging daneben und traf nicht das Ziel.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">その一発は外れて、的に当たりませんでした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">3番。</lang>
-  <lang xml:lang="de-DE">Das Restaurant ist teuer, und daneben ist das Essen nicht besonders gut.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">そのレストランは高いし、その上料理もあまり美味しくありません。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">もう一度練習しましょう。</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">daneben</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <break time="2s"/>
-  <lang xml:lang="ja-JP">単語5：</lang>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">意味：まだ、さらに、依然として</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">noch</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">noch</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">noch</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">noch</lang>
-  </prosody>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">例文トレーニング：</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">1番。</lang>
-  <lang xml:lang="de-DE">Ich habe noch zehn Euro.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">まだ10ユーロ持っています。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">2番。</lang>
-  <lang xml:lang="de-DE">Bist du noch wach?</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">まだ起きてる？</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">3番。</lang>
-  <lang xml:lang="de-DE">Ich möchte noch einen Kaffee bestellen.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">コーヒーをもう一杯注文したいです。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">もう一度練習しましょう。</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">noch</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <break time="2s"/>
-  <lang xml:lang="ja-JP">単語6：</lang>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">意味：ただ、だけ、のみ</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">nur</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">nur</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">nur</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">nur</lang>
-  </prosody>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">例文トレーニング：</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">1番。</lang>
-  <lang xml:lang="de-DE">Ich habe nur fünf Euro dabei.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">5ユーロしか持っていません。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">2番。</lang>
-  <lang xml:lang="de-DE">Das war nur ein Scherz!</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">冗談だけだよ！</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">3番。</lang>
-  <lang xml:lang="de-DE">Er ist nicht nur klug, sondern auch freundlich.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">彼は賢いだけでなく、親切でもあります。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">もう一度練習しましょう。</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">nur</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <break time="2s"/>
-  <lang xml:lang="ja-JP">単語7：</lang>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">意味：ノート、冊子</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">Heft</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">Heft</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">Heft</lang>
-  </prosody>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.1s"/>
-    <lang xml:lang="de-DE">Heft</lang>
-  </prosody>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">例文トレーニング：</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">1番。</lang>
-  <lang xml:lang="de-DE">Ich brauche ein neues Heft für den Deutschkurs.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ドイツ語の授業用に新しいノートが必要です。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">2番。</lang>
-  <lang xml:lang="de-DE">Das Heft ist schon voll, ich muss ein anderes kaufen.</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">ノートはもう一杯なので、新しいのを買わないといけません。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">3番。</lang>
-  <lang xml:lang="de-DE">Kannst du mir dein Heft für die Matheaufgaben leihen?</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">数学の課題のためにノートを貸してもらえますか？</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">もう一度練習しましょう。</lang>
-  <break time="0.5s"/>
-  <lang xml:lang="ja-JP">ゆっくり：</lang>
-  <prosody rate="0.75">
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <lang xml:lang="ja-JP">普通：</lang>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="0.3s"/>
-  <lang xml:lang="ja-JP">早口：</lang>
-  <prosody rate="1.25">
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.3s"/>
-    <lang xml:lang="de-DE">Heft</lang>
-    <break time="0.3s"/>
-  </prosody>
-  <break time="2s"/>
-  <lang xml:lang="ja-JP">それでは、クイズタイムです。次のドイツ語を聞いて、意味を考えてください。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">問題1：</lang>
-  <lang xml:lang="de-DE">kriegen</lang>
-  <break time="3s"/>
-  <lang xml:lang="ja-JP">答えは、手に入れる、得るでした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">問題2：</lang>
-  <lang xml:lang="de-DE">mindestens</lang>
-  <break time="3s"/>
-  <lang xml:lang="ja-JP">答えは、少なくとも、最低でもでした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">問題3：</lang>
-  <lang xml:lang="de-DE">einzeln</lang>
-  <break time="3s"/>
-  <lang xml:lang="ja-JP">答えは、個々の、一つ一つの、単独のでした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">問題4：</lang>
-  <lang xml:lang="de-DE">daneben</lang>
-  <break time="3s"/>
-  <lang xml:lang="ja-JP">答えは、その横に、その隣に、それに加えて、外れてでした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">問題5：</lang>
-  <lang xml:lang="de-DE">noch</lang>
-  <break time="3s"/>
-  <lang xml:lang="ja-JP">答えは、まだ、さらに、依然としてでした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">問題6：</lang>
-  <lang xml:lang="de-DE">nur</lang>
-  <break time="3s"/>
-  <lang xml:lang="ja-JP">答えは、ただ、だけ、のみでした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">問題7：</lang>
-  <lang xml:lang="de-DE">Heft</lang>
-  <break time="3s"/>
-  <lang xml:lang="ja-JP">答えは、ノート、冊子でした。</lang>
-  <break time="1s"/>
-  <lang xml:lang="ja-JP">今日の単語学習はこれで終わりです。復習を忘れずに、頑張ってください！</lang>
-</speak>
+<ns0:speak xmlns:ns0="http://www.w3.org/2001/10/synthesis" version="1.0" xml:lang="de-DE">
+   
+  <ns0:voice name="de-DE-FlorianMultilingualNeural">
+     Heute lernen wir deutsche Wörter. 
+    <ns0:break time="1s"/>
+     Wort 1: 
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 起こる、通過する、通る 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">passieren</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">passieren</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">passieren</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Was ist gestern Abend passiert?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 昨夜何が起こったの？ 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Solche Unfälle passieren leider häufig.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 残念ながら、そのような事故はよく起こります。 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Das kann jedem passieren, mach dir keine Sorgen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: そんなことは誰にでも起こり得るから、心配しないで。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">passieren</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">passieren</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 2: 
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 外套、マント、コート 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Mantel</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Im Winter brauche ich einen warmen Mantel.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 冬は暖かいコートが必要です。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Der rote Mantel ist im Kleiderschrank.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 赤いコートはクローゼットの中にあります。 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Dieser Mantel ist zu teuer für mich.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: このコートは私には高すぎます。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Mantel</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 3: 
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 保つ、止まる、維持する 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">halten</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">halten</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">halten</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Kannst du bitte die Tür halten?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: ドアを押さえていてもらえますか？ 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Der Bus hält an der nächsten Station.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: バスは次の駅で止まります。 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Ich halte es für eine gute Idee.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 私はそれがいい考えだと思います。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">halten</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">halten</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 4: 
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 必要とする、要る 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">brauchen</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Ich brauche einen neuen Regenschirm.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 新しい傘が必要です。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Brauchst du Hilfe bei den Hausaufgaben?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 宿題の手伝いが必要ですか？ 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Wir brauchen mehr Zeit zum Lernen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 勉強するためにもっと時間が必要です。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">brauchen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 5: 
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 必要な、不可欠な 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">notwendig</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Es ist notwendig, dass du deine Hausaufgaben machst.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 宿題をするのは必要です。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Ich muss die notwendigen Dokumente für den Antrag vorbereiten.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 申請に必要な書類を準備しなければなりません。 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">War es wirklich notwendig, so viel Geld auszugeben?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: そんなにお金を使う必要は本当にありましたか？ 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">notwendig</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 6: 
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 交差点、十字路 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">An der nächsten Kreuzung müssen Sie rechts abbiegen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 次の交差点を右に曲がってください。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Die Bank ist direkt an der Kreuzung zwischen der Hauptstraße und der Bahnhofstraße.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 銀行は本通りと駅通りの交差点にあります。 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Wir treffen uns um 14 Uhr an der Kreuzung beim Supermarkt.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: スーパーの前の交差点で14時に会いましょう。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 7: 
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 所属する、持ち物である 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">gehören</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">gehören</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">gehören</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Diese Bücher gehören meiner Schwester.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: これらの本は私の姉のものです。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Katzen gehören zu meinen Lieblingstieren.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 猫は私の大好きな動物の一つです。 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Das Handy gehört mir nicht.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: そのスマートフォンは私のものではありません。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">gehören</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">gehören</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 8: 
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 植物 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Pflanze</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Ich muss meine Pflanze jeden Tag gießen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 毎日植物に水をやらないといけません。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Diese Pflanze braucht viel Sonnenlicht.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: この植物は日光をたくさん必要とします。 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Meine neue Pflanze wächst sehr schnell.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 私の新しい植物はとても早く育っています。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Pflanze</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 9: 
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: 思う、考える 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">meinen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">meinen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">meinen</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Ich meine, dass wir heute ins Kino gehen sollten.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 私たちは今日映画に行くべきだと思います。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Was meinst du zu meinem neuen Kleid?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 私の新しいドレスについてどう思いますか？ 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Sie meint es gut mit dir.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 彼女はあなたのことを思って良かれと思ってやっているんです。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">meinen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">meinen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 10: 
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Bedeutung: ～だけ、ただ 
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">nur</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">nur</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">nur</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="medium">Ich habe nur zehn Euro dabei.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 10ユーロしか持っていません。 
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="medium">Das war nur ein Scherz!</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: それは冗談だけだよ！ 
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="medium">Er spricht nur Deutsch und Englisch.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Übersetzung: 彼はドイツ語と英語しか話せません。 
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">nur</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">nur</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Jetzt kommt das Quiz. Hören Sie das deutsche Wort und denken Sie an die Bedeutung. 
+    <ns0:break time="1s"/>
+     Frage 1: 
+    <ns0:prosody rate="medium">passieren</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 起こる、通過する、通る 
+    <ns0:break time="1s"/>
+     Frage 2: 
+    <ns0:prosody rate="medium">Mantel</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 外套、マント、コート 
+    <ns0:break time="1s"/>
+     Frage 3: 
+    <ns0:prosody rate="medium">halten</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 保つ、止まる、維持する 
+    <ns0:break time="1s"/>
+     Frage 4: 
+    <ns0:prosody rate="medium">brauchen</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 必要とする、要る 
+    <ns0:break time="1s"/>
+     Frage 5: 
+    <ns0:prosody rate="medium">notwendig</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 必要な、不可欠な 
+    <ns0:break time="1s"/>
+     Frage 6: 
+    <ns0:prosody rate="medium">Kreuzung</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 交差点、十字路 
+    <ns0:break time="1s"/>
+     Frage 7: 
+    <ns0:prosody rate="medium">gehören</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 所属する、持ち物である 
+    <ns0:break time="1s"/>
+     Frage 8: 
+    <ns0:prosody rate="medium">Pflanze</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 植物 
+    <ns0:break time="1s"/>
+     Frage 9: 
+    <ns0:prosody rate="medium">meinen</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 思う、考える 
+    <ns0:break time="1s"/>
+     Frage 10: 
+    <ns0:prosody rate="medium">nur</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: ～だけ、ただ 
+    <ns0:break time="1s"/>
+     Das war die heutige Wortschatzübung. Vergessen Sie nicht zu wiederholen. Viel Erfolg! 
+  </ns0:voice>
+   
+</ns0:speak>

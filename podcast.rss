@@ -8,8 +8,8 @@
     <copyright>© 2025 AI German Learning System</copyright>
     <managingEditor>24.madding_cuts@icloud.com (AI German Learning System)</managingEditor>
     <webMaster>24.madding_cuts@icloud.com (AI German Learning System)</webMaster>
-    <pubDate>Tue, 24 Jun 2025 17:27:58 -0000</pubDate>
-    <lastBuildDate>Tue, 24 Jun 2025 17:27:58 -0000</lastBuildDate>
+    <pubDate>Tue, 24 Jun 2025 18:16:41 -0000</pubDate>
+    <lastBuildDate>Tue, 24 Jun 2025 18:16:41 -0000</lastBuildDate>
     <generator>AI German Vocabulary Learning System</generator>
     <itunes:author>AI German Learning System</itunes:author>
     <itunes:summary>Learn German vocabulary with AI-generated content featuring etymology, memory techniques, and pronunciation practice</itunes:summary>
@@ -23,20 +23,6 @@
       <itunes:category text="Language Learning" />
     </itunes:category>
     <itunes:image href="https://www.study-german.info/assets/images/podcast.jpg" />
-    <item>
-      <title>German Vocabulary Episode 3</title>
-      <description>Learn German vocabulary with Episode 3 featuring etymology, memory techniques, and pronunciation practice.</description>
-      <link>https://www.study-german.info/</link>
-      <guid>https://www.study-german.info/vocabulary/episode-3</guid>
-      <pubDate>Tue, 24 Jun 2025 09:00:00 -0000</pubDate>
-      <enclosure url="https://www.study-german.info/assets/audio/episode-3.mp3" length="14400000" type="audio/mpeg" />
-      <itunes:title>German Vocabulary Episode 3</itunes:title>
-      <itunes:summary>Learn German vocabulary with Episode 3 featuring etymology, memory techniques, and pronunciation practice.</itunes:summary>
-      <itunes:duration>15:00</itunes:duration>
-      <itunes:episode>3</itunes:episode>
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
     <item>
       <title>German Vocabulary Episode 2</title>
       <description>Learn German vocabulary with Episode 2 featuring etymology, memory techniques, and pronunciation practice.</description>

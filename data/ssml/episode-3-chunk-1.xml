@@ -1,0 +1,620 @@
+<?xml version="1.0" ?>
+<ns0:speak xmlns:ns0="http://www.w3.org/2001/10/synthesis" version="1.0" xml:lang="de-DE">
+   
+  <ns0:voice name="de-DE-FlorianMultilingualNeural">
+     Heute lernen wir deutsche Wörter. 
+    <ns0:break time="1s"/>
+     Wort 1: 
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">案内書、パンフレット、広告</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Prospekt</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Ich habe den Prospekt vom neuen Supermarkt bekommen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Ich habe den Prospekt vom neuen Supermarkt bekommen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">新しいスーパーのチラシをもらいました。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Können Sie mir bitte einen Prospekt über die Hotelzimmer geben?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Können Sie mir bitte einen Prospekt über die Hotelzimmer geben?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">ホテルの客室についてのパンフレットをいただけますか？</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Im Prospekt steht, dass die Waschmaschine im Angebot ist.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Im Prospekt steht, dass die Waschmaschine im Angebot ist.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">チラシによると、その洗濯機はセール中です。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Prospekt</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 2: 
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">清掃、洗浄、浄化</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Reinigung</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Ich bringe meine Kleidung zur Reinigung.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Ich bringe meine Kleidung zur Reinigung.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">服をクリーニング店に持って行きます。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Die Reinigung des Badezimmers dauert eine Stunde.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Die Reinigung des Badezimmers dauert eine Stunde.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">浴室の掃除には1時間かかります。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Für die Reinigung der Brille benutze ich ein spezielles Tuch.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Für die Reinigung der Brille benutze ich ein spezielles Tuch.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">メガネの掃除には専用の布を使います。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Reinigung</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 3: 
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">同じ、すぐに、まもなく</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">gleich</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">gleich</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">gleich</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Ich komme gleich zurück.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Ich komme gleich zurück.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">すぐに戻ってきます。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Die beiden Schuhe sehen gleich aus.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Die beiden Schuhe sehen gleich aus.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">その二つの靴は同じように見えます。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Gleich nach dem Frühstück gehe ich zur Arbeit.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Gleich nach dem Frühstück gehe ich zur Arbeit.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">朝食の直後に仕事に行きます。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">gleich</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">gleich</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 4: 
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">描く、絵を描く</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">malen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">malen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">malen</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Die Kinder malen gerne mit bunten Farben.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Die Kinder malen gerne mit bunten Farben.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">子供たちは色とりどりの絵の具で絵を描くのが好きです。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Kannst du mir ein Bild von einem Haus malen?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Kannst du mir ein Bild von einem Haus malen?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">家の絵を描いてくれませんか？</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Meine Schwester malt jeden Tag in ihrem Skizzenbuch.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Meine Schwester malt jeden Tag in ihrem Skizzenbuch.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">私の妹は毎日スケッチブックに絵を描いています。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">malen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">malen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 5: 
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">調べる、確認する、試験する</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">prüfen</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Ich muss noch meine Hausaufgaben prüfen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Ich muss noch meine Hausaufgaben prüfen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">宿題をまだチェックしないといけません。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Können Sie bitte meinen Pass prüfen?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Können Sie bitte meinen Pass prüfen?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">パスポートを確認していただけますか？</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Der Lehrer prüft die Antworten der Schüler.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Der Lehrer prüft die Antworten der Schüler.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">先生は生徒の答えを採点しています。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">prüfen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     
+  </ns0:voice>
+   
+</ns0:speak>

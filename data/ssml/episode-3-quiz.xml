@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<ns0:speak xmlns:ns0="http://www.w3.org/2001/10/synthesis" version="1.0" xml:lang="de-DE">
+   
+  <ns0:voice name="de-DE-FlorianMultilingualNeural">
+     Jetzt kommt das Quiz. Hören Sie das deutsche Wort und denken Sie an die Bedeutung. 
+    <ns0:break time="1s"/>
+     Frage 1: 
+    <ns0:prosody rate="medium">Prospekt</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">案内書、パンフレット、広告</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 2: 
+    <ns0:prosody rate="medium">Reinigung</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">清掃、洗浄、浄化</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 3: 
+    <ns0:prosody rate="medium">gleich</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">同じ、すぐに、まもなく</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 4: 
+    <ns0:prosody rate="medium">malen</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">描く、絵を描く</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 5: 
+    <ns0:prosody rate="medium">prüfen</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">調べる、確認する、試験する</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 6: 
+    <ns0:prosody rate="medium">plötzlich</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">突然</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 7: 
+    <ns0:prosody rate="medium">möglich</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">可能な、できる</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 8: 
+    <ns0:prosody rate="medium">gerade</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">ちょうど・今・まっすぐ</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Frage 9: 
+    <ns0:prosody rate="medium">Ferien</ns0:prosody>
+     
+    <ns0:break time="3s"/>
+     Die Antwort war: 
+    <ns0:lang xml:lang="ja-JP">休暇</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Das war die heutige Wortschatzübung. Vergessen Sie nicht zu wiederholen. Viel Erfolg! 
+  </ns0:voice>
+   
+</ns0:speak>

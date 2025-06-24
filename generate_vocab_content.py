@@ -294,6 +294,34 @@ def split_words_into_chunks(words_data, words_per_chunk=5):
 
     return chunks
 
+def create_quiz_ssml(all_words_data):
+    """Create a separate SSML file just for the quiz"""
+    ssml_parts = ['<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="de-DE">']
+    ssml_parts.append('<voice name="de-DE-FlorianMultilingualNeural">')
+    
+    # Quiz section
+    ssml_parts.append("Jetzt kommt das Quiz. Hören Sie das deutsche Wort und denken Sie an die Bedeutung.")
+    ssml_parts.append('<break time="1s"/>')
+    
+    for i, (word, data) in enumerate(all_words_data.items(), 1):
+        ssml_parts.append(f"Frage {i}:")
+        ssml_parts.append(f'<prosody rate="medium">{word}</prosody>')
+        ssml_parts.append('<break time="3s"/>')
+        ssml_parts.append(f'Die Antwort war: <lang xml:lang="ja-JP">{data["meaning"]}</lang>')
+        ssml_parts.append('<break time="1s"/>')
+    
+    # Closing
+    ssml_parts.append("Das war die heutige Wortschatzübung. Vergessen Sie nicht zu wiederholen. Viel Erfolg!")
+    ssml_parts.append('</voice>')
+    ssml_parts.append('</speak>')
+    
+    # Join all parts with spaces
+    ssml_string = ' '.join(ssml_parts)
+    
+    # Parse back to XML element
+    from xml.etree.ElementTree import fromstring
+    return fromstring(ssml_string)
+
 def create_ssml_content_chunk(words_data, is_first_chunk=False, is_last_chunk=False, word_offset=0):
     """Create SSML content for a chunk of words"""
     ssml_parts = ['<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="de-DE">']
@@ -560,34 +588,7 @@ audio_file: "episode-{episode_number}.mp3"
                 word_offset = i * 5  # 5 words per chunk
 
                 # Create SSML for this chunk
-                if is_last:
-                    # Create chunk without quiz first
-                    chunk_ssml = create_ssml_content_chunk(chunk, is_first, False, word_offset)
-                    # Need to modify to include all words in quiz
-                    ssml_text = ET.tostring(chunk_ssml, encoding='unicode')
-                    ssml_text = ssml_text.replace('</voice>', '')  # Remove closing tags
-                    ssml_text = ssml_text.replace('</speak>', '')
-
-                    # Add quiz for ALL words
-                    quiz_parts = []
-                    quiz_parts.append("Jetzt kommt das Quiz. Hören Sie das deutsche Wort und denken Sie an die Bedeutung.")
-                    quiz_parts.append('<break time="1s"/>')
-
-                    for j, (word, data) in enumerate(all_words_data.items(), 1):
-                        quiz_parts.append(f"Frage {j}:")
-                        quiz_parts.append(f'<prosody rate="medium">{word}</prosody>')
-                        quiz_parts.append('<break time="3s"/>')
-                        quiz_parts.append(f'Die Antwort war: <lang xml:lang="ja-JP">{data["meaning"]}</lang>')
-                        quiz_parts.append('<break time="1s"/>')
-
-                    quiz_parts.append("Das war die heutige Wortschatzübung. Vergessen Sie nicht zu wiederholen. Viel Erfolg!")
-                    quiz_parts.append('</voice>')
-                    quiz_parts.append('</speak>')
-
-                    ssml_text += ' '.join(quiz_parts)
-                    chunk_ssml = ET.fromstring(ssml_text)
-                else:
-                    chunk_ssml = create_ssml_content_chunk(chunk, is_first, is_last, word_offset)
+                chunk_ssml = create_ssml_content_chunk(chunk, is_first, is_last, word_offset)
 
                 # Save chunk SSML for debugging
                 ssml_dir = Path("data/ssml")
@@ -611,6 +612,29 @@ audio_file: "episode-{episode_number}.mp3"
                         except:
                             pass
                     return False
+            
+            # Generate quiz as a separate audio file
+            print("   Generating quiz audio...")
+            quiz_ssml = create_quiz_ssml(all_words_data)
+            
+            # Save quiz SSML for debugging
+            quiz_ssml_path = ssml_dir / f"episode-{episode_number}-quiz.xml"
+            with open(quiz_ssml_path, 'w', encoding='utf-8') as f:
+                f.write(prettify_xml(quiz_ssml))
+            
+            # Generate quiz audio
+            quiz_audio_path = audio_dir / f"temp_episode-{episode_number}-quiz.mp3"
+            if generate_audio_file(quiz_ssml, quiz_audio_path):
+                temp_files.append(str(quiz_audio_path))
+            else:
+                print("   ❌ Failed to generate quiz audio")
+                # Clean up temp files
+                for temp_file in temp_files:
+                    try:
+                        os.remove(temp_file)
+                    except:
+                        pass
+                return False
 
             # Concatenate all audio files
             if temp_files:

@@ -178,8 +178,8 @@ def create_ssml_content(words_data):
         ssml_parts.append(f"Wort {i}: <prosody rate='medium'>{word}</prosody>")
         ssml_parts.append('<break time="0.5s"/>')
 
-        # Meaning in German
-        ssml_parts.append(f"{data['meaning']}")
+        # Meaning in Japanese (wrap in lang tag)
+        ssml_parts.append(f'<lang xml:lang="ja-JP">{data["meaning"]}</lang>')
         ssml_parts.append('<break time="1s"/>')
 
         # Slow pronunciation
@@ -219,7 +219,7 @@ def create_ssml_content(words_data):
             ssml_parts.append('<break time="1s"/>')
             ssml_parts.append(f'<prosody rate="x-slow">{sentence["german"]}</prosody>')
             ssml_parts.append('<break time="1s"/>')
-            ssml_parts.append(f"{sentence['japanese']}")
+            ssml_parts.append(f'<lang xml:lang="ja-JP">{sentence["japanese"]}</lang>')
             ssml_parts.append('<break time="1s"/>')
 
         # Practice repetition
@@ -245,7 +245,7 @@ def create_ssml_content(words_data):
         ssml_parts.append(f"Frage {i}:")
         ssml_parts.append(f'<prosody rate="medium">{word}</prosody>')
         ssml_parts.append('<break time="3s"/>')
-        ssml_parts.append(f"Die Antwort war: {data['meaning']}")
+        ssml_parts.append(f'Die Antwort war: <lang xml:lang="ja-JP">{data["meaning"]}</lang>')
         ssml_parts.append('<break time="1s"/>')
 
     # Closing
@@ -267,6 +267,121 @@ def prettify_xml(elem):
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
 
+def estimate_audio_duration(ssml_text):
+    """Estimate audio duration based on text length and speaking rates"""
+    # Remove XML tags for word count
+    text_only = re.sub(r'<[^>]+>', ' ', ssml_text)
+    word_count = len(text_only.split())
+    
+    # Rough estimates: normal=150 wpm, slow=100 wpm, fast=200 wpm
+    # Account for breaks and mixed speeds
+    estimated_minutes = word_count / 120  # Conservative average
+    
+    # Count breaks
+    break_count = ssml_text.count('<break')
+    estimated_minutes += break_count * 0.02  # Rough estimate for breaks
+    
+    return estimated_minutes
+
+def split_words_into_chunks(words_data, words_per_chunk=5):
+    """Split word list into smaller chunks to avoid 10-minute limit"""
+    items = list(words_data.items())
+    chunks = []
+    
+    for i in range(0, len(items), words_per_chunk):
+        chunk_dict = dict(items[i:i + words_per_chunk])
+        chunks.append(chunk_dict)
+    
+    return chunks
+
+def create_ssml_content_chunk(words_data, is_first_chunk=False, is_last_chunk=False, word_offset=0):
+    """Create SSML content for a chunk of words"""
+    ssml_parts = ['<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="de-DE">']
+    ssml_parts.append('<voice name="de-DE-FlorianMultilingualNeural">')
+    
+    # Only add introduction for first chunk
+    if is_first_chunk:
+        ssml_parts.append("Heute lernen wir deutsche Wörter.")
+        ssml_parts.append('<break time="1s"/>')
+    
+    # Process each word (same as before)
+    for i, (word, data) in enumerate(words_data.items(), 1):
+        # Word announcement with correct numbering
+        word_number = word_offset + i
+        ssml_parts.append(f"Wort {word_number}: <prosody rate='medium'>{word}</prosody>")
+        ssml_parts.append('<break time="0.5s"/>')
+
+        # Meaning in Japanese (wrap in lang tag)
+        ssml_parts.append(f'<lang xml:lang="ja-JP">{data["meaning"]}</lang>')
+        ssml_parts.append('<break time="1s"/>')
+
+        # Slow pronunciation
+        ssml_parts.append("Langsam:")
+        for j in range(3):
+            ssml_parts.append(f'<prosody rate="x-slow">{word}</prosody>')
+            if j < 2:
+                ssml_parts.append('<break time="0.5s"/>')
+
+        ssml_parts.append('<break time="0.5s"/>')
+
+        # Normal speed
+        ssml_parts.append("Normal:")
+        for j in range(3):
+            ssml_parts.append(f'<prosody rate="medium">{word}</prosody>')
+            if j < 2:
+                ssml_parts.append('<break time="0.3s"/>')
+
+        ssml_parts.append('<break time="0.5s"/>')
+
+        # Fast speed
+        ssml_parts.append("Schnell:")
+        for j in range(3):
+            ssml_parts.append(f'<prosody rate="fast">{word}</prosody>')
+            if j < 2:
+                ssml_parts.append('<break time="0.1s"/>')
+
+        ssml_parts.append('<break time="1s"/>')
+
+        # Example sentences
+        ssml_parts.append("Beispielsätze:")
+        ssml_parts.append('<break time="0.5s"/>')
+
+        for j, sentence in enumerate(data['sentences'], 1):
+            ssml_parts.append(f"Beispiel {j}:")
+            ssml_parts.append(f'<prosody rate="x-slow">{sentence["german"]}</prosody>')
+            ssml_parts.append('<break time="1s"/>')
+            ssml_parts.append(f'<prosody rate="x-slow">{sentence["german"]}</prosody>')
+            ssml_parts.append('<break time="1s"/>')
+            ssml_parts.append(f'<lang xml:lang="ja-JP">{sentence["japanese"]}</lang>')
+            ssml_parts.append('<break time="1s"/>')
+
+        # Practice repetition
+        ssml_parts.append("Noch einmal üben:")
+        ssml_parts.append('<break time="0.5s"/>')
+
+        # Repeat all speeds
+        for speed_name, rate in [("Langsam", "x-slow"), ("Normal", "medium"), ("Schnell", "fast")]:
+            ssml_parts.append(f"{speed_name}:")
+            for k in range(3):
+                ssml_parts.append(f'<prosody rate="{rate}">{word}</prosody>')
+                if k < 2:
+                    ssml_parts.append('<break time="0.3s"/>')
+            ssml_parts.append('<break time="0.5s"/>')
+
+        ssml_parts.append('<break time="2s"/>')
+    
+    # Quiz is handled separately in main function for last chunk
+    
+    ssml_parts.append('</voice>')
+    ssml_parts.append('</speak>')
+    
+    # Join all parts with spaces
+    ssml_string = ' '.join(ssml_parts)
+    
+    # Parse back to XML element
+    from xml.etree.ElementTree import fromstring
+    return fromstring(ssml_string)
+
 def generate_audio_file(ssml_content, output_path):
     """Generate MP3 audio file using Microsoft Azure Speech Services"""
     # Check for Azure credentials
@@ -277,6 +392,10 @@ def generate_audio_file(ssml_content, output_path):
     try:
         # Convert SSML to string
         ssml_text = ET.tostring(ssml_content, encoding='unicode')
+        
+        # Check estimated duration
+        estimated_duration = estimate_audio_duration(ssml_text)
+        print(f"📊 Estimated audio duration: {estimated_duration:.1f} minutes")
 
         # Configure Azure Speech Service
         speech_config = speechsdk.SpeechConfig(
@@ -418,31 +537,141 @@ audio_file: "episode-{episode_number}.mp3"
 
     print(f"✅ Blog post created: {blog_path}")
 
-    # Generate SSML content
-    ssml_content = create_ssml_content(words_data)
-
-    # Save SSML for debugging
-    ssml_dir = Path("data/ssml")
-    ssml_dir.mkdir(parents=True, exist_ok=True)
-
-    ssml_path = ssml_dir / f"episode-{episode_number}-ssml.xml"
-    with open(ssml_path, 'w', encoding='utf-8') as f:
-        f.write(prettify_xml(ssml_content))
-
-    print(f"✅ SSML saved: {ssml_path}")
-
-    # Generate audio file (only if Azure Speech credentials are available)
-    if 'AZURE_SPEECH_KEY' in os.environ and 'AZURE_SPEECH_REGION' in os.environ:
-        audio_dir = Path("assets/audio")
-        audio_dir.mkdir(parents=True, exist_ok=True)
-
-        audio_path = audio_dir / f"episode-{episode_number}.mp3"
-        if generate_audio_file(ssml_content, audio_path):
-            print(f"✅ Audio generated: {audio_path}")
+    # Check if we need to split into chunks
+    if len(words_data) > 5:  # More than 5 words, split into chunks
+        print(f"📦 Splitting {len(words_data)} words into chunks...")
+        
+        # Generate audio in chunks
+        if 'AZURE_SPEECH_KEY' in os.environ and 'AZURE_SPEECH_REGION' in os.environ:
+            audio_dir = Path("assets/audio")
+            audio_dir.mkdir(parents=True, exist_ok=True)
+            
+            # Split words into chunks
+            chunks = split_words_into_chunks(words_data, words_per_chunk=5)
+            print(f"   Created {len(chunks)} chunks")
+            
+            # Generate audio for each chunk
+            temp_files = []
+            all_words_data = words_data  # Save for quiz section
+            
+            for i, chunk in enumerate(chunks):
+                is_first = (i == 0)
+                is_last = (i == len(chunks) - 1)
+                word_offset = i * 5  # 5 words per chunk
+                
+                # Create SSML for this chunk
+                if is_last:
+                    # Create chunk without quiz first
+                    chunk_ssml = create_ssml_content_chunk(chunk, is_first, False, word_offset)
+                    # Need to modify to include all words in quiz
+                    ssml_text = ET.tostring(chunk_ssml, encoding='unicode')
+                    ssml_text = ssml_text.replace('</voice>', '')  # Remove closing tags
+                    ssml_text = ssml_text.replace('</speak>', '')
+                    
+                    # Add quiz for ALL words
+                    quiz_parts = []
+                    quiz_parts.append("Jetzt kommt das Quiz. Hören Sie das deutsche Wort und denken Sie an die Bedeutung.")
+                    quiz_parts.append('<break time="1s"/>')
+                    
+                    for j, (word, data) in enumerate(all_words_data.items(), 1):
+                        quiz_parts.append(f"Frage {j}:")
+                        quiz_parts.append(f'<prosody rate="medium">{word}</prosody>')
+                        quiz_parts.append('<break time="3s"/>')
+                        quiz_parts.append(f'Die Antwort war: <lang xml:lang="ja-JP">{data["meaning"]}</lang>')
+                        quiz_parts.append('<break time="1s"/>')
+                    
+                    quiz_parts.append("Das war die heutige Wortschatzübung. Vergessen Sie nicht zu wiederholen. Viel Erfolg!")
+                    quiz_parts.append('</voice>')
+                    quiz_parts.append('</speak>')
+                    
+                    ssml_text += ' '.join(quiz_parts)
+                    chunk_ssml = ET.fromstring(ssml_text)
+                else:
+                    chunk_ssml = create_ssml_content_chunk(chunk, is_first, is_last, word_offset)
+                
+                # Save chunk SSML for debugging
+                ssml_dir = Path("data/ssml")
+                ssml_dir.mkdir(parents=True, exist_ok=True)
+                chunk_ssml_path = ssml_dir / f"episode-{episode_number}-chunk-{i+1}.xml"
+                with open(chunk_ssml_path, 'w', encoding='utf-8') as f:
+                    f.write(prettify_xml(chunk_ssml))
+                
+                # Generate audio for this chunk
+                temp_audio_path = audio_dir / f"temp_episode-{episode_number}-part-{i+1}.mp3"
+                print(f"   Generating audio for chunk {i+1}/{len(chunks)}...")
+                
+                if generate_audio_file(chunk_ssml, temp_audio_path):
+                    temp_files.append(str(temp_audio_path))
+                else:
+                    print(f"   ❌ Failed to generate audio for chunk {i+1}")
+                    # Clean up temp files
+                    for temp_file in temp_files:
+                        try:
+                            os.remove(temp_file)
+                        except:
+                            pass
+                    return False
+            
+            # Concatenate all audio files
+            if temp_files:
+                print("🔗 Concatenating audio files...")
+                try:
+                    from pydub import AudioSegment
+                    
+                    # Load first file
+                    combined = AudioSegment.from_mp3(temp_files[0])
+                    
+                    # Add remaining files
+                    for temp_file in temp_files[1:]:
+                        audio = AudioSegment.from_mp3(temp_file)
+                        combined += audio
+                    
+                    # Export final audio
+                    final_audio_path = audio_dir / f"episode-{episode_number}.mp3"
+                    combined.export(str(final_audio_path), format="mp3", bitrate="192k")
+                    
+                    duration_minutes = len(combined) / 1000 / 60
+                    print(f"✅ Final audio created: {final_audio_path}")
+                    print(f"   Duration: {duration_minutes:.1f} minutes")
+                    
+                    # Clean up temp files
+                    for temp_file in temp_files:
+                        try:
+                            os.remove(temp_file)
+                        except:
+                            pass
+                    
+                except Exception as e:
+                    print(f"❌ Failed to concatenate audio files: {e}")
+                    return False
         else:
-            print("⚠️  Audio generation failed")
+            print("ℹ️  Azure Speech credentials not found, skipping audio generation")
     else:
-        print("ℹ️  Azure Speech credentials not found, skipping audio generation")
+        # Original single-file generation for 5 or fewer words
+        ssml_content = create_ssml_content(words_data)
+        
+        # Save SSML for debugging
+        ssml_dir = Path("data/ssml")
+        ssml_dir.mkdir(parents=True, exist_ok=True)
+        
+        ssml_path = ssml_dir / f"episode-{episode_number}-ssml.xml"
+        with open(ssml_path, 'w', encoding='utf-8') as f:
+            f.write(prettify_xml(ssml_content))
+        
+        print(f"✅ SSML saved: {ssml_path}")
+        
+        # Generate audio file (only if Azure Speech credentials are available)
+        if 'AZURE_SPEECH_KEY' in os.environ and 'AZURE_SPEECH_REGION' in os.environ:
+            audio_dir = Path("assets/audio")
+            audio_dir.mkdir(parents=True, exist_ok=True)
+            
+            audio_path = audio_dir / f"episode-{episode_number}.mp3"
+            if generate_audio_file(ssml_content, audio_path):
+                print(f"✅ Audio generated: {audio_path}")
+            else:
+                print("⚠️  Audio generation failed")
+        else:
+            print("ℹ️  Azure Speech credentials not found, skipping audio generation")
 
     return True
 

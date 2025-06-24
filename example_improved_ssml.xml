@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<speak xmlns="http://www.w3.org/2001/10/synthesis" version="1.0" xml:lang="de-DE">
+  <voice name="de-DE-FlorianMultilingualNeural">
+    Heute lernen wir deutsche Wörter. 
+    <break time="1s"/>
+    
+    Wort 1: 
+    <prosody rate="medium">Prospekt</prosody>
+    <break time="0.5s"/>
+    <!-- Japanese meaning wrapped in lang tag -->
+    <lang xml:lang="ja-JP">パンフレット、案内書、広告</lang>
+    <break time="1s"/>
+    
+    <!-- Reduced repetitions from 3 to 2 -->
+    Langsam: 
+    <prosody rate="x-slow">Prospekt</prosody>
+    <break time="0.5s"/>
+    <prosody rate="x-slow">Prospekt</prosody>
+    <break time="0.5s"/>
+    
+    Normal: 
+    <prosody rate="medium">Prospekt</prosody>
+    <break time="0.3s"/>
+    <prosody rate="medium">Prospekt</prosody>
+    <break time="0.5s"/>
+    
+    Schnell: 
+    <prosody rate="fast">Prospekt</prosody>
+    <break time="0.1s"/>
+    <prosody rate="fast">Prospekt</prosody>
+    <break time="1s"/>
+    
+    Beispielsätze: 
+    <break time="0.5s"/>
+    
+    Beispiel 1: 
+    <prosody rate="x-slow">Ich habe einen Prospekt vom neuen Museum bekommen.</prosody>
+    <break time="1s"/>
+    <!-- Japanese translation wrapped in lang tag, no German repetition -->
+    <lang xml:lang="ja-JP">新しい博物館のパンフレットをもらいました。</lang>
+    <break time="1s"/>
+    
+    <!-- Removed practice repetition section to save time -->
+    <break time="2s"/>
+    
+    <!-- Continue with next words... -->
+  </voice>
+</speak>

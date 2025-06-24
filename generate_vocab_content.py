@@ -640,31 +640,57 @@ audio_file: "episode-{episode_number}.mp3"
             if temp_files:
                 print("🔗 Concatenating audio files...")
                 try:
+                    # Try to import pydub
                     from pydub import AudioSegment
-
+                    
                     # Load first file
                     combined = AudioSegment.from_mp3(temp_files[0])
-
+                    
                     # Add remaining files
                     for temp_file in temp_files[1:]:
                         audio = AudioSegment.from_mp3(temp_file)
                         combined += audio
-
+                    
                     # Export final audio
                     final_audio_path = audio_dir / f"episode-{episode_number}.mp3"
                     combined.export(str(final_audio_path), format="mp3", bitrate="192k")
-
+                    
                     duration_minutes = len(combined) / 1000 / 60
                     print(f"✅ Final audio created: {final_audio_path}")
                     print(f"   Duration: {duration_minutes:.1f} minutes")
-
+                    
                     # Clean up temp files
                     for temp_file in temp_files:
                         try:
                             os.remove(temp_file)
                         except:
                             pass
-
+                            
+                except ImportError as e:
+                    # Fallback: Keep separate files
+                    print("⚠️  pydub not available, keeping audio files separate")
+                    import shutil
+                    
+                    # Rename temp files to final names
+                    final_files = []
+                    for i, temp_file in enumerate(temp_files):
+                        if 'quiz' in temp_file:
+                            final_name = f"episode-{episode_number}-quiz.mp3"
+                        elif i == 0:
+                            final_name = f"episode-{episode_number}-part-1.mp3"
+                        else:
+                            final_name = f"episode-{episode_number}-part-{i+1}.mp3"
+                        
+                        final_path = audio_dir / final_name
+                        shutil.move(temp_file, str(final_path))
+                        final_files.append(final_path)
+                        print(f"   Created: {final_path}")
+                    
+                    print(f"✅ Audio files created (3 separate files)")
+                    print("   ℹ️  Install pydub and ffmpeg for automatic concatenation:")
+                    print("      pip install pydub")
+                    print("      # Also install ffmpeg system package")
+                    
                 except Exception as e:
                     print(f"❌ Failed to concatenate audio files: {e}")
                     return False

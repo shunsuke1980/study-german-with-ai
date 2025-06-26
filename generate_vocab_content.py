@@ -8,7 +8,7 @@ import sys
 import re
 import time
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 import glob
 import anthropic
@@ -659,6 +659,9 @@ audio_file: "episode-{episode_number}.mp3"
                     print(f"✅ Final audio created: {final_audio_path}")
                     print(f"   Duration: {duration_minutes:.1f} minutes")
                     
+                    # Update RSS with single concatenated file
+                    update_podcast_rss(episode_number, [final_audio_path], len(all_words_data))
+                    
                     # Clean up temp files
                     for temp_file in temp_files:
                         try:
@@ -686,10 +689,13 @@ audio_file: "episode-{episode_number}.mp3"
                         final_files.append(final_path)
                         print(f"   Created: {final_path}")
                     
-                    print(f"✅ Audio files created (3 separate files)")
+                    print(f"✅ Audio files created ({len(final_files)} separate files)")
                     print("   ℹ️  Install pydub and ffmpeg for automatic concatenation:")
                     print("      pip install pydub")
                     print("      # Also install ffmpeg system package")
+                    
+                    # Update RSS with separate files
+                    update_podcast_rss(episode_number, final_files, len(all_words_data))
                     
                 except Exception as e:
                     print(f"❌ Failed to concatenate audio files: {e}")
@@ -718,12 +724,118 @@ audio_file: "episode-{episode_number}.mp3"
             audio_path = audio_dir / f"episode-{episode_number}.mp3"
             if generate_audio_file(ssml_content, audio_path):
                 print(f"✅ Audio generated: {audio_path}")
+                # Update RSS with single file
+                update_podcast_rss(episode_number, [audio_path], len(words_data))
             else:
                 print("⚠️  Audio generation failed")
         else:
             print("ℹ️  Azure Speech credentials not found, skipping audio generation")
 
     return True
+
+def update_podcast_rss(episode_number, audio_files, word_count):
+    """Update the podcast RSS feed with new episode(s)"""
+    rss_path = Path("podcast.rss")
+    
+    # Register namespaces
+    ET.register_namespace('itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd')
+    ET.register_namespace('content', 'http://purl.org/rss/1.0/modules/content/')
+    
+    # Parse existing RSS or create new one
+    if rss_path.exists():
+        tree = ET.parse(rss_path)
+        root = tree.getroot()
+        channel = root.find('channel')
+    else:
+        # Create new RSS structure
+        root = ET.Element('rss', version='2.0')
+        root.set('xmlns:itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd')
+        root.set('xmlns:content', 'http://purl.org/rss/1.0/modules/content/')
+        channel = ET.SubElement(root, 'channel')
+        
+        # Add channel metadata
+        ET.SubElement(channel, 'title').text = 'Study German with AI - Vocabulary Learning'
+        ET.SubElement(channel, 'description').text = 'Daily German vocabulary learning with AI-generated content, etymology, and pronunciation practice'
+        ET.SubElement(channel, 'link').text = 'https://www.study-german.info'
+        ET.SubElement(channel, 'language').text = 'de-DE'
+        
+    # Update build date
+    for elem in channel.findall('lastBuildDate'):
+        channel.remove(elem)
+    build_date = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S %z")
+    ET.SubElement(channel, 'lastBuildDate').text = build_date
+    
+    # Add items for each audio file
+    pub_date = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S %z")
+    
+    for audio_file in audio_files:
+        # Create item element
+        item = ET.Element('item')
+        
+        # Determine episode details based on filename
+        filename = audio_file.name
+        if 'quiz' in filename:
+            title = f'German Vocabulary Episode {episode_number} - Quiz'
+            description = f'Quiz section for Episode {episode_number} - Test your knowledge of all {word_count} words'
+            guid = f'https://www.study-german.info/vocabulary/episode-{episode_number}-quiz'
+            episode_type = 'bonus'
+        elif 'part' in filename:
+            # Extract part number
+            part_match = re.search(r'part-(\d+)', filename)
+            part_num = part_match.group(1) if part_match else '1'
+            title = f'German Vocabulary Episode {episode_number} - Part {part_num}'
+            description = f'Part {part_num} of Episode {episode_number} featuring German vocabulary with etymology and pronunciation'
+            guid = f'https://www.study-german.info/vocabulary/episode-{episode_number}-part-{part_num}'
+            episode_type = 'full'
+        else:
+            # Single file episode
+            title = f'German Vocabulary Episode {episode_number}'
+            description = f'Learn {word_count} German words with etymology, memory techniques, and pronunciation practice'
+            guid = f'https://www.study-german.info/vocabulary/episode-{episode_number}'
+            episode_type = 'full'
+        
+        # Add item elements
+        ET.SubElement(item, 'title').text = title
+        ET.SubElement(item, 'description').text = description
+        ET.SubElement(item, 'link').text = 'https://www.study-german.info/'
+        ET.SubElement(item, 'guid').text = guid
+        ET.SubElement(item, 'pubDate').text = pub_date
+        
+        # Add enclosure (audio file)
+        audio_url = f'https://www.study-german.info/assets/audio/{filename}'
+        # Try to get file size
+        try:
+            file_size = str(audio_file.stat().st_size)
+        except:
+            file_size = '1000000'  # Default 1MB if can't read
+            
+        enclosure = ET.SubElement(item, 'enclosure')
+        enclosure.set('url', audio_url)
+        enclosure.set('length', file_size)
+        enclosure.set('type', 'audio/mpeg')
+        
+        # Add iTunes tags
+        ET.SubElement(item, 'itunes:title').text = title
+        ET.SubElement(item, 'itunes:summary').text = description
+        ET.SubElement(item, 'itunes:episode').text = str(episode_number)
+        ET.SubElement(item, 'itunes:episodeType').text = episode_type
+        ET.SubElement(item, 'itunes:explicit').text = 'false'
+        
+        # Insert at beginning (newest first)
+        channel.insert(0, item)
+    
+    # Write pretty XML
+    xml_str = ET.tostring(root, encoding='unicode')
+    pretty_xml = minidom.parseString(xml_str).toprettyxml(indent="  ")
+    
+    # Clean up extra blank lines
+    lines = pretty_xml.split('\n')
+    clean_lines = [line for line in lines if line.strip()]
+    
+    with open(rss_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(clean_lines))
+    
+    print(f"✅ Updated podcast RSS feed with {len(audio_files)} items")
 
 def main():
     """Main function to process latest word file"""

@@ -8,8 +8,8 @@
     <copyright>© 2025 AI German Learning System</copyright>
     <managingEditor>24.madding_cuts@icloud.com (AI German Learning System)</managingEditor>
     <webMaster>24.madding_cuts@icloud.com (AI German Learning System)</webMaster>
-    <pubDate>Thu, 26 Jun 2025 16:33:27 -0000</pubDate>
-    <lastBuildDate>Thu, 26 Jun 2025 16:33:27 -0000</lastBuildDate>
+    <pubDate>Thu, 26 Jun 2025 16:45:28 +0000</pubDate>
+    <lastBuildDate>Thu, 26 Jun 2025 16:45:28 +0000</lastBuildDate>
     <generator>AI German Vocabulary Learning System</generator>
     <itunes:author>AI German Learning System</itunes:author>
     <itunes:summary>Learn German vocabulary with AI-generated content featuring etymology, memory techniques, and pronunciation practice</itunes:summary>
@@ -24,6 +24,84 @@
     </itunes:category>
     <itunes:image href="https://www.study-german.info/assets/images/podcast.jpg" />
     <item>
+      <title>German Vocabulary Episode 5 - Quiz</title>
+      <description>Quiz section for Episode 5 - Test your knowledge of all 30 words</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/vocabulary/episode-5-quiz</guid>
+      <pubDate>Thu, 26 Jun 2025 16:45:28 +0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/episode-5-quiz.mp3" length="1849536" type="audio/mpeg" />
+      <itunes:title>German Vocabulary Episode 5 - Quiz</itunes:title>
+      <itunes:summary>Quiz section for Episode 5 - Test your knowledge of all 30 words</itunes:summary>
+      <itunes:episode>5</itunes:episode>
+      <itunes:episodeType>bonus</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>German Vocabulary Episode 5 - Part 2</title>
+      <description>Part 2 of Episode 5 featuring German vocabulary with etymology and pronunciation</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/vocabulary/episode-5-part-2</guid>
+      <pubDate>Thu, 26 Jun 2025 16:45:28 +0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/episode-5-part-2.mp3" length="6299136" type="audio/mpeg" />
+      <itunes:title>German Vocabulary Episode 5 - Part 2</itunes:title>
+      <itunes:summary>Part 2 of Episode 5 featuring German vocabulary with etymology and pronunciation</itunes:summary>
+      <itunes:episode>5</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>German Vocabulary Episode 5 - Part 1</title>
+      <description>Part 1 of Episode 5 featuring German vocabulary with etymology and pronunciation</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/vocabulary/episode-5-part-1</guid>
+      <pubDate>Thu, 26 Jun 2025 16:45:28 +0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/episode-5-part-1.mp3" length="12157632" type="audio/mpeg" />
+      <itunes:title>German Vocabulary Episode 5 - Part 1</itunes:title>
+      <itunes:summary>Part 1 of Episode 5 featuring German vocabulary with etymology and pronunciation</itunes:summary>
+      <itunes:episode>5</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>German Vocabulary Episode 4 - Quiz</title>
+      <description>Quiz section for Episode 4 - Test your knowledge of all 30 words</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/vocabulary/episode-4-quiz</guid>
+      <pubDate>Thu, 26 Jun 2025 16:45:28 +0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/episode-4-quiz.mp3" length="2016000" type="audio/mpeg" />
+      <itunes:title>German Vocabulary Episode 4 - Quiz</itunes:title>
+      <itunes:summary>Quiz section for Episode 4 - Test your knowledge of all 30 words</itunes:summary>
+      <itunes:episode>4</itunes:episode>
+      <itunes:episodeType>bonus</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>German Vocabulary Episode 4 - Part 2</title>
+      <description>Part 2 of Episode 4 featuring German vocabulary with etymology and pronunciation</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/vocabulary/episode-4-part-2</guid>
+      <pubDate>Thu, 26 Jun 2025 16:45:28 +0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/episode-4-part-2.mp3" length="8813952" type="audio/mpeg" />
+      <itunes:title>German Vocabulary Episode 4 - Part 2</itunes:title>
+      <itunes:summary>Part 2 of Episode 4 featuring German vocabulary with etymology and pronunciation</itunes:summary>
+      <itunes:episode>4</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>German Vocabulary Episode 4 - Part 1</title>
+      <description>Part 1 of Episode 4 featuring German vocabulary with etymology and pronunciation</description>
+      <link>https://www.study-german.info/</link>
+      <guid>https://www.study-german.info/vocabulary/episode-4-part-1</guid>
+      <pubDate>Thu, 26 Jun 2025 16:45:28 +0000</pubDate>
+      <enclosure url="https://www.study-german.info/assets/audio/episode-4-part-1.mp3" length="11385216" type="audio/mpeg" />
+      <itunes:title>German Vocabulary Episode 4 - Part 1</itunes:title>
+      <itunes:summary>Part 1 of Episode 4 featuring German vocabulary with etymology and pronunciation</itunes:summary>
+      <itunes:episode>4</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>German Vocabulary Episode 2</title>
       <description>Learn German vocabulary with Episode 2 featuring etymology, memory techniques, and pronunciation practice.</description>
       <link>https://www.study-german.info/</link>
@@ -32,7 +110,6 @@
       <enclosure url="https://www.study-german.info/assets/audio/episode-2.mp3" length="14400000" type="audio/mpeg" />
       <itunes:title>German Vocabulary Episode 2</itunes:title>
       <itunes:summary>Learn German vocabulary with Episode 2 featuring etymology, memory techniques, and pronunciation practice.</itunes:summary>
-      <itunes:duration>15:00</itunes:duration>
       <itunes:episode>2</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
@@ -46,21 +123,7 @@
       <enclosure url="https://www.study-german.info/assets/audio/episode-1.mp3" length="2582253" type="audio/mpeg" />
       <itunes:title>German Vocabulary Episode 1</itunes:title>
       <itunes:summary>Learn German vocabulary with Episode 1 featuring etymology, memory techniques, and pronunciation practice.</itunes:summary>
-      <itunes:duration>02:41</itunes:duration>
       <itunes:episode>1</itunes:episode>
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-    <item>
-      <title>A2 1. Alltägliches Leben</title>
-      <description>German learning content for 2025-06-17 with comprehensive vocabulary and grammar.</description>
-      <link>https://www.study-german.info/</link>
-      <guid>https://www.study-german.info/episodes/2025-06-17</guid>
-      <pubDate>Tue, 17 Jun 2025 09:00:00 -0000</pubDate>
-      <enclosure url="https://www.study-german.info/assets/audio/2025-06-17-a2-1-alltaegliches-leben.mp3" length="702528" type="audio/mpeg" />
-      <itunes:title>A2 1. Alltägliches Leben</itunes:title>
-      <itunes:summary>German learning content for 2025-06-17 with comprehensive vocabulary and grammar.</itunes:summary>
-      <itunes:duration>00:43</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>

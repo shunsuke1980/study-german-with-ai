@@ -577,24 +577,62 @@ jobs:
                             # Parse post metadata
                             title, _ = parse_vocabulary_post(post_file)
                             
-                            # Look for corresponding audio file
-                            audio_file = Path(f'assets/audio/episode-{episode_num}.mp3')
-                            if audio_file.exists():
-                                file_size = get_file_size(audio_file)
-                                duration = estimate_duration(file_size)
-                                
-                                episode_data = {
-                                    'date': episode_date,
-                                    'title': title or f"German Vocabulary Episode {episode_num}",
-                                    'episode_number': episode_num,
-                                    'audio_url': f"{base_url}/assets/audio/episode-{episode_num}.mp3",
-                                    'file_size': file_size,
-                                    'duration': duration,
-                                    'description': f"Learn German vocabulary with Episode {episode_num} featuring etymology, memory techniques, and pronunciation practice."
-                                }
-                                
-                                episodes.append(episode_data)
-                                print(f"✅ Found vocabulary episode: {episode_num} - {title}")
+                            # Look for corresponding audio files (single or multi-part)
+                            audio_files = []
+                            single_audio = Path(f'assets/audio/episode-{episode_num}.mp3')
+                            
+                            if single_audio.exists():
+                                # Single file episode
+                                audio_files = [single_audio]
+                            else:
+                                # Check for multi-part episodes
+                                audio_dir = Path('assets/audio')
+                                if audio_dir.exists():
+                                    # Find all parts for this episode
+                                    part_files = list(audio_dir.glob(f'episode-{episode_num}-part-*.mp3'))
+                                    quiz_files = list(audio_dir.glob(f'episode-{episode_num}-quiz.mp3'))
+                                    
+                                    # Sort part files by part number
+                                    part_files.sort(key=lambda x: int(re.search(r'part-(\d+)', x.name).group(1)) if re.search(r'part-(\d+)', x.name) else 0)
+                                    
+                                    audio_files = part_files + quiz_files
+                            
+                            if audio_files:
+                                # Create episode entry for each audio file
+                                for i, audio_file in enumerate(audio_files):
+                                    file_size = get_file_size(audio_file)
+                                    duration = estimate_duration(file_size)
+                                    
+                                    # Determine episode title and type
+                                    filename = audio_file.name
+                                    if 'quiz' in filename:
+                                        episode_title = f"{title or f'German Vocabulary Episode {episode_num}'} - Quiz"
+                                        episode_description = f"Quiz section for Episode {episode_num} - Test your knowledge"
+                                        episode_type = 'bonus'
+                                    elif 'part' in filename:
+                                        part_match = re.search(r'part-(\d+)', filename)
+                                        part_num = part_match.group(1) if part_match else '1'
+                                        episode_title = f"{title or f'German Vocabulary Episode {episode_num}'} - Part {part_num}"
+                                        episode_description = f"Part {part_num} of Episode {episode_num} featuring German vocabulary with etymology and pronunciation"
+                                        episode_type = 'full'
+                                    else:
+                                        episode_title = title or f"German Vocabulary Episode {episode_num}"
+                                        episode_description = f"Learn German vocabulary with Episode {episode_num} featuring etymology, memory techniques, and pronunciation practice."
+                                        episode_type = 'full'
+                                    
+                                    episode_data = {
+                                        'date': episode_date,
+                                        'title': episode_title,
+                                        'episode_number': episode_num,
+                                        'audio_url': f"{base_url}/assets/audio/{filename}",
+                                        'file_size': file_size,
+                                        'duration': duration,
+                                        'description': episode_description,
+                                        'episode_type': episode_type
+                                    }
+                                    
+                                    episodes.append(episode_data)
+                                    print(f"✅ Found vocabulary episode: {episode_num} - {episode_title}")
                     
                     else:
                         # Handle regular German learning posts
@@ -667,7 +705,8 @@ jobs:
                 if episode['episode_number']:
                     ET.SubElement(item, 'itunes:episode').text = str(episode['episode_number'])
                     
-                ET.SubElement(item, 'itunes:episodeType').text = "full"
+                episode_type = episode.get('episode_type', 'full')
+                ET.SubElement(item, 'itunes:episodeType').text = episode_type
                 ET.SubElement(item, 'itunes:explicit').text = "false"
             
             # Format and write RSS file

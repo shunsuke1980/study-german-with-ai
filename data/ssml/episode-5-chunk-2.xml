@@ -1,0 +1,374 @@
+<?xml version="1.0" ?>
+<ns0:speak xmlns:ns0="http://www.w3.org/2001/10/synthesis" version="1.0" xml:lang="de-DE">
+   
+  <ns0:voice name="de-DE-FlorianMultilingualNeural">
+     Wort 6: 
+    <ns0:prosody rate="medium">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">話す、語る</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">reden</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">reden</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">reden</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Ich möchte mit dir über deine Zukunft reden.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Ich möchte mit dir über deine Zukunft reden.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">あなたの将来について話したいです。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Sie redet gerne mit ihrer Freundin am Telefon.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Sie redet gerne mit ihrer Freundin am Telefon.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">彼女は友達と電話で話すのが好きです。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Können wir später darüber reden?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Können wir später darüber reden?</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">後でそれについて話せますか？</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">reden</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">reden</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 7: 
+    <ns0:prosody rate="medium">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">匂いがする、嗅ぐ</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">riechen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">riechen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">riechen</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Die Blumen im Garten riechen sehr gut.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Die Blumen im Garten riechen sehr gut.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">庭の花がとてもいい香りがします。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Ich kann nichts riechen, weil ich erkältet bin.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Ich kann nichts riechen, weil ich erkältet bin.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">風邪を引いているので、匂いを嗅ぐことができません。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Es riecht hier nach frischem Brot.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Es riecht hier nach frischem Brot.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">ここは焼きたてパンの匂いがします。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">riechen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">riechen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     Wort 8: 
+    <ns0:prosody rate="medium">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:lang xml:lang="ja-JP">タイヤ、輪</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:prosody rate="x-slow">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.1s"/>
+     
+    <ns0:prosody rate="fast">Reifen</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     Beispielsätze: 
+    <ns0:break time="0.5s"/>
+     Beispiel 1: 
+    <ns0:prosody rate="x-slow">Ich muss neue Reifen für mein Auto kaufen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Ich muss neue Reifen für mein Auto kaufen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">車の新しいタイヤを買わないといけません。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 2: 
+    <ns0:prosody rate="x-slow">Der Reifen meines Fahrrads ist platt.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Der Reifen meines Fahrrads ist platt.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">自転車のタイヤがパンクしています。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Beispiel 3: 
+    <ns0:prosody rate="x-slow">Im Winter sollte man Winterreifen benutzen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:prosody rate="x-slow">Im Winter sollte man Winterreifen benutzen.</ns0:prosody>
+     
+    <ns0:break time="1s"/>
+     
+    <ns0:lang xml:lang="ja-JP">冬は冬用タイヤを使用すべきです。</ns0:lang>
+     
+    <ns0:break time="1s"/>
+     Noch einmal üben: 
+    <ns0:break time="0.5s"/>
+     Langsam: 
+    <ns0:prosody rate="x-slow">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="x-slow">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Normal: 
+    <ns0:prosody rate="medium">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="medium">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     Schnell: 
+    <ns0:prosody rate="fast">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.3s"/>
+     
+    <ns0:prosody rate="fast">Reifen</ns0:prosody>
+     
+    <ns0:break time="0.5s"/>
+     
+    <ns0:break time="2s"/>
+     
+  </ns0:voice>
+   
+</ns0:speak>
